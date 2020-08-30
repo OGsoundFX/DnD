@@ -26,9 +26,9 @@ pre {
   100% { opacity: 0; }
 }
 
-/*#btn {
+#btn {
   display: none;
-}*/
+}
 
 .character {
   font-size: 30px;

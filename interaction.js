@@ -37,11 +37,14 @@ typeWriter();
 
 // console.log(input).value;
 
+let character = {};
+
 const storeName = (event) => {
   event.preventDefault();
   let name = document.getElementById('nameInput').value;
+  character["name"] = name;
   console.log(name);
-  return name;
+  return character;
 };
 
 
@@ -51,7 +54,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
 // document.getElementById('btn').addEventListener('click', storeName());
 
 const printName = () => {
-  console.log(name);
+  console.log(character);
 };
-
-
