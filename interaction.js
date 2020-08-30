@@ -1,41 +1,25 @@
 let i = 0;
-const txt = 'Lorem ipsum dummy text blabla.';
 let speed = 50;
+const introText = 'You just woke up in the woods with a mighty headache! You have no recollection of how you ended up here. Yet you can not wait in this forest for your memory to come back, as you can sense danger lurking all around. While your head is pounding underneath your helmet, you gather your strength and your courage to start your quest and retrieve your identity!';
+// const introText = "hello";
+const enter = "Press enter";
+
+const askName = 'What is thy name?'
 
 const typeWriter = () => {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
+  if (i < introText.length) {
+    document.getElementById("intro").innerHTML += introText.charAt(i);
     i++;
     setTimeout(typeWriter, speed);
+  } else {
+    setTimeout(function(){ document.querySelector(".text-font").innerHTML += `<p id='enter'>${enter}</p>`; }, 1500);
+
   };
 };
-
 typeWriter();
 
 
-// const getInputValue = () => {
-//   let inputVal = document.getElementById("first-entry").value;
-//   return inputVal;
-//         }
-
-// let inputVal = getInputValue();
-
-
-// Get the input field
-// var input = document.getElementById("first-entry");
-
-// // Execute a function when the user releases a key on the keyboard
-// input.addEventListener("keyup", function(event) {
-//   // Number 13 is the "Enter" key on the keyboard
-//   if (event.keyCode === 13) {
-//     // Cancel the default action, if needed
-//     event.preventDefault();
-//     // Trigger the button element with a click
-//     // document.getElementById("myBtn").click();
-//   }
-// });
-
-// console.log(input).value;
+// creating character
 
 let character = {};
 
@@ -50,8 +34,8 @@ const storeName = (event) => {
 
 document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('btn').addEventListener('click', storeName);
+    document.getElementById('btn').addEventListener('click', printName);
 });
-// document.getElementById('btn').addEventListener('click', storeName());
 
 const printName = () => {
   console.log(character);
