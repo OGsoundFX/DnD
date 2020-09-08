@@ -6,9 +6,13 @@ body {
 }
 
 h1 {
-  font-size: 2vw;
+  font-size: 1.6vw;
   margin: 0;
   padding: 0;
+}
+
+p {
+  font-size: 1.2vw;
 }
 
 pre {
@@ -19,6 +23,11 @@ pre {
 
 .cursor {
   animation:blinking 1s linear infinite;
+}
+
+#title-quest {
+  margin-top: 20px;
+  font-size: 2vw;
 }
 
 #enter {
@@ -40,7 +49,14 @@ pre {
   font-size: 1.5vw;
   color: #1dbb1e;
   text-shadow: 0 0 9px #1dbb1e;
-  line-height: 1em;
+  line-height: 0.9em;
+}
+
+.character-art {
+  font-size: 2vw;
+  color: #1dbb1e;
+  text-shadow: 0 0 9px #1dbb1e;
+  line-height: 0.9em;
 }
 
 input {
