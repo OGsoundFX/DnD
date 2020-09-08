@@ -25,11 +25,11 @@ const storeName = (event) => {
 };
 
 
-// document.addEventListener('DOMContentLoaded', ()=>{
-//     document.getElementById('btn').addEventListener('click', storeName);
-//     document.getElementById('btn').addEventListener('click', printName);
-// });
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('btn').addEventListener('click', storeName);
+    document.getElementById('btn').addEventListener('click', printName);
+});
 
-// const printName = () => {
-//   console.log(character);
-// };
+const printName = () => {
+  console.log(character);
+};

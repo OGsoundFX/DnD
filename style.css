@@ -26,6 +26,7 @@ pre {
 }
 
 #title-quest {
+  display: none;
   margin-top: 20px;
   font-size: 2vw;
 }
