@@ -1,55 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta charset="ASCII"> -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <title>The Quest</title>
-  <link href="style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-  <div class="container">
-    <div class="mt-4 ml-4">
+  <link href="css-components/credit-css.css" rel="stylesheet" type="text/css">
+  <div class="container d-flex justify-content-center adjust-margin">
+    <div><p class="large-swords">⚔</p></div>
+    <div><h1 id="title">  The Quest! </h1></div>
+    <div><p class="large-swords">⚔</p></div>
 
-        <h1 class="d-flex justify-content-center">Greetings, and welcome to</h1>
-        <h1 class="d-flex justify-content-center" id="title-quest">The Quest!</h1>
-        <!-- <div class="cursor"><h1>_</h1></div> -->
-
-
-      <pre class="d-flex justify-content-center intro-art">
-
-                                   ~~~~~~                     /\
-                                 ~(      )~                  /  \
-                                (   o      )                /  \ \
-                               (        o   )              / /    \
-                              (      o       )            /_   \  _\
-         __                    (   o        )              /      \
-        /==\                    (__      __)              /  /     \
-       _\~~/_                      \    /                /_    \   _\
-     _/^^^^^^\                  ____|   |                 /        \
-    /  \^^^^|\\                @___     |                /  /    \  \
-   / .. \^^^| \\                   \    |               /_   /      _\
-   \ .. /^^^|  &[=======>           |   |                /      \   \
-    \__/^^^^\                       | @ |               /  /  /   \  \
-       |-||-|                       |   |              /______  ______\
-       |#||#|                       |   |                    |  |
-       |-||-|            <@> <@>    |   |     <@>   (^)      |  |           (^)
-_______{^}{^}_____________|___|____/     \_____|_____U_______|  |____________u__
-
-      </pre>
-      <div class="text-font">
-        <p id="intro"></p>
-      </div>
-<!--       <form action="">
-        <div class="d-flex">
-          <p id="ask-name"></p>
-          <div class="cursor"><h1>></h1></div> <div> <h1> <input class="text-shadow" id="nameInput" type="text"> </h1></div>
-          <button id="btn" >Button</button>
-        </div>
-      </form> -->
-    </div>
   </div>
-<script src="interaction.js"></script>
+  <div class="container">
+      <h2 class="center-credits">~ Credits ~</h2>
+    <pre id="credits">
+      Music............................Olivier Girardot
+      Sound effects....................Olivier Girardot
+      Game design......................Olivier Girardot
+      Graphic design...................Olivier Girardot
+    </pre>
+    <h1 class="center-credits">~~~~~~~~~~</h1>
+  </div>
+  <div class="text-font">
+    <p id="enter">Press Enter</p>
+  </div>
+  <script src="js/credits.js"></script>
 </body>
 </html>

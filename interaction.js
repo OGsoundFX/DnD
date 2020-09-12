@@ -25,6 +25,6 @@ typeWriter(introText);
 
 document.addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
-      window.open("character.html");
+      window.open("character.html", "_self");
     }
 });
