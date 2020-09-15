@@ -5,3 +5,9 @@ document.addEventListener('keydown', function (event) {
       window.open("start.html", "_self");
     }
 });
+
+const playCreditMusic = () => {
+  const audio = new Audio('../sound/sound.mp3');
+  audio.play();
+};
+

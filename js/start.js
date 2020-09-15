@@ -28,3 +28,10 @@ document.addEventListener('keydown', function (event) {
       window.open("character.html", "_self");
     }
 });
+
+// Play sound
+
+const playCreditMusic = () => {
+  const audio = new Audio('../sound/sound.mp3');
+  audio.play();
+};
