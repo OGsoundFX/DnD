@@ -33,3 +33,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
 const printName = () => {
   console.log(character);
 };
+
