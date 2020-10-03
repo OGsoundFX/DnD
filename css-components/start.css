@@ -83,3 +83,20 @@ pre {
   font-size: 1.6vw;
   line-height: 0.9em;
 }
+
+.uper-decoration {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0;
+  color: #1dbb1e;
+  font-size: 1.6vw;
+  line-height: 0.5em;
+}
+
+.lower-decoration {
+  margin-top: -40px;
+  text-align: center;
+  color: #1dbb1e;
+  font-size: 1.6vw;
+  line-height: 0.5em;
+}
