@@ -1,0 +1,29 @@
+{
+  "name": "dnd",
+  "version": "1.0.0",
+  "description": "an old school adventure game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OGsoundFX/DnD.git"
+  },
+  "keywords": [
+    "game",
+    "quest",
+    "dnd"
+  ],
+  "author": "Olivier Girardot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OGsoundFX/DnD/issues"
+  },
+  "homepage": "https://github.com/OGsoundFX/DnD#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0",
+    "requirejs": "^2.3.6"
+  }
+}

@@ -1,12 +1,24 @@
 {
-  "player0": {
-    "name": "",
-    "password": "",
-    "luck": "",
-    "magic": "",
-    "strength": "",
-    "experience": "",
-    "money": "",
-    "life": ""
-  },
+  "players": [
+    {
+      "name": "Olivier",
+      "password": "theking",
+      "luck": "5",
+      "magic": "20",
+      "strength": "32",
+      "experience": "0",
+      "money": "200",
+      "life": "10"
+    },
+    {
+      "name": "Bob",
+      "password": "theloser",
+      "luck": "4",
+      "magic": "18",
+      "strength": "25",
+      "experience": "5",
+      "money": "100",
+      "life": "12"
+    }
+  ]
 }
