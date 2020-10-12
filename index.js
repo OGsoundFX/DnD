@@ -2,9 +2,42 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+// trying stuff with lowdb
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+
+const dbFileName = "database/players.json";
+const adapter = new FileSync(dbFileName)
+const db = low(adapter)
+
+// Add another entry
+db.get('players')
+.push({
+  "name": "Jane",
+  "password": "thelover",
+  "luck": "4",
+  "magic": "18",
+  "strength": "25",
+  "experience": "5",
+  "money": "100",
+  "life": "12"
+    })
+.write();
+
 // path is a node command, you can do stuff like this:
 // var filename = path.basename('/Users/Refsnes/demo_path.js');
 // console.log(filename);
+
+// loading requirejs
+var requirejs = require('requirejs');
+
+requirejs.config({
+    //Pass the top-level main.js/index.js require
+    //function to requirejs so that node modules
+    //are loaded relative to the top-level JS file.
+    nodeRequire: require
+});
+
 
 // load espress
 const app = express();
