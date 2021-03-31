@@ -1,0 +1,73 @@
+body {
+  background-color: black;
+  font-family: 'Press Start 2P', cursive;
+  color: #1dbb1e;
+  text-shadow: 0 0 9px #1dbb1e;
+}
+
+h1 {
+  font-size: 1.6vw;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 1.2vw;
+}
+
+pre {
+  margin-left: -7vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  /*letter-spacing: -3px;*/
+}
+
+#enter {
+  margin-top: 50px;
+  animation:blinking 1s linear infinite;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+@keyframes blinking {
+    0% { opacity: 1; }
+   49% { opacity: 1; }
+   50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+
+.text-font {
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size: 2vw;
+}
+
+
+.large-swords {
+  font-size: 9vw;
+}
+
+.adjust-margin {
+  margin-top: 50px;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  max-width: 1500px;
+}
+
+#title {
+  margin-top: 5vw;
+  font-size: 5vw;
+}
+
+.center-credits {
+  text-align: center;
+}
+
+#credits {
+  margin-top: 20px;
+  font-family: 'Press Start 2P', cursive;
+  color: #1dbb1e;
+  text-align: center;
+  font-size: 1vw;
+  line-height: 3em;
+}
