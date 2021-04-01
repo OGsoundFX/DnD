@@ -4,6 +4,7 @@ const introText = 'You just woke up in the woods with a mighty headache! You hav
 const enter = "Press enter";
 
 const typeWriter = (text) => {
+  console.log("hello");
   if (i < text.length) {
     document.getElementById("intro").innerHTML += text.charAt(i);
     i++;
@@ -25,7 +26,7 @@ typeWriter(introText);
 
 document.addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
-      window.open("character.html", "_self");
+      window.open("character.html?#", "_self");
     }
 });
 
@@ -47,7 +48,7 @@ const unfade = () => {
 // Play sound & fade in
 
 const fadeAndCreditMusic = () => {
-  const audio = new Audio('../sound/sound.mp3');
+  const audio = new Audio('../sound/music1.mp3');
   audio.play();
   unfade();
 };

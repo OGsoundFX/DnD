@@ -7,10 +7,6 @@ const config = require('./config/dbconfig');
 const port = process.env.PORT || 8080;
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/js/start'));
-app.use(express.static(__dirname + '/css-components/start'));
-app.use(express.static(__dirname + '/js/credits'));
-app.use(express.static(__dirname + '/css-components/credits'));
 
 app.get('/', (req, res) => {
     res.render('index.html');
