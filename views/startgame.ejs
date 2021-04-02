@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>The Quest</title>
+    <link href="css-components/startgame.css" rel="stylesheet" type="text/css">
+  </head>
+  <body onload="unfade()" id="body">
+    <div class="container d-flex justify-content-center" id="title">
+      <p>Welcome adventurer! Choose thy path!</p>
+    </div>
+    <div class="container d-flex justify-content-center decoration">
+      <pre>
+   (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯)
+  ( \                                                                      / )
+ ( \ )                                                                    ( / )
+( ) (                                                                      ) ( )
+ ( / )                                                                    ( \ )
+  ( /                                                                      \ )
+  ( \                                                                      / )
+ ( \ )                                                                    ( / )
+( ) (                                                                      ) ( )
+ ( / )                                                                    ( \ )
+  ( /                                                                      \ )
+  ( \                                                                      / )
+ ( \ )                                                                    ( / )
+( ) (                                                                      ) ( )
+ ( / )                                                                    ( \ )
+  ( /                                                                      \ )
+   (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._)
+      </pre>
+      <div class="menu">
+        <p id="start" class="highlight">Start new</p>
+        <p id="load">Load game</p>
+      </div>
+      <div class="hide">
+        <form action="load" method="POST">
+          <label for="">Thy name </label>
+          <input type="text" maxlength="15" minlength="1" name="name">
+          <label for="">Thy magic word</label>
+          <input type="text" maxlength="15" minlength="1" name="magic">
+          <input type="submit">
+        </form>
+        <p class="hideInvalid">Invalid credentials</p>
+      </div>
+    </div>
+  <script src="js/stargame.js"></script>
+  </body>
+</html>
+
