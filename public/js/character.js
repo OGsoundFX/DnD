@@ -12,7 +12,6 @@ const enter = "Press enter";
 
 const typeWriter = (text) => {
   if (j < text.length) {
-    console.log(text);
     document.getElementById("name").innerHTML += text.charAt(j);
     if (j < text.length)  j++;
     setTimeout(typeWriter, speed, text);
@@ -22,42 +21,50 @@ const typeWriter = (text) => {
 typeWriter(askName);
 
 // creating character
-let character = {};
+// let character = {};
 
-const storeName = string => {
+// const storeName = string => {
+//   let name = document.getElementById('nameInput').value;
+//   character[string] = name;
+// };
+
+let character = "";
+const storeName = () => {
   let name = document.getElementById('nameInput').value;
-  character[string] = name;
+  if (character === "") {
+    character = name;
+  } else {
+    character = character + ',' + name;
+  }
 };
-
 
 
 document.addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
       if (document.getElementById("name").innerHTML === 'What is thy name?') {
-        storeName("name");
+        storeName();
         document.getElementById("name").innerHTML = "";
         document.getElementById("nameInput").value = "";
         j = 0;
         typeWriter(magicWord);
 
       } else if (document.getElementById("name").innerHTML === 'What is your magic word?') {
-        storeName("magicWord");
+        storeName();
         document.getElementById("name").innerHTML = "";
         document.getElementById("nameInput").value = "";
         j = 0;
         typeWriter(askFavoriteWeapon);
       } else if (document.getElementById("name").innerHTML === 'What is thy favorite weapon?') {
-        storeName("weapon");
+        storeName();
         document.getElementById("name").innerHTML = "";
         document.getElementById("nameInput").value = "";
         j = 0;
         typeWriter(askFavoriteMeal);
       } else if (document.getElementById("name").innerHTML === 'What is thy favorite meal?') {
-        storeName("meal");
+        storeName();
         document.querySelector("form").remove();
       }
-      window.open("test.html", "_self");
+      document.getElementById('trying').name = character;
     }
 });
-console.log(character);
 
