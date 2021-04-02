@@ -1,5 +1,3 @@
-//fade in function
-
 const unfade = () => {
     let op = 0.1;  // initial opacity
     let timer = setInterval(function () {
@@ -11,10 +9,7 @@ const unfade = () => {
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op += op * 0.1;
     }, 50);
-}
-
-
-// fade out function
+};
 
 const fade = () => {
     let op = 1;  // initial opacity
@@ -30,17 +25,28 @@ const fade = () => {
     }, 50);
 }
 
-// change page
+const start = document.getElementById('start');
+const load = document.getElementById('load');
 
 document.addEventListener('keydown', function (event) {
-  if (event.keyCode === 13) {
-    fade();
-    setTimeout(function(){ window.open("start", "_self"); }, 1000);
+  if (event.keyCode === 40) {
+// down
+    start.classList.remove("highlight");
+    load.classList.add("highlight");
+  } else if (event.keyCode === 38) {
+// up
+    load.classList.remove("highlight");
+    start.classList.add("highlight");
   }
 });
 
-// const playCreditMusic = () => {
-//   const audio = new Audio('../sound/sound.mp3');
-//   audio.play();
-// };
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13) {
+    if (start.classList.contains("highlight")) {
+      fade();
+      setTimeout(function(){ window.open("start", "_self"); }, 1000);
+    } else {
 
+    }
+  }
+});

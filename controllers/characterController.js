@@ -1,5 +1,4 @@
 const Character = require('../models/characterModel');
-const express = require('express');
 
 module.exports = function(app) {
 
