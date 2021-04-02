@@ -7,7 +7,12 @@ module.exports = function(app) {
        var starterCharacters = [
            {
                charactername: 'Olivier',
-               weapon: 'Sword'
+               magicWord: 'magic',
+               weapon: 'Sword',
+               meal: 'potatoes',
+               direction: 'N',
+               strength: 12,
+               agility: 10
            }
        ];
        Characters.create(starterCharacters, function(err, results) {

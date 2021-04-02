@@ -39,7 +39,7 @@ document.addEventListener('keydown', function (event) {
 
       fade();
 
-      setTimeout(function(){ window.open("start.html", "_self"); }, 1000);
+      setTimeout(function(){ window.open("start", "_self"); }, 1000);
     }
 });
 
