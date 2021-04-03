@@ -36,13 +36,21 @@
         <p id="start" class="highlight">Start new</p>
         <p id="load">Load game</p>
       </div>
-      <div class="hide">
+      <div class="hide" id="load-game">
         <form action="load" method="POST">
-          <label for="">Thy name </label>
-          <input type="text" maxlength="15" minlength="1" name="name">
-          <label for="">Thy magic word</label>
+          <p>
+          <label class="labels">What is thy name </label>
+          </p>
+          <p>
+          <input type="text" maxlength="15" minlength="1" name="name" autofocus="autofocus">
+          </p>
+          <p>
+          <label class="labels">What is thy magic word</label>
+          </p>
+          <p>
           <input type="text" maxlength="15" minlength="1" name="magic">
-          <input type="submit">
+          </p>
+          <div><p id="enter">Press Enter</p></div>
         </form>
         <p class="hideInvalid">Invalid credentials</p>
       </div>

@@ -46,7 +46,11 @@ document.addEventListener('keydown', function (event) {
       fade();
       setTimeout(function(){ window.open("start", "_self"); }, 1000);
     } else {
-
+      console.log("hello my friend");
+      const loadGame = document.getElementById('load-game');
+      const menu = document.querySelector('.menu');
+      loadGame.classList.remove('hide');
+      menu.classList.add('hide');
     }
   }
 });
