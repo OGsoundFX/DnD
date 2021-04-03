@@ -21,6 +21,17 @@ pre {
   letter-spacing: -3px;
 }
 
+#enter {
+  animation:blinking 1s linear infinite;
+}
+
+@keyframes blinking {
+    0% { opacity: 0; }
+   49% { opacity: 0; }
+   50% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
 #title {
   margin-top: 80px
 }
@@ -46,9 +57,19 @@ pre {
   background-color: #1dbb1e;
 }
 
-/*.hide {
+.hide {
   display: none;
-}*/
+}
+
+#load-game {
+  position: absolute;
+  top: 15%;
+}
+
+.labels {
+  font-size: 10px;
+  margin-bottom: -12px;
+}
 
 .hideInvalid {
   display: none;
