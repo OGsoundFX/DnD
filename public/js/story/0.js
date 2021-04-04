@@ -1,11 +1,11 @@
 let i = 0;
 let speed = 50;
-const introText = 'You just woke up in the woods with a mighty headache! You have no recollection of how you ended up here. Yet you can not wait in this forest for your memory to come back, as you can sense danger lurking all around. While your head is pounding underneath your helmet, you gather your strength and your courage to start your quest and retrieve your identity!';
+const introText = 'The thick forest lays in front of you. Which direction would you like to take (N - E - W - S)?';
 const enter = "Press enter";
 
 const typeWriter = (text) => {
   if (i < text.length) {
-    document.getElementById("intro").innerHTML += text.charAt(i);
+    document.getElementById("story").innerHTML += text.charAt(i);
     i++;
       if (text.charAt(i-1) === "!" || text.charAt(i-1) === "." || text.charAt(i-1) === "?") {
         setTimeout(typeWriter, 1200, text);
@@ -51,4 +51,3 @@ const fadeAndCreditMusic = () => {
   audio.play();
   unfade();
 };
-
