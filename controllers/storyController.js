@@ -4,42 +4,25 @@ const fs = require('fs');
 module.exports = function(app) {
 
   app.post('/update', (req, res) => {
-    // res.send(Object.keys(req.body)[0]);
-    const id = Object.keys(req.body)[0];
-    const newDirection = req.body;
-    let newLevel
+    let level, id, newDirection;
 
-    console.log(typeof(newDirection));
-    // res.send(req.body[id]);
-    Character.find({ _id: id }, function(err, char) {
-      if (err) throw err;
+    if (req.body[Object.keys(req.body)[0]] = "Submit") {
+      level = Object.keys(req.body)[0];
+      id = Object.keys(req.body)[1];
+      newDirection = req.body[Object.keys(req.body)[1]];
+    } else {
+      level = Object.keys(req.body)[1];
+      id = Object.keys(req.body)[0];
+      newDirection = req.body[Object.keys(req.body)[0]];
+    };
 
-      // newLevel = char[0].level += 1;
-      // res.send(char[0]);
-      // console.log(char[0].direction);
-      // res.render(`./story/${char[0].level}`, { char: char });
-    });
-
-    Character.findByIdAndUpdate(id, {direction: "S", level: 1 }, function(err, char) {
+    Character.findByIdAndUpdate(id, {direction: newDirection, level: level + 1 }, function(err, char) {
         if (err) throw err;
-
-
     });
 
     Character.find({ _id: id }, function(err, char) {
       if (err) throw err;
       res.render(`./story/${char[0].level}`, { char: char });
-      // newLevel = char[0].level += 1;
-      // res.send(char[0]);
-      // console.log(char[0].direction);
-      // res.render(`./story/${char[0].level}`, { char: char });
     });
-
-
   });
 }
-
-
-
-
-
