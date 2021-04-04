@@ -6,9 +6,7 @@ module.exports = function(app) {
     Character.find({ charactername: req.body.name, magicWord: req.body.magic }, function(err, char) {
       if (err) throw err;
       if (char[0] !== undefined) {
-        // res.send(char);
-        console.log("true");
-        res.redirect(`../story/${char[0].level}`);
+        res.render(`./story/${char[0].level}`, { char: char });
       } else {
         console.log("false");
         console.log("can't use document.querySelector here");

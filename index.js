@@ -3,7 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const setupController = require('./controllers/setupController');
 const characterController = require('./controllers/characterController');
-const startGameController = require('./controllers/startGameController')
+const startGameController = require('./controllers/startGameController');
+const storyController = require('./controllers/storyController');
 const config = require('./config/dbconfig');
 
 app.use(express.json()); //Used to parse JSON bodies
@@ -43,6 +44,7 @@ app.get('/story/0', (req, res) => {
 
 characterController(app);
 startGameController(app);
+storyController(app);
 
 // Setting up database connection
 mongoose.connect(config.getDbConnectionString(), { useNewUrlParser: true , useUnifiedTopology: true});

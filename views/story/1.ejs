@@ -19,7 +19,7 @@
  //                                                              //
 //\\                                                            //\\
 \\//              Name: Olivier                                 \\//
- \\               Weapon: Sword                                  \\
+ \\               LEVEL 1                                        \\
 //\\                                                            //\\
 \\//                                                            \\//
  //                                                              //
@@ -32,8 +32,8 @@
 (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
 
     </pre>
-    <p>Welcome back <%= char[0].charactername %></p>
-    <p class="hide"><%= char[0]._id %></p>
+    <p>Level <%= char[0].level %></p>
+    <p class=""><%= char %></p>
     <p id="story"></p>
     <form action="update" method="POST">
       <input type="text" name="<%= char[0]._id %>">

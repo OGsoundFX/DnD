@@ -1,0 +1,35 @@
+body {
+  background-color: black;
+  font-family: 'Press Start 2P', cursive;
+  color: #1dbb1e;
+  text-shadow: 0 0 9px #1dbb1e;
+}
+
+h1 {
+  font-size: 1.6vw;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 1.2vw;
+}
+
+pre {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  letter-spacing: -3px;
+}
+
+.decoration {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0;
+  color: #1dbb1e;
+  font-size: 1.6vw;
+  line-height: 0.9em;
+}
+
+.hide {
+  display: none;
+}

@@ -35,7 +35,7 @@ const fade = () => {
 document.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
     fade();
-    setTimeout(function(){ window.open("start", "_self"); }, 1000);
+    setTimeout(function(){ window.open("startgame", "_self"); }, 1000);
   }
 });
 
