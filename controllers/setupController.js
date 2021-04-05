@@ -11,8 +11,8 @@ module.exports = function(app) {
                weapon: 'Sword',
                meal: 'potatoes',
                direction: 'N',
-               strength: 12,
-               agility: 10
+               strength: 25,
+               agility: 15
            }
        ];
        Characters.create(starterCharacters, function(err, results) {

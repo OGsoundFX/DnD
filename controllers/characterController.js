@@ -5,12 +5,15 @@ module.exports = function(app) {
 
   app.post('/character', (req, res) => {
       const characterResponse = Object.keys(req.body)[0].split(",");
-      var newCharacter = Character({
+      const number = Math.floor(Math.random() * 11);
+      const newCharacter = Character({
           charactername: characterResponse[0],
           magicWord: characterResponse[1],
           weapon: characterResponse[2],
           meal: characterResponse[3],
-          level: 0
+          level: 0,
+          strength: 20 + number,
+          agility: 20 - number
       });
       newCharacter.save(function(err, char) {
           if (err) throw err;
