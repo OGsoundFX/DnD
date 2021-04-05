@@ -18,7 +18,7 @@
 \\//                                                            \\//
  //                                                              //
 //\\                                                            //\\
-\\//              Name: Olivier                                 \\//
+\\//                                                            \\//
  \\               LEVEL 1                                        \\
 //\\                                                            //\\
 \\//                                                            \\//
@@ -32,12 +32,11 @@
 (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
 
     </pre>
-    <p>Level <%= char[0].level %></p>
-    <p class=""><%= char %></p>
+    <p>Name: <%= char.charactername %></p>
     <p id="story"></p>
     <form action="update" method="POST">
-      <input type="text" name="<%= char[0]._id %>">
-      <input type="submit" name="">
+      <input type="text" name="<%= char._id %>">
+      <input type="submit" name="1">
     </form>
   </div>
   <script src="../js/story/0.js"></script>

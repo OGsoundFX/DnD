@@ -1,20 +1,27 @@
 const Character = require('../models/characterModel');
+const ObjectId = require('mongodb').ObjectID;
 
 module.exports = function(app) {
 
-  app.post('/save/character', (req, res) => {
+  app.post('/character', (req, res) => {
       const characterResponse = Object.keys(req.body)[0].split(",");
       var newCharacter = Character({
           charactername: characterResponse[0],
           magicWord: characterResponse[1],
           weapon: characterResponse[2],
-          meal: characterResponse[3]
+          meal: characterResponse[3],
+          level: 0
       });
-      newCharacter.save(function(err) {
+      newCharacter.save(function(err, char) {
           if (err) throw err;
-          res.redirect('../test');
       });
+
+      const id = ObjectId(newCharacter._id).toString();
+      setTimeout(function(){
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render(`./story/${char[0].level}`, { char: char[0] });
+        });
+      }, 300);
   });
-
-
 }

@@ -6,11 +6,9 @@ module.exports = function(app) {
     Character.find({ charactername: req.body.name, magicWord: req.body.magic }, function(err, char) {
       if (err) throw err;
       if (char[0] !== undefined) {
-        res.render(`./story/${char[0].level}`, { char: char });
+        res.render(`./story/${char[0].level}`, { char: char[0] });
       } else {
-        console.log("false");
-        console.log("can't use document.querySelector here");
-        console.log("redirect to new login page")
+        res.send("fix this!");
       }
     });
   });
