@@ -11,21 +11,28 @@
 <body>
   <div class="container">
     <h1 class="d-flex justify-content-center" id="title-quest">Your destiny awaits!</h1>
-    <pre class="character-art">
+    <div class="d-flex justify-content-center">
+      <pre class="character-art">
 
-            /==\
-           _\~~/_
-         _/^^^^^^\
-        /  \^^^^|\\
-       / .. \^^^| \\
-       \ .. /^^^|  &[=======>
-        \__/^^^^\
-           |-||-|
-           |#||#|
-           |-||-|
-    _______{^}{^}_______░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-    </pre>
+ (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
+ /\                                                               /\
+//\\        /==\                                                 //\\
+\\//       _\~~/_                                                \\//
+ //      _/^^^^^^\                                                //
+//\\    /  \^^^^|\\                                              //\\
+\\//   / .. \^^^| \\                                             \\//
+ \\    \ .. /^^^|  &[=======>                                     \\
+//\\    \__/^^^^\                                                //\\
+\\//       |-||-|                                                \\//
+ //        |#||#|                                                 //
+//\\       |-||-|                                                //\\
+\\//_______{^}{^}_______░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ \\//
+ \\                                                               \\
+ \/                                                               \/
+ (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
+      </pre>
+    </div>
 
     <pre class="character-art" id="character-walk">
 
@@ -69,35 +76,29 @@ _________(__^>^>______
 
     </pre>
 
-
-    <pre class="character-art" id="dice">
-
-
-    </pre>
-
-    <div class="text-font">
-      <p id="name"></p>
+    <div class="d-flex justify-content-center text-font">
+      <h6 id="name"></h6>
     </div>
 
-    <form action="#">
-      <div class="d-flex">
-        <p id="ask-name"></p>
-        <div class="cursor"><h1>></h1></div>
-        <div> <h1> <input class="text-shadow" autofocus="autofocus" id="nameInput" type="text" maxlength="15" minlength="1"> </h1></div>
-        <div><p id="enter">Press Enter</p></div>
-        <button id="btn" >Button</button>
-      </div>
-    </form>
+    <div class="d-flex justify-content-center">
+      <form action="#">
+        <div class="d-flex">
+          <p id="ask-name"></p>
+          <div class="cursor display"><h1>></h1></div>
+          <div> <h1> <input class="text-shadow" autofocus="autofocus" id="nameInput" type="text" maxlength="15" minlength="1"> </h1></div>
+          <div><p id="enter" class="display">Press Enter</p></div>
+          <button id="btn" >Button</button>
+        </div>
+      </form>
+    </div>
 
 
-    <form action="/save/character" method="POST">
-      <input type="input">
+    <form action="/character" method="POST">
       <input type="hidden", id="magic">
-      <input type="submit", id="trying", name="trying">
+      <input type="submit", id="submit", name="submit">
     </form>
 
   </div>
-<!-- <script src="interaction.js"></script> -->
 <script src="js/character.js"></script>
 </body>
 </html>

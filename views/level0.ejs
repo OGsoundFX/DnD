@@ -6,9 +6,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <title>The Quest</title>
-  <link href="css-components/test.css" rel="stylesheet" type="text/css">
+  <link href="../css-components/story.css" rel="stylesheet" type="text/css">
 </head>
-<body onload="unfadeTest()" id="body">
+<body onload="unfade()" id="body">
   <div class="container">
     <pre class="decoration">
 
@@ -18,8 +18,8 @@
 \\//                                                            \\//
  //                                                              //
 //\\                                                            //\\
-\\//              Name: Olivier                                 \\//
- \\               Weapon: Sword                                  \\
+\\//                                                            \\//
+ \\               TEST     LEVEL 0                               \\
 //\\                                                            //\\
 \\//                                                            \\//
  //                                                              //
@@ -32,7 +32,14 @@
 (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
 
     </pre>
+    <p>Welcome back <%= char.charactername %></p>
+    <p class="hide"><%= char._id %></p>
+    <p id="story"></p>
+    <form action="update" method="POST">
+      <input type="text" name="<%= char._id %>">
+      <input type="submit" name="0">
+    </form>
   </div>
-  <script src="js/testing.js"></script>
+  <script src="../js/story/0.js"></script>
   </body>
 </html>

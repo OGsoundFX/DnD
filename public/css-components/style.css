@@ -11,11 +11,16 @@ h1 {
   padding: 0;
 }
 
+h6 {
+  font-size: 1.4vw;
+}
+
 p {
   font-size: 1.2vw;
 }
 
 pre {
+  font-size: 1.75vw !important;
   overflow-y: hidden;
   overflow-x: hidden;
   letter-spacing: -3px;
@@ -33,7 +38,10 @@ pre {
 
 #enter {
   animation:blinking 1s linear infinite;
+}
 
+.display {
+  display: none;
 }
 
 @keyframes blinking {

@@ -42,6 +42,14 @@ app.get('/story/0', (req, res) => {
     res.render('story/0');
 });
 
+app.get('/level0', (req, res) => {
+    res.render('level0');
+});
+
+app.post('/save/update', (req, res) => {
+    res.render('update');
+});
+
 characterController(app);
 startGameController(app);
 storyController(app);
