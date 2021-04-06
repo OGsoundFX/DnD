@@ -20,15 +20,6 @@ const typeWriter = (text) => {
 
 typeWriter(introText);
 
-
-// change page
-
-document.addEventListener('keydown', function (event) {
-    if (event.keyCode === 13) {
-      window.open("character?#", "_self");
-    }
-});
-
 //fade in function
 
 const unfade = () => {
@@ -43,6 +34,33 @@ const unfade = () => {
         op += op * 0.1;
     }, 50);
 }
+
+
+// fade out function
+
+const fade = () => {
+    let op = 1;  // initial opacity
+    let timer = setInterval(function () {
+        const element = document.getElementById("body");
+        if (op <= 0.1){
+            clearInterval(timer);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 50);
+}
+
+// change page
+
+document.addEventListener('keydown', function (event) {
+    if (event.keyCode === 13) {
+      fade();
+      setTimeout(function(){ window.open("character?#", "_self"); }, 1000);
+    }
+});
+
 
 // Play sound & fade in
 
