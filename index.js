@@ -42,6 +42,10 @@ app.get('/story/0', (req, res) => {
     res.render('story/0');
 });
 
+app.get('/designs', (req, res) => {
+  res.render('designs');
+});
+
 characterController(app);
 startGameController(app);
 storyController(app);

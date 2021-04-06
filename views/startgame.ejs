@@ -9,55 +9,105 @@
     <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
     <link href="css-components/startgame.css" rel="stylesheet" type="text/css">
   </head>
-  <body style= "opacity: 0;" onload="unfade()" id="body">
-    <div class="container d-flex justify-content-center" id="title">
-      <p>Welcome adventurer! Choose thy path!</p>
-    </div>
-    <div class="container d-flex justify-content-center decoration">
-      <pre>
-   (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯)
-  ( \                                                                      / )
- ( \ )                                                                    ( / )
-( ) (                                                                      ) ( )
- ( / )                                                                    ( \ )
-  ( /                                                                      \ )
-  ( \                                                                      / )
- ( \ )                                                                    ( / )
-( ) (                                                                      ) ( )
- ( / )                                                                    ( \ )
-  ( /                                                                      \ )
-  ( \                                                                      / )
- ( \ )                                                                    ( / )
-( ) (                                                                      ) ( )
- ( / )                                                                    ( \ )
-  ( /                                                                      \ )
-   (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._)
-      </pre>
-      <div class="menu">
-        <p id="start" class="highlight">Start new</p>
-        <p id="load">Load game</p>
+
+  <% if (typeof(fail) != "undefined") { %>
+    <body onload="playSound()">
+      <div class="container d-flex justify-content-center" id="title">
+        <% const phrase = ["Have you lost thy memory? Try again Sire!", "That is incorrect stranger!", "Wrong dear friend!", "Have thee been bewitched?", "Thee do not remembre thy name?"] %>
+        <p><%= phrase[Math.floor(Math.random()*5)] %></p>
       </div>
-      <div class="hide" id="load-game">
-        <form action="load" method="POST">
-          <p>
-          <label class="labels">What is thy name </label>
-          </p>
-          <p>
-          <input type="text" maxlength="15" minlength="1" name="name" autofocus="autofocus">
-          </p>
-          <p>
-          <label class="labels">What is thy magic word</label>
-          </p>
-          <p>
-          <input type="text" maxlength="15" minlength="1" name="magic">
-          </p>
-          <input type="submit" name="">
-          <div><p id="enter">Press Enter</p></div>
-        </form>
-        <p class="hideInvalid">Invalid credentials</p>
+      <div class="container d-flex justify-content-center decoration">
+        <pre>
+     (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯)
+    ( \                                                                      / )
+   ( \ )                                                                    ( / )
+  ( ) (                                                                      ) ( )
+   ( / )                                                                    ( \ )
+    ( /                                                                      \ )
+    ( \                                                                      / )
+   ( \ )                                                                    ( / )
+  ( ) (                                                                      ) ( )
+   ( / )                                                                    ( \ )
+    ( /                                                                      \ )
+    ( \                                                                      / )
+   ( \ )                                                                    ( / )
+  ( ) (                                                                      ) ( )
+   ( / )                                                                    ( \ )
+    ( /                                                                      \ )
+     (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._)
+        </pre>
+          <div id="load-game">
+            <form action="load" method="POST">
+              <p>
+              <label class="labels">What is thy name </label>
+              </p>
+              <p>
+              <input type="text" maxlength="15" minlength="1" name="name" autofocus="autofocus">
+              </p>
+              <p>
+              <label class="labels">What is thy magic word</label>
+              </p>
+              <p>
+              <input type="text" maxlength="15" minlength="1" name="magic">
+              </p>
+              <input type="submit" name="">
+            </form>
+          </div>
+        </div>
+      <script src="js/startgame.js"></script>
+    </body>
+
+  <% } else { %>
+
+    <body style= "opacity: 0;" onload="unfade()" id="body">
+      <div class="container d-flex justify-content-center" id="title">
+        <p>Welcome adventurer! Choose thy path!</p>
       </div>
-    </div>
-  <script src="js/startgame.js"></script>
-  </body>
+      <div class="container d-flex justify-content-center decoration">
+        <pre>
+     (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯)
+    ( \                                                                      / )
+   ( \ )                                                                    ( / )
+  ( ) (                                                                      ) ( )
+   ( / )                                                                    ( \ )
+    ( /                                                                      \ )
+    ( \                                                                      / )
+   ( \ )                                                                    ( / )
+  ( ) (                                                                      ) ( )
+   ( / )                                                                    ( \ )
+    ( /                                                                      \ )
+    ( \                                                                      / )
+   ( \ )                                                                    ( / )
+  ( ) (                                                                      ) ( )
+   ( / )                                                                    ( \ )
+    ( /                                                                      \ )
+     (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._)
+        </pre>
+        <div class="menu">
+          <p id="start" class="highlight">Start new</p>
+          <p id="load">Load game</p>
+        </div>
+        <div class="hide" id="load-game">
+          <form action="load" method="POST">
+            <p>
+            <label class="labels">What is thy name </label>
+            </p>
+            <p>
+            <input type="text" maxlength="15" minlength="1" name="name" autofocus="autofocus">
+            </p>
+            <p>
+            <label class="labels">What is thy magic word</label>
+            </p>
+            <p>
+            <input type="text" maxlength="15" minlength="1" name="magic">
+            </p>
+            <input type="submit" name="">
+          </form>
+        </div>
+      </div>
+    <script src="js/startgame.js"></script>
+    </body>
+
+  <% }; %>
 </html>
 

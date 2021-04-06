@@ -8,7 +8,8 @@ module.exports = function(app) {
       if (char[0] !== undefined) {
         res.render(`./story/${char[0].level}`, { char: char[0] });
       } else {
-        res.send("fix this!");
+        res.render('./startgame', { fail: true });
+        // res.send("fix this!");
       }
     });
   });
