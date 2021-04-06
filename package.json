@@ -4,7 +4,7 @@
   "description": "You just woke up in the middle of the forest and you don't remember anything... get into this old school role playing game and find out who you are while braving all kinds of dangers",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,8 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "mongoose": "^5.12.2"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
