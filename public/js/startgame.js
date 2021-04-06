@@ -53,3 +53,10 @@ document.addEventListener('keydown', function (event) {
     }
   }
 });
+
+// Play sound & fade in
+
+const playSound = () => {
+  const audio = new Audio('../sound/sound.mp3');
+  audio.play();
+};
