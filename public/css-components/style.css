@@ -20,7 +20,7 @@ p {
 }
 
 pre {
-  font-size: 1.75vw !important;
+  font-size: 1.5vw;
   overflow-y: hidden;
   overflow-x: hidden;
   letter-spacing: -3px;
@@ -33,6 +33,7 @@ pre {
 #title-quest {
   display: none;
   margin-top: 20px;
+  margin-bottom: 25px;
   font-size: 2vw;
 }
 
@@ -41,6 +42,10 @@ pre {
 }
 
 .display {
+  display: none;
+}
+
+.hide-submit {
   display: none;
 }
 
@@ -62,11 +67,20 @@ pre {
   line-height: 0.9em;
 }
 
-.character-art {
-  font-size: 2vw;
-  color: #1dbb1e;
-  text-shadow: 0 0 9px #1dbb1e;
+.decoration {
+  position: relative;
+  margin-top: 20px;
+  font-size: 1.6vw;
   line-height: 0.9em;
+}
+
+.decoration pre {
+   color: #1dbb1e;
+}
+
+.character {
+  position: absolute;
+  top: 20%;
 }
 
 input {
@@ -82,8 +96,4 @@ input {
 .text-font {
   font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   font-size: 2vw;
-}
-
-#character-walk {
-  display: none;
 }

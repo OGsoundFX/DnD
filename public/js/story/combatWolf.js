@@ -1,6 +1,6 @@
 let i = 0;
 let speed = 50;
-const introText = 'You are still disoriented, but your instinct tells you that you cannot stay here much longer. The thick forest lays in front of you. Which direction would you like to take (N - E - W - S)?';
+const story1 = 'You are walking in the woods when thee suddenly hear some rustling in some bushes nearby. Just a rabbit... but that growl sounds more like a... WOLF! What shall thee do! Quickly my Lord!'
 const enter = "Press enter";
 
 const typeWriter = (text) => {
@@ -18,7 +18,21 @@ const typeWriter = (text) => {
   };
 };
 
-typeWriter(introText);
+typeWriter(story1);
+
+let char = document.getElementById('char').innerHTML;
+let wolf = document.getElementById('wolf').innerHTML;
+console.log(typeof(char));
+console.log(wolf);
+
+
+// change page
+
+document.addEventListener('keydown', function (event) {
+    if (event.keyCode === 13) {
+      window.open("character?#", "_self");
+    }
+});
 
 //fade in function
 
