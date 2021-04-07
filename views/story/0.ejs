@@ -11,34 +11,32 @@
 </head>
 <body onload="unfade()" id="body">
   <div class="container">
-    <pre class="decoration">
+    <pre class="decoration d-flex justify-content-center">
 
-(¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
- /\                                                              /\
-//\\                                                            //\\
-\\//                                                            \\//
- //                                                              //
-//\\                                                            //\\
-\\//              Name: Olivier                                 \\//
- \\               Weapon: Sword                                  \\
-//\\                                                            //\\
-\\//                                                            \\//
- //                                                              //
-//\\                                                            //\\
-\\//                                                            \\//
- \\                                                              \\
-//\\                                                            //\\
-\\//                                                            \\//
- \/                                                              \/
-(¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
+   (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯)
+  ( \                                                                      / )
+ ( \ )                                                                    ( / )
+( ) (                                                                      ) ( )
+ ( / )                                                                    ( \ )
+  ( /                                                                      \ )
+  ( \                                                                      / )
+ ( \ )                                                                    ( / )
+( ) (                                                                      ) ( )
+ ( / )                                                                    ( \ )
+  ( /                                                                      \ )
+  ( \                                                                      / )
+ ( \ )                                                                    ( / )
+( ) (                                                                      ) ( )
+ ( / )                                                                    ( \ )
+  ( /                                                                      \ )
+   (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._)
 
     </pre>
-    <p>Welcome back <%= char.charactername %></p>
-    <p class="hide"><%= char._id %></p>
+    <p>Welcome <%= char.charactername %> !</p>
     <p id="story"></p>
     <form action="update" method="POST">
       <input type="text" name="<%= char._id %>">
-      <input type="submit" name="0">
+      <input type="submit" name="0" id="hide-submit">
     </form>
   </div>
   <script src="../js/story/0.js"></script>

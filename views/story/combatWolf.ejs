@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <title>The Quest</title>
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
-  <link href="../css-components/story.css" rel="stylesheet" type="text/css">
+  <link href="../css-components/combatWolf.css" rel="stylesheet" type="text/css">
 </head>
 <body onload="unfade()" id="body">
   <div class="container">
@@ -20,7 +20,7 @@
  //                                                               //
 //\\                                                             //\\
 \\//                                                             \\//
- \\                                                               \\
+ \\                    COMNBAT                                    \\
 //\\                                                             //\\
 \\//                                                             \\//
  //                                                               //
@@ -33,13 +33,14 @@
  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
 
     </pre>
-    <p><% char.direction %></p>
+    <p id="char"><%= char.strength %></p>
+    <p id="wolf"><%= wolf%></p>
     <p id="story"></p>
-    <form action="wolves" method="POST">
+    <form action="update" method="POST">
       <input type="text" name="<%= char._id %>">
       <input type="submit" name="1" id="hide-submit">
     </form>
   </div>
-  <script src="../js/story/1.js"></script>
+  <script src="../js/story/combatWolf.js"></script>
   </body>
 </html>

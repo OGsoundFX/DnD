@@ -89,6 +89,9 @@ document.addEventListener('keydown', function (event) {
         storeName();
         document.querySelector("form").remove();
       }
+      if (character.split(',').length === 4) {
+        document.getElementById('hide-submit').classList.remove('hide-submit');
+      };
       document.getElementById('submit').name = character;
     }
 });
