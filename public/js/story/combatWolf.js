@@ -1,6 +1,7 @@
 let i = 0;
 let speed = 50;
-const story1 = 'You are walking in the woods when thee suddenly hear some rustling in some bushes nearby. Just a rabbit... but that growl sounds more like a... WOLF! What shall thee do! Quickly my Lord!'
+// const intro = 'After a few steps into the direction of the noise, you find yourself face to face with a wolf. It attacks!'
+const intro = "bla bla bla";
 const enter = "Press enter";
 
 const typeWriter = (text) => {
@@ -13,24 +14,40 @@ const typeWriter = (text) => {
         setTimeout(typeWriter, speed, text);
       };
   } else {
-    setTimeout(function(){ document.querySelector(".text-font").innerHTML += `<p id='enter'>${enter}</p>`; }, 10);
-
+    document.querySelector(".enter").classList.remove("invisible");
   };
 };
 
-typeWriter(story1);
+typeWriter(intro);
 
-let char = document.getElementById('char').innerHTML;
-let wolf = document.getElementById('wolf').innerHTML;
-console.log(typeof(char));
-console.log(wolf);
+// Attack specs
+const playerAgility = parseInt(document.getElementById('player-agility').innerHTML);
+const playerStrength = parseInt(document.getElementById('player-strength').innerHTML);
+const playerLife = parseInt(document.getElementById('player-life').innerHTML);
 
+const wolfLife = parseInt(document.getElementById('wolf-life').innerHTML);
+const wolfAgility = parseInt(document.getElementById('wolf-agility').innerHTML);
+const wolfStrength = parseInt(document.getElementById('wolf-strength').innerHTML);;
 
-// change page
+// press enter
+const player = document.getElementById("player");
+const wolf = document.getElementById("wolf");
+const round = document.querySelector(".round")
+console.log(round);
 
 document.addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
-      window.open("character?#", "_self");
+      if (round.innerHTML = "wolf") {
+        wolf.classList.add("turn");
+        document.querySelector(".invisible").classList.remove("invisible");
+        const audio = new Audio('../../sound/dice.wav');
+        audio.play();
+        document.querySelector(".enter").classList.add("invisible");
+        document.getElementById("story").classList.add("invisible");
+        const wolfHitfactor = wolfAgility - playerAgility + Math.floor(Math.random()*18) - 9;
+        // if wolfHitfactor => 0 than calculate damage and send response and press enter to move to next turn
+        // if wolfHitFactor < 0 than send response and press enter to move to next turn
+      }
     }
 });
 

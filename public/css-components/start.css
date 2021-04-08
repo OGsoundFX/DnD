@@ -33,7 +33,6 @@ pre {
 
 #enter {
   animation:blinking 1s linear infinite;
-
 }
 
 @keyframes blinking {
