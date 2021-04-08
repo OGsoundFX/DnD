@@ -36,10 +36,19 @@ module.exports = function(app) {
     };
 
     if (response === "fight") {
+      // create Wolf
+      const wolf = {
+        life: 6 + Math.floor(Math.random()*7),
+        strength: 8 + Math.floor(Math.random()*9),
+        agility: 6 + Math.floor(Math.random()*7),
+        chance: 6 + Math.floor(Math.random()*7)
+      };
       Character.find({ _id: id }, function(err, char) {
         if (err) throw err;
-        res.render('./story/combatWolf', { char: char[0], wolf: 3 })
+        res.render('./story/combatWolf', { char: char[0], wolf: wolf })
       });
+    } else if (response === "escape") {
+      // create pack of wolves
     } else {
       res.send('Other answer');
     };

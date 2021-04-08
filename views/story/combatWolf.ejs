@@ -11,35 +11,98 @@
 </head>
 <body onload="unfade()" id="body">
   <div class="container">
-    <pre class="decoration d-flex justify-content-center">
+    <div class="d-flex justify-content-between">
+      <div class="position-relative">
+        <pre class="decoration scoreboard">
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                                   |
+|                                   |
+!                                   !
+:                                   :
+.                                   .
+.                                   .
+:                                   :
+!                                   !
+|                                   |
+|                                   |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
 
- (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
- /\                                                               /\
-//\\                                                             //\\
-\\//                                                             \\//
- //                                                               //
-//\\                                                             //\\
-\\//                                                             \\//
- \\                    COMNBAT                                    \\
-//\\                                                             //\\
-\\//                                                             \\//
- //                                                               //
-//\\                                                             //\\
-\\//                                                             \\//
- \\                                                               \\
-//\\                                                             //\\
-\\//                                                             \\//
- \/                                                               \/
- (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)  (¯`·.¸¸.·´¯`·.¸¸.·´¯)
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                                   |
+|                                   |
+!                                   !
+:                                   :
+.                                   .
+.                                   .
+:                                   :
+!                                   !
+|                                   |
+|                                   |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+        </pre>
+        <div class="position-absolute">
+          <div class="scoreboard-content-player">
+            <p style="margin-left: 20px; margin-bottom: 25px" id="player"><%=char.charactername%></p>
+            <p>❤ Life: <span id="player-life"><%=char.life%></span> </p>
+            <p> Strength: <span id="player-strength"><%= char.strength%></span> </p>
+            <p> Agility: <span id="player-agility"><%= char.agility%></span> </p>
+            <p> Weapon: <%= char.weapon%></p>
+          </div>
+          <div class="scoreboard-content-wolf">
+            <p style="margin-left: 20px; margin-bottom: 25px" id="wolf">Wolf</p>
+            <p>❤ Life: <span id="wolf-life"><%=wolf.life%></span> </p>
+            <p> Strength: <span id="wolf-strength"><%= wolf.strength%></span> </p>
+            <p> Agility: <span id="wolf-agility"><%= wolf.agility%></span> </p>
+            <p> Weapon: Teeth</p>
+          </div>
+        </div>
+      </div>
+      <pre class="decoration">
 
-    </pre>
-    <p id="char"><%= char.strength %></p>
-    <p id="wolf"><%= wolf%></p>
+     ^¯`·.¸¸.·´¯`·.¸¸.·´¯)(¯`·.¸¸.·´¯`·.¸¸.·´¯)(¯`·.¸¸.·´¯`·.¸¸.·(""")
+    /:\                                                           III
+    |:|                                                           III
+    |:|                                                           III
+    |:|                                                         __III__
+    |:|                                                       /:-.___,-:\
+    |:|                                                       \]  |:|  [/
+    |:|                                                           |:|
+    |:|                                                           |:|
+    |:|                                                           |:|
+    |:|                                                           |:|
+/]  |:|  [\                                                       |:|
+\:-'"""`-:/                                                       |:|
+  ""III""                                                         |:|
+    III                                                           |:|
+    III                                                           |:|
+    III                                                           \:/
+   (___)                                                           V
+      ¯`·.¸¸.·´¯`·.¸¸.·´¯)(¯`·.¸¸.·´¯`·.¸¸.·´¯)(¯`·.¸¸.·´¯`·.¸¸.·´¯
+      </pre>
+    </div>
     <p id="story"></p>
-    <form action="update" method="POST">
-      <input type="text" name="<%= char._id %>">
-      <input type="submit" name="1" id="hide-submit">
-    </form>
+    <p class="invisible enter">Press Enter</p>
+    <p class="round" style="display: none">wolf</p>
+  <div class="d-flex justify-content-center">
+    <pre class="dice invisible">
+  ________     ________
+ /       /|   /       /|
+/_______/ |  /_______/ |
+| o   o | |  | o     | |
+|   o   | |  |   o   | |
+| o   o |/   |     o |/
+`-------´    `-------´
+    </pre>
+<!--     <pre class="dice invisible">
+  ________     ________
+ /       /|   /       /|
+/_______/ |  /_______/ |
+|       | |  |       | |
+|   @   | |  |   @   | |
+|       |/   |       |/
+`-------´    `-------´
+    </pre> -->
+  </div>
   </div>
   <script src="../js/story/combatWolf.js"></script>
   </body>

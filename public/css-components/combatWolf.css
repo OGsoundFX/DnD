@@ -22,10 +22,9 @@ pre {
 }
 
 .decoration {
-  position: relative;
   margin-top: 40px;
   color: #1dbb1e;
-  font-size: 1.6vw;
+  font-size: 22px;
   line-height: 0.9em;
 }
 
@@ -33,6 +32,51 @@ pre {
    color: #1dbb1e;
 }
 
-#hide-submit {
+.scoreboard {
+  font-size: 17px;
+  margin-top: 60px;
+}
+
+.scoreboard-content-player {
+  margin-left: 12px;
+  margin-top: -380px;
+  font-size: 12px;
+  line-height: 3px;
+}
+
+.scoreboard-content-wolf {
+  margin-left: 12px;
+  margin-top: 110px;
+  font-size: 12px;
+  line-height: 3px;
+}
+
+.turn {
+  color: #f68105;
+  animation:blinking 1s linear infinite;
+}
+
+@keyframes blinking {
+    0% { opacity: 1; }
+   49% { opacity: 1; }
+   50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.enter {
+  animation:blinking 1s linear infinite;
+}
+
+.invisible {
   display: none;
 }
+
+.dice {
+  color: #1dbb1e;
+  font-size: 22px;
+  line-height: 22px;
+}
+
+/*#hide-submit {
+  display: none;
+}*/
