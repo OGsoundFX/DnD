@@ -38,7 +38,7 @@ module.exports = function(app) {
     if (response === "fight") {
       // create Wolf
       const wolf = {
-        life: 6 + Math.floor(Math.random()*7),
+        life: 10 + Math.floor(Math.random()*7),
         strength: 8 + Math.floor(Math.random()*9),
         agility: 6 + Math.floor(Math.random()*7),
         chance: 6 + Math.floor(Math.random()*7)
@@ -52,5 +52,10 @@ module.exports = function(app) {
     } else {
       res.send('Other answer');
     };
+  });
+
+  app.post('/updateAfterCombat', (req,res) => {
+    res.send(req.body);
+    let level, id, newLife;
   });
 }

@@ -46,7 +46,7 @@
             <p>❤ Life: <span id="player-life"><%=char.life%></span> </p>
             <p> Strength: <span id="player-strength"><%= char.strength%></span> </p>
             <p> Agility: <span id="player-agility"><%= char.agility%></span> </p>
-            <p> Weapon: <%= char.weapon%></p>
+            <p> Weapon: <span id="player-weapon"><%= char.weapon%></span></p>
           </div>
           <div class="scoreboard-content-wolf">
             <p style="margin-left: 20px; margin-bottom: 25px" id="wolf">Wolf</p>
@@ -93,7 +93,15 @@
     </div>
     <p id="story"></p>
     <p class="invisible enter">Press Enter</p>
-    <p class="round" style="display: none">wolf</p>
+    <!-- <p class="round" style="display: none">wolf</p> -->
+    <p class="round">wolf</p>
+
+    <form action="updateAfterCombat" method="POST" class="invisible" id="form">
+      <input type="hidden" value="<%= char.id %>" name="id">
+      <input type="hidden" value="<%= char.level %>" name="level">
+      <input type="hidden" value="" name="life" id="lifeField">
+      <input type="submit" name="">
+    </form>
 
   </div>
   <script src="../js/story/combatWolf.js"></script>
