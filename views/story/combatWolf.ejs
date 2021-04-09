@@ -9,7 +9,7 @@
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
   <link href="../css-components/combatWolf.css" rel="stylesheet" type="text/css">
 </head>
-<body onload="unfade()" id="body">
+<body style= "opacity: 0;" onload="unfade()" id="body">
   <div class="container">
     <div class="d-flex justify-content-between">
       <div class="position-relative">
@@ -80,11 +80,8 @@
       ¯`·.¸¸.·´¯`·.¸¸.·´¯)(¯`·.¸¸.·´¯`·.¸¸.·´¯)(¯`·.¸¸.·´¯`·.¸¸.·´¯
       </pre>
     </div>
-    <p id="story"></p>
-    <p class="invisible enter">Press Enter</p>
-    <p class="round" style="display: none">wolf</p>
-  <div class="d-flex justify-content-center">
-    <pre class="dice invisible">
+    <div class="d-flex justify-content-center">
+      <pre class="dice invisible">
   ________     ________
  /       /|   /       /|
 /_______/ |  /_______/ |
@@ -92,17 +89,12 @@
 |   o   | |  |   o   | |
 | o   o |/   |     o |/
 `-------´    `-------´
-    </pre>
-<!--     <pre class="dice invisible">
-  ________     ________
- /       /|   /       /|
-/_______/ |  /_______/ |
-|       | |  |       | |
-|   @   | |  |   @   | |
-|       |/   |       |/
-`-------´    `-------´
-    </pre> -->
-  </div>
+      </pre>
+    </div>
+    <p id="story"></p>
+    <p class="invisible enter">Press Enter</p>
+    <p class="round" style="display: none">wolf</p>
+
   </div>
   <script src="../js/story/combatWolf.js"></script>
   </body>

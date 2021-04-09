@@ -56,11 +56,16 @@ pre {
   animation:blinking 1s linear infinite;
 }
 
+
 @keyframes blinking {
     0% { opacity: 1; }
    49% { opacity: 1; }
    50% { opacity: 0; }
   100% { opacity: 0; }
+}
+
+.new-life-score {
+  color: #f68105;
 }
 
 .enter {
