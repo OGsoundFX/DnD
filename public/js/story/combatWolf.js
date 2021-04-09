@@ -25,7 +25,7 @@ typeWriter(intro);
 let playerAgility = parseInt(document.getElementById('player-agility').innerHTML);
 let playerStrength = parseInt(document.getElementById('player-strength').innerHTML);
 let playerLife = parseInt(document.getElementById('player-life').innerHTML);
-// let playerLife = 2; // for testing purposes
+//let playerLife = 2; // for testing purposes
 const playerWeapon = document.getElementById('player-weapon').innerHTML
 
 let wolfLife = parseInt(document.getElementById('wolf-life').innerHTML);
@@ -51,7 +51,13 @@ document.addEventListener('keydown', function (event) {
       if (round.innerHTML === "wolf") {
         roleDice();
         // calculating whether the wolf hit or missed
-        const wolfHitfactor = wolfAgility - playerAgility + Math.floor(Math.random()*18) - 9;
+        let diff = 0;
+        if ((wolfAgility - playerAgility) <= 0) {
+          diff = 0;
+        } else {
+          diff = wolfAgility - playerAgility;
+        };
+        const wolfHitfactor = diff + Math.floor(Math.random()*18) - 9;
         if (wolfHitfactor >= 0) {
           const damage = Math.floor(wolfStrength / playerStrength * Math.floor(Math.random()*6)) + 1;
           playerLife -= damage;
@@ -71,7 +77,9 @@ document.addEventListener('keydown', function (event) {
               }, 2000);
             } else {
 
-              document.getElementById("story").innerHTML = `The wolf manages to get a nasty bite off of you, you lose <span style="color: #f68105">${damage}</span> life points!`;
+              const wolfDamage = [`The wolf manages to get a nasty bite off of you, you lose <span style="color: #f68105">${damage}</span> life points!`, `The angry beast got a bite at you and took <span style="color: #f68105">${damage}</span> life points!`];
+
+              document.getElementById("story").innerHTML = wolfDamage[Math.floor(Math.random()*2)];
               document.getElementById("story").classList.remove("invisible");
               document.getElementById('player-life').innerHTML = playerLife;
               document.getElementById('player-life').classList.add('new-life-score');
@@ -95,8 +103,11 @@ document.addEventListener('keydown', function (event) {
 
         } else {
           setTimeout(function(){
+
+            const wolfMiss = ["Somehow you managed to evade the wolf's attack and you can hear the jaws smack just an inch away from your ear! It is your turn to attack!", "How lucky, the wolf missed. You aim your weapon at the beast!"];
+
             document.querySelector(".dice").classList.add("invisible");
-            document.getElementById("story").innerHTML = "Somehow you managed to evade the wolf's attack and you can hear the jaws smack just an inch away from your ear! It is your turn to attack!";
+            document.getElementById("story").innerHTML = wolfMiss[Math.floor(Math.random()*2)];
             document.getElementById("story").classList.remove("invisible");
             document.querySelector(".enter").classList.remove("invisible");
             wolf.classList.remove("turn");
