@@ -13,7 +13,8 @@ const characterSchema = new Schema({
     agility: Number,
     chance: { type: Number, default: 0 },
     courage: { type: Number, default: 0 },
-    life: { type: Number, default: 25 }
+    life: { type: Number, default: 25 },
+    experience: { type: Number, default: 0}
 });
 
 const Characters = mongoose.model('characters', characterSchema);

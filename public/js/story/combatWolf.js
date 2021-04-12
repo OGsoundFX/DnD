@@ -90,7 +90,6 @@ document.addEventListener('keydown', function (event) {
               audio.play();
 
               setTimeout(function(){
-                // document.getElementById('player-life').classList.remove('new-life-score');
                 player.classList.add("turn");
                 document.querySelector(".enter").classList.remove("invisible");
                 document.getElementById("story").innerHTML += "</br>It is your turn to attack";
@@ -131,6 +130,7 @@ document.addEventListener('keydown', function (event) {
               const audio2 = new Audio('../../sound/victory.wav');
               audio1.play();
               audio2.play();
+              const experience = 3 + Math.floor(Math.random()*5);
               document.getElementById("story").innerHTML = `Bravo! You kill the wolf with <span style="color: #f68105">${damage}</span> points of damage!`;
               document.getElementById("story").classList.remove("invisible");
               document.getElementById('wolf-life').innerHTML = wolfLife;
@@ -139,6 +139,7 @@ document.addEventListener('keydown', function (event) {
               setTimeout(function(){
                 document.getElementById("story").innerHTML += "</br>Are you ready for your next achievment?";
                 document.getElementById("lifeField").value = playerLife;
+                document.getElementById("experience").value = experience;
                 document.getElementById("form").classList.remove('invisible');
               }, 1000);
             } else {
@@ -170,15 +171,6 @@ document.addEventListener('keydown', function (event) {
           }, 1000);
           round.innerHTML = "wolf";
         };
-      } else if (round.innerHTML === "victory") {
-        console.log("you win");
-
-        // ALL THIS PART SEEMS UNECESARY
-
-        // find a way to update the player info: life and new level
-        // needs to redirect to StoryController and create a new route "upadteCombat"
-        // possibly needs to create a form in the ejs, and maybe make the player submit
-        // not sure that can be done with "enter" action
       };
     };
 });

@@ -55,7 +55,20 @@ module.exports = function(app) {
   });
 
   app.post('/updateAfterCombat', (req,res) => {
-    res.send(req.body);
-    let level, id, newLife;
+    let id = req.body["id"];
+    let level = parseInt(req.body["level"]);
+    console.log(level);
+    let newLife = parseInt(req.body["life"]);
+    let experience = parseInt(req.body["experience"]);
+    Character.findByIdAndUpdate(id, {level: level + 1, life: newLife, $inc: {experience: experience} }, function(err, char) {
+        if (err) throw err;
+    });
+
+    setTimeout(function(){
+      Character.find({ _id: id }, function(err, char) {
+        if (err) throw err;
+        res.render(`./story/${char[0].level}`, { char: char[0] });
+      });
+    }, 300);
   });
 }
