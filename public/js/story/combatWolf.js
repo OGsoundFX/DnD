@@ -131,7 +131,7 @@ document.addEventListener('keydown', function (event) {
               audio1.play();
               audio2.play();
               const experience = 3 + Math.floor(Math.random()*5);
-              document.getElementById("story").innerHTML = `Bravo! You kill the wolf with <span style="color: #f68105">${damage}</span> points of damage!`;
+              document.getElementById("story").innerHTML = `Bravo! You kill the wolf with <span style="color: #f68105">${damage}</span> points of damage! </br>You earn <span style="color: #f68105">${experience}</span> Experience points!`;
               document.getElementById("story").classList.remove("invisible");
               document.getElementById('wolf-life').innerHTML = wolfLife;
               document.getElementById('wolf-life').classList.add('new-life-score');
