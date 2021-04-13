@@ -64,11 +64,18 @@ document.addEventListener('keydown', function (event) {
 
           setTimeout(function(){
             document.querySelector(".dice").classList.add("invisible");
+            // wolf animation
+            document.querySelector('.wolf').classList.add('invisible');
+            document.querySelector('.wolf-fight').classList.remove('invisible');
+            setTimeout(function() {
+              document.querySelector('.wolf').classList.remove('invisible');
+              document.querySelector('.wolf-fight').classList.add('invisible');
+            }, 500);
             // if dead !
             if (playerLife <= 0) {
               document.getElementById("story").innerHTML = `You received <span style="color: #f68105">${damage}</span> points of damage, your are DEAD!`;
               document.getElementById("story").classList.remove("invisible");
-              const audio1 = new Audio('../../sound/player-wound.wav');
+              const audio1 = new Audio('../../sound/Monster_Bite.wav');
               const audio2 = new Audio('../../sound/death.wav');
               audio1.play();
               audio2.play();
@@ -83,10 +90,14 @@ document.addEventListener('keydown', function (event) {
               document.getElementById("story").classList.remove("invisible");
               document.getElementById('player-life').innerHTML = playerLife;
               document.getElementById('player-life').classList.add('new-life-score');
+              document.querySelector('.character').classList.add('wound');
+              setTimeout(function() {
+                document.querySelector('.character').classList.remove('wound');
+              }, 2000);
 
               wolf.classList.remove("turn");
               player.classList.add("turn");
-              const audio = new Audio('../../sound/player-wound.wav');
+              const audio = new Audio('../../sound/Monster_Bite.wav');
               audio.play();
 
               setTimeout(function(){
@@ -104,6 +115,16 @@ document.addEventListener('keydown', function (event) {
           setTimeout(function(){
 
             const wolfMiss = ["Somehow you managed to evade the wolf's attack and you can hear the jaws smack just an inch away from your ear! It is your turn to attack!", "How lucky, the wolf missed. You aim your weapon at the beast!"];
+
+            // wolf animation and miss sound
+            const audio = new Audio('../../sound/wolf-miss.wav');
+            audio.play();
+            document.querySelector('.wolf').classList.add('invisible');
+            document.querySelector('.wolf-fight').classList.remove('invisible');
+            setTimeout(function() {
+              document.querySelector('.wolf').classList.remove('invisible');
+              document.querySelector('.wolf-fight').classList.add('invisible');
+            }, 500);
 
             document.querySelector(".dice").classList.add("invisible");
             document.getElementById("story").innerHTML = wolfMiss[Math.floor(Math.random()*2)];
@@ -124,6 +145,21 @@ document.addEventListener('keydown', function (event) {
 
           setTimeout(function(){
             document.querySelector(".dice").classList.add("invisible");
+
+            // character animation
+            document.querySelector('.character').classList.add('invisible');
+            document.querySelector('.character-fight').classList.remove('invisible');
+            setTimeout(function() {
+              document.querySelector('.character').classList.remove('invisible');
+              document.querySelector('.character-fight').classList.add('invisible');
+            }, 500);
+
+            // wolf wound
+            document.querySelector('.wolf').classList.add('wound');
+            setTimeout(function() {
+              document.querySelector('.wolf').classList.remove('wound');
+            }, 2000);
+
             // if Wolf dead
             if (wolfLife <=0 ) {
               const audio1 = new Audio('../../sound/player-wound.wav');
@@ -147,6 +183,7 @@ document.addEventListener('keydown', function (event) {
               document.getElementById("story").classList.remove("invisible");
               document.getElementById('wolf-life').innerHTML = wolfLife;
               document.getElementById('wolf-life').classList.add('new-life-score');
+
               player.classList.remove("turn");
               const audio = new Audio('../../sound/player-wound.wav');
               audio.play();
@@ -158,10 +195,18 @@ document.addEventListener('keydown', function (event) {
             };
           }, 1000);
           round.innerHTML = "wolf";
-
-          // make the new life points go orange and blinking after 2 seconds of Timeout
         } else {
           setTimeout(function(){
+            // character animation and miss sound
+            const audio = new Audio('../../sound/woosh.wav');
+            audio.play();
+            document.querySelector('.character').classList.add('invisible');
+            document.querySelector('.character-fight').classList.remove('invisible');
+            setTimeout(function() {
+              document.querySelector('.character').classList.remove('invisible');
+              document.querySelector('.character-fight').classList.add('invisible');
+            }, 500);
+
             document.querySelector(".dice").classList.add("invisible");
             document.getElementById("story").innerHTML = "You missed! The wolf is boucing on you!";
             document.getElementById("story").classList.remove("invisible");
