@@ -56,12 +56,38 @@ pre {
   animation:blinking 1s linear infinite;
 }
 
-
 @keyframes blinking {
     0% { opacity: 1; }
    49% { opacity: 1; }
    50% { opacity: 0; }
   100% { opacity: 0; }
+}
+
+.wolf, .character, .character-fight, .wolf-fight {
+  color: #1dbb1e;
+  font-size: 22px;
+  line-height: 1.1em;
+}
+
+.character, .character-fight {
+  margin-top: -350px;
+  margin-left: 40px;
+}
+
+.wolf, .wolf-fight {
+  margin-top: -390px;
+  margin-left: 190px;
+}
+
+.wound {
+  animation:color-blinking 0.5s linear infinite;
+}
+
+@keyframes color-blinking {
+    0% { color: #f68105; }
+   49% { color: #f68105; }
+   50% { color: #1dbb1e; }
+  100% { color: #1dbb1e; }
 }
 
 .new-life-score {
@@ -81,7 +107,3 @@ pre {
   font-size: 22px;
   line-height: 22px;
 }
-
-/*#hide-submit {
-  display: none;
-}*/
