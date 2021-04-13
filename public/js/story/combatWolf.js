@@ -1,5 +1,5 @@
 let i = 0;
-let speed = 50;
+let speed = 25;
 const intro = 'After a few steps into the direction of the noise, you find yourself face to face with a wolf. It attacks!'
 // const intro = "bla bla bla"; // for testing purposes
 const enter = "Press enter";
@@ -9,7 +9,7 @@ const typeWriter = (text) => {
     document.getElementById("story").innerHTML += text.charAt(i);
     i++;
       if (text.charAt(i-1) === "!" || text.charAt(i-1) === "." || text.charAt(i-1) === "?") {
-        setTimeout(typeWriter, 1200, text);
+        setTimeout(typeWriter, 600, text);
       } else {
         setTimeout(typeWriter, speed, text);
       };
@@ -93,18 +93,14 @@ document.addEventListener('keydown', function (event) {
               document.querySelector('.character').classList.add('wound');
               setTimeout(function() {
                 document.querySelector('.character').classList.remove('wound');
+                document.querySelector(".enter").classList.remove("invisible");
+                document.getElementById("story").innerHTML += "</br>It is your turn to attack";
+                player.classList.add("turn");
               }, 2000);
 
               wolf.classList.remove("turn");
-              player.classList.add("turn");
               const audio = new Audio('../../sound/Monster_Bite.wav');
               audio.play();
-
-              setTimeout(function(){
-                player.classList.add("turn");
-                document.querySelector(".enter").classList.remove("invisible");
-                document.getElementById("story").innerHTML += "</br>It is your turn to attack";
-              }, 1000);
             };
 
 
@@ -124,18 +120,18 @@ document.addEventListener('keydown', function (event) {
             setTimeout(function() {
               document.querySelector('.wolf').classList.remove('invisible');
               document.querySelector('.wolf-fight').classList.add('invisible');
+              wolf.classList.remove("turn");
             }, 500);
 
             document.querySelector(".dice").classList.add("invisible");
             document.getElementById("story").innerHTML = wolfMiss[Math.floor(Math.random()*2)];
             document.getElementById("story").classList.remove("invisible");
             document.querySelector(".enter").classList.remove("invisible");
-            wolf.classList.remove("turn");
+            // wolf.classList.remove("turn");
             player.classList.add("turn");
           }, 1000);
           round.innerHTML = "player";
         };
-
       } else if (round.innerHTML === "player") {
         roleDice();
         const playerHitfactor =  playerAgility - wolfAgility + Math.floor(Math.random()*18) - 9;
@@ -184,10 +180,10 @@ document.addEventListener('keydown', function (event) {
               document.getElementById('wolf-life').innerHTML = wolfLife;
               document.getElementById('wolf-life').classList.add('new-life-score');
 
-              player.classList.remove("turn");
               const audio = new Audio('../../sound/player-wound.wav');
               audio.play();
               setTimeout(function(){
+                player.classList.remove("turn");
                 wolf.classList.add("turn");
                 document.querySelector(".enter").classList.remove("invisible");
                 document.getElementById("story").innerHTML += "</br>It is the wolf's turn to attack";
