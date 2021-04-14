@@ -35,8 +35,10 @@
     <p>Welcome <%= char.charactername %> !</p>
     <p id="story"></p>
     <form action="update" method="POST">
-      <input type="text" name="<%= char._id %>">
-      <input type="submit" name="0" id="hide-submit">
+      <input type="text" name="direction">
+      <input type="hidden" name="id" value="<%= char._id %>">
+      <input type="hidden" name="level" value="<%= char.level %>">
+      <input type="submit" id="hide-submit">
     </form>
   </div>
   <script src="../js/story/0.js"></script>

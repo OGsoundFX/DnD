@@ -5,15 +5,10 @@ module.exports = function(app) {
 
   app.post('/update', (req, res) => {
     let level, id, newDirection;
-    if (req.body[Object.keys(req.body)[0]] = "Submit") {
-      level = Object.keys(req.body)[0];
-      id = Object.keys(req.body)[1];
-      newDirection = req.body[Object.keys(req.body)[1]];
-    } else {
-      level = Object.keys(req.body)[1];
-      id = Object.keys(req.body)[0];
-      newDirection = req.body[Object.keys(req.body)[0]];
-    };
+    newDirection = req.body.direction;
+    level = req.body.level;
+    id = req.body.id;
+
     Character.findByIdAndUpdate(id, {direction: newDirection, level: parseInt(level) + 1 }, function(err, char) {
         if (err) throw err;
     });
@@ -57,10 +52,9 @@ module.exports = function(app) {
   app.post('/updateAfterCombat', (req,res) => {
     let id = req.body["id"];
     let level = parseInt(req.body["level"]);
-    console.log(level);
     let newLife = parseInt(req.body["life"]);
     let experience = parseInt(req.body["experience"]);
-    Character.findByIdAndUpdate(id, {level: level + 1, life: newLife, $inc: {experience: experience} }, function(err, char) {
+    Character.findByIdAndUpdate(id, {level: level + 1, life: newLife, $inc: {experience: experience}, $push: {inventory: "wolf tooth"} }, function(err, char) {
         if (err) throw err;
     });
 

@@ -14,7 +14,9 @@ const characterSchema = new Schema({
     chance: { type: Number, default: 0 },
     courage: { type: Number, default: 0 },
     life: { type: Number, default: 25 },
-    experience: { type: Number, default: 0}
+    experience: { type: Number, default: 0},
+    inventory: Array,
+    coins: { type: Number, default: 0 }
 });
 
 const Characters = mongoose.model('characters', characterSchema);
