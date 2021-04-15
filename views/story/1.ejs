@@ -35,9 +35,11 @@
     </pre>
     <p><% char.direction %></p>
     <p id="story"></p>
-    <form action="wolves" method="POST">
-      <input type="text" name="<%= char._id %>">
-      <input type="submit" name="1" id="hide-submit">
+    <form action="wolf" method="POST">
+      <input type="text" name="response">
+      <input type="hidden" name="id" value="<%= char._id %>">
+      <input type="hidden" name="level" value="<%= char.level %>">
+      <input type="submit" id="hide-submit">
     </form>
   </div>
   <script src="../js/story/1.js"></script>
