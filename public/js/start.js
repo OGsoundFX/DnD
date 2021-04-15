@@ -13,7 +13,7 @@ const typeWriter = (text) => {
         setTimeout(typeWriter, speed, text);
       };
   } else {
-    setTimeout(function(){ document.querySelector(".text-font").innerHTML += `<p id='enter'>${enter}</p>`; }, 10);
+    setTimeout(function(){ document.getElementById("enter").innerHTML += `<p id='enter'>${enter}</p>`; }, 1000);
 
   };
 };

@@ -42,10 +42,6 @@ pre {
   100% { opacity: 0; }
 }
 
-/*#btn {
-  display: none;
-}*/
-
 .intro-art {
   font-size: 1.5vw;
   color: #1dbb1e;
@@ -57,45 +53,15 @@ pre {
   width: 57vw;
 }
 
-/*input {
-  border: none;
-  background-color: black;
-  color: #1dbb1e;
-  outline: none;
-  caret-color: transparent;
-  text-shadow: 0 0 9px #1dbb1e;
-}*/
-
 
 .text-font {
   font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   font-size: 2vw;
-}
-
-.screen-size {
-  /*smax-width: 100%;*/
-  /*width: 120%;*/
+  margin-top: -40px;
 }
 
 .decoration {
   color: #1dbb1e;
   font-size: 1.6vw;
   line-height: 0.9em;
-}
-
-.uper-decoration {
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 0;
-  color: #1dbb1e;
-  font-size: 1.6vw;
-  line-height: 0.5em;
-}
-
-.lower-decoration {
-  margin-top: -40px;
-  text-align: center;
-  color: #1dbb1e;
-  font-size: 1.6vw;
-  line-height: 0.5em;
 }
