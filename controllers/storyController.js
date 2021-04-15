@@ -42,8 +42,6 @@ module.exports = function(app) {
         };
       });
 
-        // res.send(nAttack);
-
         if (nAttack > 0) {
           // create Wolf
           const wolf = {
@@ -64,46 +62,6 @@ module.exports = function(app) {
         };
 
     });
-
-
-    // if (attackLexico.includes(word)) {
-    //   // create Wolf
-    //   const wolf = {
-    //     life: 10 + Math.floor(Math.random()*7),
-    //     strength: 8 + Math.floor(Math.random()*9),
-    //     agility: 6 + Math.floor(Math.random()*7),
-    //     chance: 6 + Math.floor(Math.random()*7)
-    //   };
-    //   Character.find({ _id: id }, function(err, char) {
-    //     if (err) throw err;
-    //     res.render('./story/combatWolf', { char: char[0], wolf: wolf })
-    //   });
-    // } else if (escapeLexico.includes(word)) {
-    //   // create pack of wolves
-    //   res.send('You coward!');
-    // } else {
-    //   res.send('Other answer');
-    // };
-
-
-
-    // if (response === "fight") {
-    //   // create Wolf
-    //   const wolf = {
-    //     life: 10 + Math.floor(Math.random()*7),
-    //     strength: 8 + Math.floor(Math.random()*9),
-    //     agility: 6 + Math.floor(Math.random()*7),
-    //     chance: 6 + Math.floor(Math.random()*7)
-    //   };
-    //   Character.find({ _id: id }, function(err, char) {
-    //     if (err) throw err;
-    //     res.render('./story/combatWolf', { char: char[0], wolf: wolf })
-    //   });
-    // } else if (response === "escape") {
-    //   // create pack of wolves
-    // } else {
-    //   res.send('Other answer');
-    // };
   });
 
   app.post('/updateAfterCombat', (req,res) => {
