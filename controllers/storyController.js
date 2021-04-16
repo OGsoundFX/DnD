@@ -18,8 +18,12 @@ module.exports = function(app) {
       Character.findByIdAndUpdate(id, { $inc: {level: 1}, $inc: {courage: 2}  }, function(err, char) {
           if (err) throw err;
       });
-
-      res.send("the path does not exist yet");
+      setTimeout(function(){
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render(`./story/path`, { char: char[0] });
+        });
+      }, 300);
     } else if (replyArray.some( word => forestArray.indexOf(word) >= 0)) {
       Character.findByIdAndUpdate(id, { $inc: {level: 1} }, function(err, char) {
           if (err) throw err;
@@ -31,6 +35,8 @@ module.exports = function(app) {
           res.render(`./story/${char[0].level}`, { char: char[0] });
         });
       }, 300);
+    } else {
+      res.send(`what the fuck is ${direction}?`);
     };
   });
 
