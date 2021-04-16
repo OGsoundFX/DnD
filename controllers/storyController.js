@@ -3,13 +3,44 @@ const Lexico = require('../models/lexicoModel');
 
 module.exports = function(app) {
 
+  app.post('/pathForest', (req, res) => {
+    let level, id, direction;
+    direction = req.body.direction.toLowerCase();
+    level = req.body.level;
+    id = req.body.id;
+
+    const forestArray = ["woods", "forest", "bush", "tree", "wood", "woodland", "nature", "hide", "discrete", "branch", "branches"];
+    const pathArray = ["path", "pathway", "road", "route", "roadway", "trail", "open", "space"];
+
+    const replyArray = direction.split(" ");
+
+    if (replyArray.some( word => pathArray.indexOf(word) >= 0)) {
+      Character.findByIdAndUpdate(id, { $inc: {level: 1}, $inc: {courage: 2}  }, function(err, char) {
+          if (err) throw err;
+      });
+
+      res.send("the path does not exist yet");
+    } else if (replyArray.some( word => forestArray.indexOf(word) >= 0)) {
+      Character.findByIdAndUpdate(id, { $inc: {level: 1} }, function(err, char) {
+          if (err) throw err;
+      });
+
+      setTimeout(function(){
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render(`./story/${char[0].level}`, { char: char[0] });
+        });
+      }, 300);
+    };
+  });
+
   app.post('/update', (req, res) => {
     let level, id, newDirection;
     newDirection = req.body.direction;
     level = req.body.level;
     id = req.body.id;
 
-    Character.findByIdAndUpdate(id, {direction: newDirection, level: parseInt(level) + 1 }, function(err, char) {
+    Character.findByIdAndUpdate(id, {direction: newDirection, $inc: {level: 1} }, function(err, char) {
         if (err) throw err;
     });
     setTimeout(function(){
@@ -21,7 +52,7 @@ module.exports = function(app) {
   });
 
   app.post('/wolf', (req, res) => {
-    let playerResponse = req.body.response;
+    let playerResponse = req.body.response.toLowerCase();
     let id = req.body.id;
     let level = req.body.level;
     let playerResponseArray = playerResponse.split(" ");

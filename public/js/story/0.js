@@ -1,6 +1,7 @@
 let i = 0;
-let speed = 50;
-const introText = 'You are still disoriented, but your instinct tells you that you cannot stay here much longer. The thick forest lays in front of you. Which direction would you like to take (N - E - W - S)?';
+let speed = 25;
+const introText = 'You are still disoriented, but your instinct tells you that you cannot stay here much longer. You notice a path to your right, maybe it leads somewhere. But it might be safer to walk through the thick forest that lays in front of you. What will you do?';
+// const introText = "blablabla"; // for testing purposes
 const enter = "Press enter";
 
 const typeWriter = (text) => {
@@ -8,7 +9,7 @@ const typeWriter = (text) => {
     document.getElementById("story").innerHTML += text.charAt(i);
     i++;
       if (text.charAt(i-1) === "!" || text.charAt(i-1) === "." || text.charAt(i-1) === "?") {
-        setTimeout(typeWriter, 1200, text);
+        setTimeout(typeWriter, 700, text);
       } else {
         setTimeout(typeWriter, speed, text);
       };
@@ -19,6 +20,10 @@ const typeWriter = (text) => {
 };
 
 typeWriter(introText);
+
+setTimeout(function() {
+  document.getElementById('form').classList.remove('invisible');
+}, 9000);
 
 //fade in function
 

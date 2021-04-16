@@ -9,32 +9,58 @@
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
   <link href="../css-components/story.css" rel="stylesheet" type="text/css">
 </head>
-<body onload="unfade()" id="body">
-  <div class="container">
+<body style= "opacity: 0;" onload="unfade()" id="body">
+  <div class="container position-relative">
     <pre class="decoration d-flex justify-content-center">
 
-   (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯)
-  ( \                                                                      / )
- ( \ )                                                                    ( / )
-( ) (                                                                      ) ( )
- ( / )                                                                    ( \ )
-  ( /                                                                      \ )
-  ( \                                                                      / )
- ( \ )                                                                    ( / )
-( ) (                                                                      ) ( )
- ( / )                                                                    ( \ )
-  ( /                                                                      \ )
-  ( \                                                                      / )
- ( \ )                                                                    ( / )
-( ) (                                                                      ) ( )
- ( / )                                                                    ( \ )
-  ( /                                                                      \ )
-   (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._)
+    (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯)
+   ( \                                                                               / )
+  ( \ )                                                                             ( / )
+ ( ) (                                                                               ) ( )
+  ( / )                                                                             ( \ )
+   ( /                                                                               \ )
+   ( \                                                                               / )
+  ( \ )                                                                             ( / )
+ ( ) (                                                                               ) ( )
+  ( / )                                                                             ( \ )
+   ( /                                                                               \ )
+   ( \                                                                               / )
+  ( \ )                                                                             ( / )
+ ( ) (                                                                               ) ( )
+  ( / )                                                                             ( \ )
+   ( /                                                                               \ )
+   ( \                                                                               / )
+  ( \ )                                                                             ( / )
+ ( ) (                                                                               ) ( )
+  ( / )                                                                             ( \ )
+   ( /                                                                               \ )
+    (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._¸.·´¯`·._)
 
     </pre>
+    <div class="position-absolute">
+      <pre class="d-flex justify-content-center forest-art">
+      ~~~~~~                     /\
+    ~(      )~                  /  \
+   (   o      )                /  \ \
+  (        o   )              / /    \                  ~~~~~~
+ (      o       )            /_   \  _\               ~(       )~
+  (   o        )              /      \               (       o   )
+   (__      __)              /  /     \             (    o        )
+      \    /    /\          /_    \   _\             (       o   )
+   ____|   |   /\ \          /        \               (__     __)
+  @___     |  /_  _\        /  /    \  \                 \   /
+      \    |   /  \        /_   /      _\        ~       |   |__(´)
+       |   |  /  \ \        /      \   \       (~~~)     |    __() )
+       | @ | /_/   _\      /  /  /   \  \     (     )    |   /   ``
+       |   |  /  \ \      /______  ______\   (  (    )   |   |
+       |   | /__  __\           |  |         (     ) )   |   |
+<@>    |   |   | <@>   (^)      |  |   (^)    (  (  )    |   |    <@>
+_|____/     \__|_\|/____U_______|  |____u_______|/|_____/     \___\|/__
+      </pre>
+    </div>
     <p>Welcome <%= char.charactername %> !</p>
     <p id="story"></p>
-    <form action="update" method="POST">
+    <form action="pathForest" method="POST" class="invisible" id="form">
       <input type="text" name="direction">
       <input type="hidden" name="id" value="<%= char._id %>">
       <input type="hidden" name="level" value="<%= char.level %>">
