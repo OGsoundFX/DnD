@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>The Quest</title>
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
+  <link href="../css-components/story.css" rel="stylesheet" type="text/css">
+</head>
+<body style= "opacity: 0;" onload="unfade()" id="body">
+  <div class="container position-relative">
+    <pre class="decoration d-flex justify-content-center">
+
+    (¯`·.  .·´¯`·.  .·´¯`·.  .·´¯`·.  .·´¯`·.  .·´¯`·.  .·´¯·.  .·´¯`·.  .·´¯`·.  .·´¯)
+    /\ |¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯| /\
+   //\\|                                                                            |//\\
+   \\//|                                                                            |\\//
+    // |                                                                            | //
+   //\\|                                                                            |//\\
+   \\//|                                                                            |\\//
+    \\ |                                                                            | \\
+   //\\|                                                                            |//\\
+   \\//|                                                                            |\\//
+    // |                                                                            | //
+   //\\|                                                                            |//\\
+   \\//|                                                                            |\\//
+    \\ |                                                                            | \\
+   //\\|                                                                            |//\\
+   \\//|                                                                            |\\//
+    // |                                                                            | //
+   //\\|                                                                            |//\\
+   \\//|                                                                            |\\//
+    \/ |____________________________________________________________________________|_\/
+    (_.·   ·.¸¸.·   ·.¸_.·   ·.¸¸.·   ·.¸_.·   ·.¸¸.·   ·.¸_.·   ·.¸¸.·   ·._¸.·   ·._)
+
+    </pre>
+    <div class="position-absolute">
+      <pre class="d-flex justify-content-center path-art">
+                                                            ~~~~~~~
+                               | |      /      \          ~(       )~
+    ~          ~~~~~~    ,     | |     /        \        (       o   )
+  (~~~)      ~(      )~      , | |    /     o    \   ,  (    o        )
+ (     )    (   o      ) /\  _/   \_ /            \      (       o   ) ,
+(  (    )  (        o   )  \      , /    o         \   ,  (__     __)
+(     ) ) (      o       ) _\  ,   /         o      \        \   /   <@>
+ (  (  )   (   o        )  \      /                  \  ,    | @ |   \|/
+   |/|      (__      __)   _\  , /                    \    , |   |
+               \    / /  \ \    /     O       o        \     |   |   ,  ,
+   (^) ,    ____|   |/__  __\  /                        \  ,/     \
+  , u      @___     |  |  |   /              o       o   \    ,  , (^)  ,
+      ,        \    | ,|  |, /   o                        \      ,  u   , ,
+     ,      ,   |   |  , ,  /             O          O     \ <@>
+  ,    <@>      | @ |      /                                \\|/  ,   ,
+   ,    |       |   |     /                                  \,   ,   (^)
+       ,    ,   |   |    /         o           O              \  ,   , u
+  <@>  ,   ,    |   |   /                                    o \,         <@>
+  \|/    ,    _/     \ /                                        \    ,  ,  |
+      </pre>
+    </div>
+    <p>Welcome <%= char.charactername %> !</p>
+    <p id="story"></p>
+    <form action="pathForest" method="POST" class="invisible" id="form">
+      <input type="text" name="direction">
+      <input type="hidden" name="id" value="<%= char._id %>">
+      <input type="hidden" name="level" value="<%= char.level %>">
+      <input type="submit" id="hide-submit">
+    </form>
+  </div>
+  <script src="../js/story/path.js"></script>
+  </body>
+</html>

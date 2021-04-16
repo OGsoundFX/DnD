@@ -36,13 +36,20 @@ pre {
   display: none;
 }
 
-.forest-art {
-  margin-top: -430px;
+.forest-art, .path-art {
   margin-left: 200px;
   font-size: 1.5vw;
   color: #1dbb1e;
   text-shadow: 0 0 9px #1dbb1e;
   line-height: 0.9em;
+}
+
+.forest-art {
+  margin-top: -430px;
+}
+
+.path-art {
+  margin-top: -460px;
 }
 
 .invisible {
