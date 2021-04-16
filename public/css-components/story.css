@@ -22,7 +22,6 @@ pre {
 }
 
 .decoration {
-  position: relative;
   margin-top: 40px;
   color: #1dbb1e;
   font-size: 1.6vw;
@@ -34,5 +33,18 @@ pre {
 }
 
 #hide-submit {
+  display: none;
+}
+
+.forest-art {
+  margin-top: -430px;
+  margin-left: 200px;
+  font-size: 1.5vw;
+  color: #1dbb1e;
+  text-shadow: 0 0 9px #1dbb1e;
+  line-height: 0.9em;
+}
+
+.invisible {
   display: none;
 }
