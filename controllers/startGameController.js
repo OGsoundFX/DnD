@@ -9,7 +9,6 @@ module.exports = function(app) {
         res.render(`./story/${char[0].level}`, { char: char[0] });
       } else {
         res.render('./startgame', { fail: true });
-        // res.send("fix this!");
       }
     });
   });

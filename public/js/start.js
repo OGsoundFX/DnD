@@ -66,6 +66,7 @@ document.addEventListener('keydown', function (event) {
 
 const fadeAndCreditMusic = () => {
   const audio = new Audio('../sound/music1.mp3');
+  audio.volume = 0.4;
   audio.play();
   unfade();
 };

@@ -42,8 +42,9 @@ const unfade = () => {
 
 // Play sound & fade in
 
-const fadeAndCreditMusic = () => {
-  const audio = new Audio('../sound/music1.mp3');
+const fadeAndMusic = () => {
+  const audio = new Audio('../sound/forest.wav');
+  audio.volume = 0.4;
   audio.play();
   unfade();
 };
