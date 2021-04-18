@@ -13,8 +13,8 @@ const typeWriter = (text) => {
       } else {
         setTimeout(typeWriter, speed, text);
       };
-  } else {
-    setTimeout(function(){ document.querySelector(".text-font").innerHTML += `<p id='enter'>${enter}</p>`; }, 10);
+  // } else {
+  //   setTimeout(function(){ document.querySelector(".text-font").innerHTML += `<p id='enter'>${enter}</p>`; }, 10);
 
   };
 };
@@ -45,6 +45,7 @@ const unfade = () => {
 const fadeAndMusic = () => {
   const audio = new Audio('../sound/forest.wav');
   audio.volume = 0.4;
+  audio.loop = true;
   audio.play();
   unfade();
 };

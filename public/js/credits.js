@@ -38,9 +38,3 @@ document.addEventListener('keydown', function (event) {
     setTimeout(function(){ window.open("startgame", "_self"); }, 1000);
   }
 });
-
-// const playCreditMusic = () => {
-//   const audio = new Audio('../sound/sound.mp3');
-//   audio.play();
-// };
-

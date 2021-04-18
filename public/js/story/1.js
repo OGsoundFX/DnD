@@ -39,6 +39,7 @@ const unfade = () => {
 
 const fadeAndCreditMusic = () => {
   const audio = new Audio('../sound/music1.mp3');
+  audio.loop = true;
   audio.play();
   unfade();
 };
