@@ -65,3 +65,15 @@ pre {
   font-size: 1.6vw;
   line-height: 0.9em;
 }
+
+.invisible {
+  display: none;
+}
+
+#music-on, #music-off {
+  margin-top: 15px;
+  margin-right: 164px;
+  height: 34px;
+  cursor: pointer;
+  /*cursor: url('../images/sword.png'), pointer;*/
+}

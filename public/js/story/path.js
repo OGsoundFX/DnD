@@ -13,7 +13,7 @@ const typeWriter = (text) => {
         setTimeout(typeWriter, speed, text);
       };
   } else {
-    setTimeout(function(){ document.querySelector(".text-font").innerHTML += `<p id='enter'>${enter}</p>`; }, 10);
+    // setTimeout(function(){ document.querySelector(".text-font").innerHTML += `<p id='enter'>${enter}</p>`; }, 10);
 
   };
 };
@@ -40,11 +40,23 @@ const unfade = () => {
 }
 
 // Play sound & fade in
-const audio = new Audio('../sound/music1.mp3');
+const audio = new Audio('../sound/forest.wav');
 audio.volume = 0.4;
 audio.loop = true;
 
 const fadeAndCreditMusic = () => {
   audio.play();
   unfade();
+};
+
+// on-off sound button
+
+const sound = () => {
+  document.getElementById('music-on').classList.toggle('invisible');
+  document.getElementById('music-off').classList.toggle('invisible');
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  };
 };

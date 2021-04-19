@@ -64,10 +64,23 @@ document.addEventListener('keydown', function (event) {
 
 // Play sound & fade in
 
+const audio = new Audio('../sound/music1.mp3');
+audio.loop = true;
+audio.volume = 0.4;
+
 const fadeAndCreditMusic = () => {
-  const audio = new Audio('../sound/music1.mp3');
-  audio.volume = 0.4;
   audio.play();
   unfade();
 };
 
+// on-off sound button
+
+const sound = () => {
+  document.getElementById('music-on').classList.toggle('invisible');
+  document.getElementById('music-off').classList.toggle('invisible');
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  };
+};
