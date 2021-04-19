@@ -41,11 +41,24 @@ const unfade = () => {
 }
 
 // Play sound & fade in
+const audio = new Audio('../sound/forest.wav');
+audio.volume = 0.4;
+audio.loop = true;
 
 const fadeAndMusic = () => {
-  const audio = new Audio('../sound/forest.wav');
-  audio.volume = 0.4;
-  audio.loop = true;
   audio.play();
   unfade();
+};
+
+// on-off sound button
+
+const sound = () => {
+  document.getElementById('music-on').classList.toggle('invisible');
+  document.getElementById('music-off').classList.toggle('invisible');
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  };
+  console.log(audio.paused);
 };

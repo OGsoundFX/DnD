@@ -40,10 +40,11 @@ const unfade = () => {
 }
 
 // Play sound & fade in
+const audio = new Audio('../sound/music1.mp3');
+audio.volume = 0.4;
+audio.loop = true;
 
 const fadeAndCreditMusic = () => {
-  const audio = new Audio('../sound/music1.mp3');
-  audio.loop = true;
   audio.play();
   unfade();
 };
