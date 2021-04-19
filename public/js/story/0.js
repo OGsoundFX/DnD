@@ -60,5 +60,4 @@ const sound = () => {
   } else {
     audio.pause();
   };
-  console.log(audio.paused);
 };
