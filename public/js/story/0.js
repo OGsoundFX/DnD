@@ -51,7 +51,6 @@ const fadeAndMusic = () => {
 };
 
 // on-off sound button
-
 const sound = () => {
   document.getElementById('music-on').classList.toggle('invisible');
   document.getElementById('music-off').classList.toggle('invisible');

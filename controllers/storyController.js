@@ -1,9 +1,18 @@
 const Character = require('../models/characterModel');
+const PlayerEntry = require('../models/playerEntryModel');
 const Lexico = require('../models/lexicoModel');
 
 module.exports = function(app) {
 
   app.post('/pathForest', (req, res) => {
+
+    const newPlayerEntry = PlayerEntry({
+        entry: req.body.direction
+    });
+    newPlayerEntry.save(function(err, char) {
+        if (err) throw err;
+    });
+
     let level, id, direction;
     direction = req.body.direction.toLowerCase();
     level = req.body.level;

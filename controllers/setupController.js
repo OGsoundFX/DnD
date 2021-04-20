@@ -1,5 +1,6 @@
 const Characters = require('../models/characterModel');
 const Lexico = require('../models/lexicoModel');
+const PlayerEntries = require('../models/playerEntryModel');
 
 module.exports = function(app) {
 
@@ -33,5 +34,14 @@ module.exports = function(app) {
        Lexico.create(lexico, (err, results) => {
            res.send(results);
        });
+   });
+
+   app.get('/api/playerEntry', (req, res) => {
+    const playerEntry = [
+      {
+        entry: "first test entry"
+      }
+    ];
+    PlayerEntries.create(playerEntry, (req, results) => { res.send(results); });
    });
 }
