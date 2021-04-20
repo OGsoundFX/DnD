@@ -28,7 +28,9 @@ module.exports = function(app) {
             name: "lexico",
             direction: ["north", "n", "south", "s", "east", "e", "west", "w"],
             attack: ["fight", "attack", "battle", "clash", "kill", "hit", "combat", "war", "engage", "hurt", "slay", "murder", "hunt", "slaughter"],
-            escape: ["run", "away", "flee", "escape"]
+            escape: ["run", "away", "flee", "escape"],
+            hide: ["hide", "cover", "camouflage", "burry", "disguise", "under", "mask", "beneath", "conceal", "cloak", "bush", "wall"],
+            climb: ["climb", "up", "mount", "rise", "top"]
            }
        ];
        Lexico.create(lexico, (err, results) => {
