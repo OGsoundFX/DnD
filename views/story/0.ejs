@@ -9,7 +9,11 @@
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
   <link href="../css-components/story.css" rel="stylesheet" type="text/css">
 </head>
+<% if (typeof(fail) != "undefined") { %>
+<body onload="music()" id="body">
+<% } else { %>
 <body style= "opacity: 0;" onload="fadeAndMusic()" id="body">
+<% } %>
   <div class="container d-flex justify-content-end">
     <img src="../images/lyre-play.png" onclick="sound()" id="music-on" class="invisible">
     <img src="../images/lyre-stop.png" onclick="sound()" id="music-off">
@@ -62,8 +66,13 @@
   _|____/     \__|_\|/____U_______|  |____u_______|/|_____/     \___\|/__
       </pre>
     </div>
-    <p>Welcome <%= char.charactername %> !</p>
-    <p id="story"></p>
+    <% if (typeof(fail) != "undefined") { %>
+    <% const invalidAnswer = ['Sorry Sire, your mumbling was not comprehensible. Try again!', 'What was that? Please state your intentions clearly!', '??? You better hurry and take the path or the forest! Which one will it be?']; %>
+    <%= invalidAnswer[Math.floor(Math.random() * 3)] %>
+    <% } else { %>
+      <p>Welcome <%= char.charactername %> !</p>
+      <p id="story"></p>
+    <% }; %>
     <form action="pathForest" method="POST" class="invisible" id="form">
       <input type="text" name="direction">
       <input type="hidden" name="id" value="<%= char._id %>">
