@@ -6,7 +6,9 @@ const lexicoSchema = new Schema({
     name: String,
     direction: Array,
     attack: Array,
-    escape: Array
+    escape: Array,
+    hide: Array,
+    climb: Array
 });
 
 const Lexico = mongoose.model('lexico', lexicoSchema);

@@ -34,7 +34,7 @@ module.exports = function(app) {
       setTimeout(function(){
         Character.find({ _id: id }, function(err, char) {
           if (err) throw err;
-          res.render(`./story/${char[0].level}`, { char: char[0] });
+          res.render('./story/1', { char: char[0] });
         });
       }, 300);
     } else {
@@ -84,35 +84,53 @@ module.exports = function(app) {
       if (err) throw err;
       const attackLexico = lexico[0].attack;
       const escapeLexico = lexico[0].escape;
+      const hideLexico = lexico[0].hide;
+      const climbLexico = lexico[0].climb;
       let nAttack = 0;
       let nEscape = 0;
+      let nHide = 0;
+      let nClimb = 0;
 
       playerResponseArray.forEach(word => {
         if (attackLexico.includes(word)) {
           nAttack ++;
         } else if (escapeLexico.includes(word)) {
           nEscape ++;
+        } else if (hideLexico.includes(word)) {
+          nHide ++;
+        } else if (climbLexico.includes(word)) {
+          nClimb ++;
         };
       });
 
-        if (nAttack > 0) {
-          // create Wolf
-          const wolf = {
-            life: 10 + Math.floor(Math.random()*7),
-            strength: 8 + Math.floor(Math.random()*9),
-            agility: 6 + Math.floor(Math.random()*7),
-            chance: 6 + Math.floor(Math.random()*7)
-          };
-          Character.find({ _id: id }, function(err, char) {
-            if (err) throw err;
-            res.render('./story/combatWolf', { char: char[0], wolf: wolf })
-          });
-        } else if (nEscape > 0) {
-          // create pack of wolves
-          res.send('You coward!');
-        } else {
-          res.send('Other answer');
+      if (nAttack > 0) {
+        // create Wolf
+        const wolf = {
+          life: 10 + Math.floor(Math.random()*7),
+          strength: 8 + Math.floor(Math.random()*9),
+          agility: 6 + Math.floor(Math.random()*7),
+          chance: 6 + Math.floor(Math.random()*7)
         };
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render('./story/combatWolf', { char: char[0], wolf: wolf })
+        });
+      } else if (nEscape > 0) {
+        // you try to escape but you stumble on a tronc and you get caught by a pack of wolves
+        // minus points un courage
+        // create pack of wolves
+        res.send('You coward!');
+      } else if (nHide > 0) {
+        // you hide but the wolves smell your sent and attack you
+        // minus points in courage
+        res.send('You coward! your are attacked while hiding');
+      } else if (nClimb > 0) {
+        // you climb and maybe there is something cool happening / or you fall and get attacked
+        // minus points in courage ?
+        res.send('Climbing is a coward move but not such a bad idea');
+      } else {
+        res.send('Other answer');
+      };
 
     });
   });
