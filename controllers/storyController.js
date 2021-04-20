@@ -6,13 +6,6 @@ module.exports = function(app) {
 
   app.post('/pathForest', (req, res) => {
 
-    const newPlayerEntry = PlayerEntry({
-        entry: req.body.direction
-    });
-    newPlayerEntry.save(function(err, char) {
-        if (err) throw err;
-    });
-
     let level, id, direction;
     direction = req.body.direction.toLowerCase();
     level = req.body.level;
@@ -45,7 +38,21 @@ module.exports = function(app) {
         });
       }, 300);
     } else {
-      res.send(`what the fuck is ${direction}?`);
+      // saving entry into DB
+      const newPlayerEntry = PlayerEntry({
+          entry: req.body.direction
+      });
+      newPlayerEntry.save(function(err, char) {
+          if (err) throw err;
+      });
+      // res.send(`what the fuck is ${direction}?`);
+
+      setTimeout(function(){
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render('./story/0', { fail: true, char: char[0] });
+        });
+      }, 300);
     };
   });
 
