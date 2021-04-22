@@ -6,13 +6,13 @@ body {
 }
 
 h1 {
-  font-size: 1.6vw;
+  font-size: 26px;
   margin: 0;
   padding: 0;
 }
 
 p {
-  font-size: 1.2vw;
+  font-size: 22px;
 }
 
 pre {
@@ -28,11 +28,15 @@ pre {
 #title-quest {
   display: none;
   margin-top: 20px;
-  font-size: 2vw;
+  font-size: 30px;
 }
 
 #enter {
   animation:blinking 1s linear infinite;
+}
+
+.greetings-position {
+  margin-top: 67px;
 }
 
 @keyframes blinking {
@@ -43,7 +47,7 @@ pre {
 }
 
 .intro-art {
-  font-size: 1.5vw;
+  font-size: 22px;
   color: #1dbb1e;
   text-shadow: 0 0 9px #1dbb1e;
   line-height: 0.9em;
@@ -56,13 +60,13 @@ pre {
 
 .text-font {
   font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-  font-size: 2vw;
+  font-size: 22px;
   margin-top: -40px;
 }
 
 .decoration {
   color: #1dbb1e;
-  font-size: 1.6vw;
+  font-size: 23px;
   line-height: 0.9em;
 }
 

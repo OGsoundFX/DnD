@@ -6,13 +6,13 @@ body {
 }
 
 h1 {
-  font-size: 1.6vw;
+  font-size: 26px;
   margin: 0;
   padding: 0;
 }
 
 p {
-  font-size: 1.2vw;
+  font-size: 22px;
 }
 
 pre {
@@ -23,7 +23,7 @@ pre {
 
 .decoration {
   color: #1dbb1e;
-  font-size: 1.6vw;
+  font-size: 23px;
   line-height: 0.9em;
 }
 
@@ -37,14 +37,14 @@ pre {
 
 .forest-art, .path-art {
   margin-left: 200px;
-  font-size: 1.5vw;
+  font-size: 22px;
   color: #1dbb1e;
   text-shadow: 0 0 9px #1dbb1e;
   line-height: 0.9em;
 }
 
 .forest-art {
-  margin-top: -430px;
+  margin-top: -530px;
 }
 
 .path-art {
