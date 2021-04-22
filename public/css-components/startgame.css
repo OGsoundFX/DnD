@@ -39,7 +39,7 @@ pre {
 .decoration {
   position: relative;
   margin-top: 20px;
-  font-size: 1.6vw;
+  font-size: 25px;
   line-height: 0.9em;
 }
 
@@ -67,7 +67,7 @@ pre {
 }
 
 .labels {
-  font-size: 10px;
+  font-size: 15px;
   margin-bottom: -12px;
 }
 

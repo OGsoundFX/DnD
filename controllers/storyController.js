@@ -17,7 +17,7 @@ module.exports = function(app) {
     const replyArray = direction.split(" ");
 
     if (replyArray.some( word => pathArray.indexOf(word) >= 0)) {
-      Character.findByIdAndUpdate(id, { $inc: {level: 1}, $inc: {courage: 2}  }, function(err, char) {
+      Character.findByIdAndUpdate(id, { level: 1, $inc: {courage: 2}  }, function(err, char) {
           if (err) throw err;
       });
       setTimeout(function(){
@@ -27,7 +27,7 @@ module.exports = function(app) {
         });
       }, 300);
     } else if (replyArray.some( word => forestArray.indexOf(word) >= 0)) {
-      Character.findByIdAndUpdate(id, { $inc: {level: 1} }, function(err, char) {
+      Character.findByIdAndUpdate(id, { level: 1 }, function(err, char) {
           if (err) throw err;
       });
 
@@ -127,6 +127,8 @@ module.exports = function(app) {
       } else if (nClimb > 0) {
         // you climb and maybe there is something cool happening / or you fall and get attacked
         // minus points in courage ?
+        // extra points in luck
+        // You climb a tree, and fall accidently killing the wolf (wolves)
         res.send('Climbing is a coward move but not such a bad idea');
       } else {
         res.send('Other answer');
@@ -140,8 +142,8 @@ module.exports = function(app) {
     let level = parseInt(req.body["level"]);
     let newLife = parseInt(req.body["life"]);
     let experience = parseInt(req.body["experience"]);
-    Character.findByIdAndUpdate(id, {level: level + 1, life: newLife, $inc: {experience: experience}, $push: {inventory: "wolf tooth"} }, function(err, char) {
-        if (err) throw err;
+    Character.findByIdAndUpdate(id, { level: 2, life: newLife, $inc: {experience: experience}, $push: {inventory: "wolf tooth"} }, function(err, char) {
+      if (err) throw err;
     });
 
     setTimeout(function(){

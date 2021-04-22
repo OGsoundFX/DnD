@@ -5,14 +5,12 @@ body {
   text-shadow: 0 0 9px #1dbb1e;
 }
 
-h1 {
-  font-size: 1.6vw;
-  margin: 0;
-  padding: 0;
+h4 {
+  font-size: 18px;
 }
 
 p {
-  font-size: 1.2vw;
+  font-size: 14px;
 }
 
 pre {
