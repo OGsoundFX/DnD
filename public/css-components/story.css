@@ -35,8 +35,7 @@ pre {
   display: none;
 }
 
-.forest-art, .path-art {
-  margin-left: 200px;
+.forest-art, .path-art, .forest-art-clouds {
   font-size: 22px;
   color: #1dbb1e;
   text-shadow: 0 0 9px #1dbb1e;
@@ -44,10 +43,17 @@ pre {
 }
 
 .forest-art {
+  margin-left: 180px;
+  margin-top: -430px;
+}
+
+.forest-art-clouds {
+  margin-left: 200px;
   margin-top: -530px;
 }
 
 .path-art {
+  margin-left: 180px;
   margin-top: -460px;
 }
 
