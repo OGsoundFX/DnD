@@ -142,7 +142,7 @@ module.exports = function(app) {
     let level = parseInt(req.body["level"]);
     let newLife = parseInt(req.body["life"]);
     let experience = parseInt(req.body["experience"]);
-    Character.findByIdAndUpdate(id, { level: 2, life: newLife, $inc: {experience: experience}, $push: {inventory: "wolf tooth"} }, function(err, char) {
+    Character.findByIdAndUpdate(id, { level: 2, life: newLife, $inc: {experience: experience}, $push: {inventory: "wolf tooth"}, $inc: {food: 1} }, function(err, char) {
       if (err) throw err;
     });
 
