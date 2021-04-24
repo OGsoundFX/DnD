@@ -153,4 +153,25 @@ module.exports = function(app) {
       });
     }, 300);
   });
+
+  app.post('/eat', (req, res) => {
+    const id = req.body.id;
+    const life = parseInt(req.body.life);
+    const food = parseInt(req.body.food);
+    let newLife;
+    if (life > 20) {
+      newLife = 25;
+    } else {
+      newLife = life + 5;
+    };
+    Character.findByIdAndUpdate(id, { life: newLife, $inc: {food: -1} }, function(err, char) {
+      if (err) throw err;
+    });
+    setTimeout(function(){
+      Character.find({ _id: id }, function(err, char) {
+        if (err) throw err;
+        res.render(`./story/${char[0].level}`, { char: char[0], fail: true });
+      });
+    }, 300);
+  });
 }
