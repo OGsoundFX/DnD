@@ -15,6 +15,7 @@
 <body style= "opacity: 0;" onload="fadeAndMusic()" id="body">
 <% } %>
   <div class="container d-flex justify-content-end">
+    <a href="../startgame"><img src="../images/castle.png" id="castle"></a>
     <img src="../images/lyre-play.png" onclick="sound()" id="music-on" class="invisible">
     <img src="../images/lyre-stop.png" onclick="sound()" id="music-off">
   </div>
@@ -65,6 +66,41 @@
   <@>    |   |   | <@>   (^)      |  |   (^)    (  (  )    |   |    <@>
   _|____/     \__|_\|/____U_______|  |____u_______|/|_____/     \___\|/__
       </pre>
+    </div>
+    <div class="decoration player-board position-absolute">
+<pre>
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                             |
+|                             |
+|                             |
+|                             |
+|                             |
+!                             !
+:                             :
+:                             :
+.                             .
+.                             .
+:                             :
+:                             :
+!                             !
+|                             |
+|                             |
+|                             |
+|                             |
+|                             |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+</pre>
+    </div>
+    <div class="player position-absolute">
+      <p style="font-size: 15px; margin-bottom: 25px"><%=char.charactername%></p>
+      ❤ Life: <span id="player-life"><%=char.life%></span><br>
+       Strength: <span id="player-strength"><%= char.strength%></span><br>
+       Agility: <span id="player-agility"><%= char.agility%></span><br>
+       Weapon: <span id="player-weapon"><%= char.weapon%></span><br>
+       Courage: <span id="player-weapon"><%= char.courage%></span><br>
+       XP: <span id="player-weapon"><%= char.experience%></span><br>
+       Coins: <span id="player-weapon"><%= char.coins%></span><br>
+       Food: <span id="player-weapon"><%= char.food%></span>
     </div>
     <% if (typeof(fail) != "undefined") { %>
     <% const invalidAnswer = ['Sorry Sire, your mumbling was not comprehensible. Try again!', 'What was that? Please state your intentions clearly!', '??? You better hurry and take the path or the forest! Which one will it be?']; %>
