@@ -12,7 +12,7 @@ h1 {
 }
 
 p {
-  font-size: 22px;
+  font-size: 16px;
 }
 
 pre {
@@ -23,7 +23,7 @@ pre {
 
 .decoration {
   color: #1dbb1e;
-  font-size: 23px;
+  font-size: 20px;
   line-height: 0.9em;
 }
 
@@ -36,15 +36,15 @@ pre {
 }
 
 .forest-art, .path-art, .forest-art-clouds {
-  font-size: 22px;
+  font-size: 20px;
   color: #1dbb1e;
   text-shadow: 0 0 9px #1dbb1e;
   line-height: 0.9em;
 }
 
 .forest-art {
-  margin-left: 180px;
-  margin-top: -430px;
+  margin-left: 222px;
+  margin-top: -408px;
 }
 
 .forest-art-clouds {
@@ -53,8 +53,8 @@ pre {
 }
 
 .path-art {
-  margin-left: 180px;
-  margin-top: -460px;
+  margin-left: 220px;
+  margin-top: -416px;
 }
 
 .invisible {
@@ -66,4 +66,22 @@ pre {
   margin-right: 164px;
   height: 34px;
   cursor: pointer;
+}
+
+#castle {
+  margin-top: 15px;
+  margin-right: 694px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.player {
+  font-size: 12px;
+  margin-top: -400px;
+  margin-left: -104px;
+}
+
+.player-board {
+  margin-top: -430px;
+  margin-left: -124px;
 }
