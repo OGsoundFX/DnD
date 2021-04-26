@@ -157,14 +157,19 @@ module.exports = function(app) {
   app.post('/eat', (req, res) => {
     const id = req.body.id;
     const life = parseInt(req.body.life);
-    const food = parseInt(req.body.food);
+    let food = parseInt(req.body.food);
+    if (food <= 0) {
+      food = 0;
+    } else {
+      food = food - 1;
+    };
     let newLife;
     if (life > 20) {
       newLife = 25;
     } else {
       newLife = life + 5;
     };
-    Character.findByIdAndUpdate(id, { life: newLife, $inc: {food: -1} }, function(err, char) {
+    Character.findByIdAndUpdate(id, { life: newLife, food: food }, function(err, char) {
       if (err) throw err;
     });
     setTimeout(function(){
