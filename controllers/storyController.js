@@ -4,6 +4,30 @@ const Lexico = require('../models/lexicoModel');
 
 module.exports = function(app) {
 
+  app.get('/scoreboard', (req, res) => {
+    Character.find( function(err, characters) {
+      if (err) throw err;
+      characterHash = {};
+      characters.forEach((char) => {
+        characterHash[char.charactername] = char.experience;
+      });
+
+      sortedList = Object.entries(characterHash).sort((a,b)=>{
+            if(b[1] > a[1]) return 1;
+            else if(b[1] < a[1]) return -1;
+      //if values are same do edition checking if keys are in the right order
+            else {
+               if(a[0] > b[0]) return 1;
+               else if(a[0] < b[0]) return -1;
+               else return 0
+        }
+      })
+      const firstTen = sortedList.slice(0,10);
+      // res.send(firstTen);
+      res.render('./scoreboard', { list: firstTen });
+    });
+  });
+
   app.post('/pathForest', (req, res) => {
 
     let level, id, direction;
