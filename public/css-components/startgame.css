@@ -74,3 +74,16 @@ pre {
 .hideInvalid {
   display: none;
 }
+
+#scoreboard {
+  margin-left: 200px;
+  color: #1dbb1e;
+  background-color: black;
+  border: solid #1dbb1e 1px;
+  text-shadow: 0 0 9px #1dbb1e;
+}
+
+#scoreboard:hover {
+  color: black;
+  background-color: #1dbb1e;
+}
