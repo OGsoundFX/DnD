@@ -20,3 +20,45 @@ pre {
   overflow-x: hidden;
   letter-spacing: -3px;
 }
+
+.invisible {
+  display: none;
+}
+
+#music-on, #music-off {
+  margin-top: 15px;
+  /*margin-right: 164px;*/
+  height: 34px;
+  cursor: pointer;
+}
+
+#castle {
+  margin-top: 15px;
+  /*margin-right: 694px;*/
+  height: 34px;
+  cursor: pointer;
+}
+
+#title {
+  margin-top: 20px;
+}
+
+.decoration {
+  position: relative;
+  margin-top: 20px;
+  font-size: 22px;
+  line-height: 0.9em;
+}
+
+.decoration pre {
+   color: #1dbb1e;
+}
+
+.scores {
+  margin: 100px 0 0 -30px;
+  line-height: 0.7em;
+}
+
+.score {
+  font-size: 17px;
+}

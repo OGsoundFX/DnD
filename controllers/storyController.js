@@ -165,8 +165,8 @@ module.exports = function(app) {
     let id = req.body["id"];
     let level = parseInt(req.body["level"]);
     let newLife = parseInt(req.body["life"]);
-    let experience = parseInt(req.body["experience"]);
-    Character.findByIdAndUpdate(id, { level: 2, life: newLife, $inc: {experience: experience}, $push: {inventory: "wolf tooth"}, $inc: {food: 1} }, function(err, char) {
+    let experiencePoints = parseInt(req.body["experience"]);
+    Character.findByIdAndUpdate(id, { level: 2, life: newLife, $push: {inventory: "wolf tooth"}, $inc: {food: 1, experience: experiencePoints} }, function(err, char) {
       if (err) throw err;
     });
 
@@ -174,6 +174,7 @@ module.exports = function(app) {
       Character.find({ _id: id }, function(err, char) {
         if (err) throw err;
         res.render(`./story/${char[0].level}`, { char: char[0] });
+        console.log(char[0].experience)
       });
     }, 300);
   });

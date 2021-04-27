@@ -12,3 +12,26 @@ const unfade = () => {
         op += op * 0.1;
     }, 50);
 }
+
+
+// Play sound & fade in
+
+const audio = new Audio('../sound/music1.mp3');
+audio.loop = true;
+audio.volume = 0.4;
+
+const fadeAndCreditMusic = () => {
+  audio.play();
+  unfade();
+};
+
+// on-off sound button
+const sound = () => {
+  document.getElementById('music-on').classList.toggle('invisible');
+  document.getElementById('music-off').classList.toggle('invisible');
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  };
+};

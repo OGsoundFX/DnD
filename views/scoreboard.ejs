@@ -9,11 +9,59 @@
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
   <link href="css-components/scoreboard.css" rel="stylesheet" type="text/css">
 </head>
-<body style= "opacity: 0;" onload="unfade()" id="body">
+<body style= "opacity: 0;" onload="fadeAndCreditMusic()" id="body">
+  <div class="container d-flex justify-content-between">
+    <a href="../startgame"><img src="../images/castle.png" id="castle"></a>
+    <h1 id="title">~ Score board ~</h1>
+    <img src="../images/lyre-play.png" onclick="sound()" id="music-on" class="invisible">
+    <img src="../images/lyre-stop.png" onclick="sound()" id="music-off">
+  </div>
   <div class="container">
-    <% list.forEach((player) => { %>
-      <p> <%= player[0] %>: <%= player[1] %> </p>
-    <% }) %>
+    <div class="d-flex justify-content-center decoration position-relative">
+      <pre>
+   _________________________________________________________________
+ /   \                                                             `\
+|| @  |                                                              |
+| \__/______________________________________________________________/
+|                                                                  |
+ |                                                                 |
+ |                                                                  |
+ |                                                                  |
+  |                                                                  |
+   \                                                                 |
+   /                                                                |
+  |                                                                 |
+  |                                                                 /
+   \                                                               /
+   |                                                               \
+   |                                                                |
+    \                                                               |
+    /                                                                \
+   |                                                                 |
+   |                                                                 |
+   /                                                                |
+  |                                                                 |
+  |                                                                  \
+   \                                                                  \
+   |                                                                  |
+  |                                                                   /
+  |  ________________________________________________________________|
+  |/`  \                                                             `\
+  || @ |                                                               |
+   \___/_______________________________________________________________/
+      </pre>
+      <div class="scores position-absolute">
+        <% let length = 0 %>
+        <% list.forEach((player) => { %>
+          <% if (String(player[1]).length < 2) { %>
+            <% length = 22 - player[0].length + String(player[1]).length %>
+          <% } else { %>
+            <% length = 20 - player[0].length + String(player[1]).length %>
+          <% }; %>
+          <span class="score"> <%= player[0] %> <%= ".".repeat(length) %> <%= player[1] %> </span> <br> <br>
+        <% }) %>
+      </div>
+    </div>
   </div>
 <script src="js/scoreboard.js"></script>
 </body>
