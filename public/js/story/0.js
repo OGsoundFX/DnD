@@ -71,20 +71,21 @@ const sound = () => {
 const eat = document.getElementById('eat');
 let food = parseInt(document.getElementById('food').innerHTML);
 let life = parseInt(document.getElementById('player-life').innerHTML);
+const maxLife = parseInt(document.getElementById('maxLife').innerHTML);
 
 eat.addEventListener('click', () => {
-  if (life < 25) {
+  if (life < maxLife) {
     food = food - 1;
     document.getElementById('food').innerHTML = food;
-    if (life > 20) {
-      life = 25;
+    if (life > (maxLife - 5)) {
+      life = maxLife;
     } else {
       life = life + 5;
     };
     document.getElementById('player-life').innerHTML = life;
     document.getElementById("lifeField").value = life;
     document.getElementById("foodField").value = food;
-    if (life >= 25) { document.getElementById('eat').classList.add('invisible') };
+    if (life >= maxLife) { document.getElementById('eat').classList.add('invisible') };
   } else {
     document.getElementById('eat').classList.add('invisible');
   };
