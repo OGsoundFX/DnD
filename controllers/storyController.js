@@ -29,11 +29,17 @@ module.exports = function(app) {
   });
 
   app.post('/pathForest', (req, res) => {
+    const life = parseInt(req.body.life);
+    const food = parseInt(req.body.food);
 
     let level, id, direction;
     direction = req.body.direction.toLowerCase();
     level = req.body.level;
     id = req.body.id;
+
+    Character.findByIdAndUpdate(id, { life: life, food: food }, function(err, char) {
+      if (err) throw err;
+    });
 
     const forestArray = ["woods", "forest", "bush", "tree", "wood", "woodland", "nature", "hide", "discrete", "branch", "branches"];
     const pathArray = ["path", "pathway", "road", "route", "roadway", "trail", "open", "space"];
@@ -175,32 +181,6 @@ module.exports = function(app) {
         if (err) throw err;
         res.render(`./story/${char[0].level}`, { char: char[0] });
         console.log(char[0].experience)
-      });
-    }, 300);
-  });
-
-  app.post('/eat', (req, res) => {
-    const id = req.body.id;
-    const life = parseInt(req.body.life);
-    let food = parseInt(req.body.food);
-    if (food <= 0) {
-      food = 0;
-    } else {
-      food = food - 1;
-    };
-    let newLife;
-    if (life > 20) {
-      newLife = 25;
-    } else {
-      newLife = life + 5;
-    };
-    Character.findByIdAndUpdate(id, { life: newLife, food: food }, function(err, char) {
-      if (err) throw err;
-    });
-    setTimeout(function(){
-      Character.find({ _id: id }, function(err, char) {
-        if (err) throw err;
-        res.render(`./story/${char[0].level}`, { char: char[0], fail: true });
       });
     }, 300);
   });
