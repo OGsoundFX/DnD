@@ -5,6 +5,7 @@ const setupController = require('./controllers/setupController');
 const characterController = require('./controllers/characterController');
 const startGameController = require('./controllers/startGameController');
 const storyController = require('./controllers/storyController');
+const maxLifeController = require('./controllers/maxLifeController');
 const config = require('./config/dbconfig');
 
 app.use(express.json()); //Used to parse JSON bodies
@@ -49,6 +50,7 @@ app.get('/designs', (req, res) => {
 characterController(app);
 startGameController(app);
 storyController(app);
+maxLifeController(app);
 
 // Setting up database connection
 mongoose.connect(config.getDbConnectionString(), { useNewUrlParser: true , useUnifiedTopology: true});
