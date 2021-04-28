@@ -102,17 +102,12 @@
        Coins: <span id="player-weapon"><%= char.coins%></span><br>
       <div class="d-flex justify-content-between">
         <div>
-          Food: <span id="player-weapon"><%= char.food%></span>
+          Food: <span id="food"><%= char.food%></span>
         </div>
         <% if (char.food > 0) { %>
-          <div>
-            <form action="eat" method="POST">
-              <input type="hidden" name="id" value="<%= char._id %>">
-              <input type="hidden" name="life" value="<%= char.life %>">
-              <input type="hidden" name="food" value="<%= char.food %>">
-              <input type="submit" value="eat">
-            </form>
-          </div>
+        <div>
+          <button id="eat">eat</button>
+        </div>
         <% }; %>
       </div>
     </div>
@@ -127,6 +122,8 @@
       <input type="text" name="direction">
       <input type="hidden" name="id" value="<%= char._id %>">
       <input type="hidden" name="level" value="<%= char.level %>">
+      <input type="hidden" name="food" value="" id="foodField">
+      <input type="hidden" name="life" value="" id="lifeField">
       <input type="submit" id="hide-submit">
     </form>
   </div>
