@@ -103,6 +103,10 @@ module.exports = function(app) {
     }, 300);
   });
 
+  app.post('/bandits', (req, res) => {
+    res.send("implement fight with bandits or not");
+  });
+
   app.post('/wolf', (req, res) => {
     let playerResponse = req.body.response.toLowerCase();
     let id = req.body.id;

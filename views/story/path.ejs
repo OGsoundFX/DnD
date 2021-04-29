@@ -97,14 +97,24 @@
            Courage: <span id="player-weapon"><%= char.courage%></span><br>
            XP: <span id="player-weapon"><%= char.experience%></span><br>
            Coins: <span id="player-weapon"><%= char.coins%></span><br>
-           Food: <span id="player-weapon"><%= char.food%></span>
+           <div class="d-flex justify-content-between">
+             <div>
+               Food: <span id="food"><%= char.food%></span>
+             </div>
+             <% if (char.food > 0) { %>
+             <div>
+               <button id="eat">eat</button>
+             </div>
+             <% }; %>
+           </div>
         </div>
-    <p>Welcome <%= char.charactername %> !</p>
     <p id="story"></p>
-    <form action="pathForest" method="POST" class="invisible" id="form">
+    <form action="bandits" method="POST" class="invisible" id="form">
       <input type="text" name="direction">
       <input type="hidden" name="id" value="<%= char._id %>">
       <input type="hidden" name="level" value="<%= char.level %>">
+      <input type="hidden" name="food" value="" id="foodField">
+      <input type="hidden" name="life" value="" id="lifeField">
       <input type="submit" id="hide-submit">
     </form>
   </div>
