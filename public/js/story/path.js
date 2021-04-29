@@ -1,6 +1,6 @@
 let i = 0;
 let speed = 25;
-const introText = 'You are still disoriented, but your instinct tells you that you cannot stay here much longer. You notice a path to your right, maybe it leads somewhere. But it might be safer to walk through the thick forest that lays in front of you. What will you do?';
+const introText = 'You are walking on the path, thinking that it has to lead to a village or something, when you hear footsteps behind you, and a deep menacing voice yelling: "Give us your belongings or die!". What will you do?';
 const enter = "Press enter";
 
 const typeWriter = (text) => {
@@ -60,3 +60,30 @@ const sound = () => {
     audio.pause();
   };
 };
+
+// eat action
+const eat = document.getElementById('eat');
+let food = parseInt(document.getElementById('food').innerHTML);
+let life = parseInt(document.getElementById('player-life').innerHTML);
+const maxLife = parseInt(document.getElementById('maxLife').innerHTML);
+
+    document.getElementById("lifeField").value = life;
+    document.getElementById("foodField").value = food;
+
+eat.addEventListener('click', () => {
+  if (life < maxLife) {
+    food = food - 1;
+    document.getElementById('food').innerHTML = food;
+    if (life > (maxLife - 5)) {
+      life = maxLife;
+    } else {
+      life = life + 5;
+    };
+    document.getElementById('player-life').innerHTML = life;
+    document.getElementById("lifeField").value = life;
+    document.getElementById("foodField").value = food;
+    if (life >= maxLife) { document.getElementById('eat').classList.add('invisible') };
+  } else {
+    document.getElementById('eat').classList.add('invisible');
+  };
+});
