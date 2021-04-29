@@ -73,6 +73,9 @@ let food = parseInt(document.getElementById('food').innerHTML);
 let life = parseInt(document.getElementById('player-life').innerHTML);
 const maxLife = parseInt(document.getElementById('maxLife').innerHTML);
 
+    document.getElementById("lifeField").value = life;
+    document.getElementById("foodField").value = food;
+
 eat.addEventListener('click', () => {
   if (life < maxLife) {
     food = food - 1;
