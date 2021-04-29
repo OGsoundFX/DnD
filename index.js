@@ -47,6 +47,10 @@ app.get('/designs', (req, res) => {
   res.render('designs');
 });
 
+app.get('/YouAreDead', (req, res) => {
+    res.render('playerDead');
+});
+
 characterController(app);
 startGameController(app);
 storyController(app);

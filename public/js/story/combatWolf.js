@@ -80,7 +80,7 @@ setTimeout(function() {
                 audio1.play();
                 audio2.play();
                 setTimeout(function(){
-                  window.open("startgame", "_self");
+                  window.open("YouAreDead", "_self");
                 }, 2000);
               } else {
 
