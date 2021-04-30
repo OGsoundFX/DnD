@@ -30,6 +30,18 @@ pre {
    color: #1dbb1e;
 }
 
+.decoration-dead {
+  margin-top: 40px;
+  color: red;
+  font-size: 22px;
+  line-height: 0.9em;
+  text-shadow: 0 0 9px red !important;
+}
+
+.decoration-dead pre {
+   color: red;
+}
+
 .scoreboard {
   font-size: 17px;
   margin-top: 60px;

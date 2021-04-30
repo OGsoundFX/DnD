@@ -79,9 +79,15 @@ setTimeout(function() {
                 const audio2 = new Audio('../../sound/death.wav');
                 audio1.play();
                 audio2.play();
+
+                setTimeout(function() {
+                  document.getElementById('page').classList.add('invisible');
+                  document.getElementById('dead').classList.remove('invisible');
+                }, 1500);
+
                 setTimeout(function(){
                   window.open("YouAreDead", "_self");
-                }, 2000);
+                }, 5000);
               } else {
 
                 const wolfDamage = [`The wolf manages to get a nasty bite off of you, you lose <span style="color: #f68105">${damage}</span> life points!`, `The angry beast got a bite at you and took <span style="color: #f68105">${damage}</span> life points!`];
