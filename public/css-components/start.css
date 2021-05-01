@@ -79,5 +79,11 @@ pre {
   margin-right: 164px;
   height: 34px;
   cursor: pointer;
-  /*cursor: url('../images/sword.png'), pointer;*/
+}
+
+#castle {
+  margin-top: 15px;
+  margin-right: 694px;
+  height: 34px;
+  cursor: pointer;
 }

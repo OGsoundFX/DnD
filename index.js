@@ -47,7 +47,7 @@ app.get('/designs', (req, res) => {
   res.render('designs');
 });
 
-app.get('/YouAreDead', (req, res) => {
+app.get('/TheEnd', (req, res) => {
     res.render('playerDead');
 });
 
