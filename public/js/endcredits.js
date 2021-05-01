@@ -65,7 +65,6 @@ setTimeout(function() {
 }, 2000);
 
 const selectColor = () => {
-  console.log(document.getElementById('body').classList.contains("green"));
   if (document.getElementById('body').classList.contains("green")) {
     changeColour("orange");
     document.getElementById('body').classList.remove("green");
