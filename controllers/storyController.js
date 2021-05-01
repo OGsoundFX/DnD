@@ -184,7 +184,6 @@ module.exports = function(app) {
       Character.find({ _id: id }, function(err, char) {
         if (err) throw err;
         res.render(`./story/${char[0].level}`, { char: char[0] });
-        console.log(char[0].experience)
       });
     }, 300);
   });
