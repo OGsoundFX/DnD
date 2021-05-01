@@ -55,6 +55,8 @@
         <% list.forEach((player) => { %>
           <% if (String(player[1]).length < 2) { %>
             <% length = 22 - player[0].length + String(player[1]).length %>
+          <% } else if (String(player[1]).length > 2) { %>
+            <% length = 18 - player[0].length + String(player[1]).length %>
           <% } else { %>
             <% length = 20 - player[0].length + String(player[1]).length %>
           <% }; %>

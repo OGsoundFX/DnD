@@ -76,7 +76,8 @@ pre {
 }
 
 #scoreboard {
-  margin-left: 200px;
+  margin: 0 150px;
+  width: 200px;
   color: #1dbb1e;
   background-color: black;
   border: solid #1dbb1e 1px;

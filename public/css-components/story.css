@@ -85,3 +85,69 @@ pre {
   margin-top: -430px;
   margin-left: -124px;
 }
+
+#eat {
+  color: #1dbb1e;
+  background-color: black;
+  border: solid #1dbb1e 1px;
+  text-shadow: 0 0 9px #1dbb1e;
+}
+
+#eat:hover {
+  color: black;
+  background-color: #1dbb1e;
+}
+
+#inventory {
+  margin: 32px 0 0 26px;
+  width: 136px;
+  color: #1dbb1e;
+  background-color: black;
+  border: solid #1dbb1e 1px;
+  text-shadow: 0 0 9px #1dbb1e;
+}
+
+#inventory:hover {
+  color: black;
+  background-color: #1dbb1e;
+}
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

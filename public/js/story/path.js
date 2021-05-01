@@ -82,7 +82,7 @@ eat.addEventListener('click', () => {
     document.getElementById('player-life').innerHTML = life;
     document.getElementById("lifeField").value = life;
     document.getElementById("foodField").value = food;
-    if (life >= maxLife) { document.getElementById('eat').classList.add('invisible') };
+    if (life >= maxLife || food < 1) { document.getElementById('eat').classList.add('invisible') };
   } else {
     document.getElementById('eat').classList.add('invisible');
   };

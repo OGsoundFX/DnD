@@ -86,7 +86,7 @@ setTimeout(function() {
                 }, 1500);
 
                 setTimeout(function(){
-                  window.open("YouAreDead", "_self");
+                  window.open("TheEnd", "_self");
                 }, 5000);
               } else {
 
