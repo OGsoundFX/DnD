@@ -101,9 +101,9 @@
        Coins: <span id="player-weapon"><%= char.coins%></span><br>
       <div class="d-flex justify-content-between">
         <div>
-          Food: <span id="food"><%= char.food%></span>
+          Food: <span id="food"><%= char.food %></span>
         </div>
-        <% if (char.food > 0) { %>
+        <% if (char.food > 0 && char.life < char.maxLife) { %>
         <div>
           <button id="eat">eat</button>
         </div>

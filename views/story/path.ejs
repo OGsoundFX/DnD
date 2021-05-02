@@ -100,7 +100,7 @@
              <div>
                Food: <span id="food"><%= char.food%></span>
              </div>
-             <% if (char.food > 0) { %>
+             <% if (char.food > 0 && char.life < char.maxLife) { %>
              <div>
                <button id="eat">eat</button>
              </div>

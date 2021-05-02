@@ -187,4 +187,17 @@ module.exports = function(app) {
       });
     }, 300);
   });
+
+  app.post('/forestDispatch', (req, res) => {
+    const id = req.body["id"];
+    Character.find({ _id: id }, function(err, char) {
+      if (err) throw err;
+      let n = (Math.random() * 10);
+      if (n > 7) {
+        res.render(`./story/strawberryField`, { char: char[0] });
+      } else {
+        res.render(`./story/2`, { char: char[0] });
+      };
+    });
+  });
 }

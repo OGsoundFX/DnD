@@ -49,23 +49,7 @@
     </pre>
     <div class="position-absolute">
       <pre class="d-flex justify-content-center forest-art">
-        ~~~~~~                     /\
-      ~(      )~                  /  \
-     (   o      )                /  \ \
-    (        o   )              / /    \                  ~~~~~~
-   (      o       )            /_   \  _\               ~(       )~
-    (   o        )              /      \               (       o   )
-     (__      __)              /  /     \             (    o        )
-        \    /    /\          /_    \   _\             (       o   )
-     ____|   |   /\ \          /        \               (__     __)
-    @___     |  /_  _\        /  /    \  \                 \   /
-        \    |   /  \        /_   /      _\        ~       |   |__(´)
-         |   |  /  \ \        /      \   \       (~~~)     |    __() )
-         | @ | /_/   _\      /  /  /   \  \     (     )    |   /   ``
-         |   |  /  \ \      /______  ______\   (  (    )   |   |
-         |   | /__  __\           |  |         (     ) )   |   |
-  <@>    |   |   | <@>   (^)      |  |   (^)    (  (  )    |   |    <@>
-  _|____/     \__|_\|/____U_______|  |____u_______|/|_____/     \___\|/__
+STRAWBERRYFIELD
       </pre>
     </div>
     <div class="decoration player-board position-absolute">
@@ -141,23 +125,21 @@
       <p id="story"></p>
     <% }; %>
     <div class="d-flex justify-content-center">
-      <form action="forestDispatch" method="POST" class="" id="form">
-        <input type="hidden" name="id" value="<%= char.id %>">
-        <input type="submit" id="arrow-up" value="&Uarr;">
-      </form>
+      <i class="fas fa-arrow-up"></i>
     </div>
     <div class="d-flex justify-content-center">
-      <form action="forestDispatch" method="POST" class="" id="form">
-        <input type="hidden" name="id" value="<%= char.id %>">
-        <input type="submit" id="arrow-left" value="&Larr;">
-      </form>
-
-      <form action="forestDispatch" method="POST" class="" id="form">
-        <input type="hidden" name="id" value="<%= char.id %>">
-        <input type="submit" id="arrow-right" value="&Rarr;">
-      </form>
+      <i class="fas fa-arrow-left"></i>
+      <i class="fas fa-arrow-right"></i>
     </div>
 
+    <form action="pathForest" method="POST" class="invisible" id="form">
+      <input type="text" name="direction">
+      <input type="hidden" name="id" value="<%= char._id %>">
+      <input type="hidden" name="level" value="<%= char.level %>">
+      <input type="hidden" name="food" value="" id="foodField">
+      <input type="hidden" name="life" value="" id="lifeField">
+      <input type="submit" id="hide-submit">
+    </form>
   </div>
   <script src="../js/story/forest.js"></script>
   </body>
