@@ -154,3 +154,11 @@ pre {
   text-decoration: none;
   cursor: pointer;
 }
+
+.arrow-up, .arrow-left, .arrow-right {
+  border: solid 1px #1dbb1e;
+  text-shadow: 0 0 9px #1dbb1e;
+  padding: 10px;
+  margin: 0 10px 10px 10px;
+}
+

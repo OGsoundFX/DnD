@@ -51,6 +51,10 @@ app.get('/TheEnd', (req, res) => {
     res.render('playerDead');
 });
 
+app.get('/story/strawberryField', (req, res) => {
+    res.render('story/strawberryField');
+});
+
 characterController(app);
 startGameController(app);
 storyController(app);
