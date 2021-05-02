@@ -107,6 +107,27 @@
              <% }; %>
            </div>
            XP: <span id="player-weapon"><%= char.experience%></span>
+           <div>
+             <button id="inventory">Inventory</button>
+           </div>
+
+           <div id="myModal" class="modal">
+             <div class="modal-content">
+               <span class="close">&times;</span>
+                 <% hash = {}; %>
+                 <% char.inventory.forEach((item) => { %>
+                   <% if (isNaN(hash[item])) { %>
+                     <% hash[item] = 1; %>
+                   <% } else { %>
+                     <% hash[item] = hash[item] + 1; %>
+                   <% }; %>
+                 <% });%>
+
+                 <% Object.entries(hash).forEach((entry) => { %>
+                   <p> <%= `${entry[0]}: ${entry[1]}` %> </p>
+                 <% }); %>
+             </div>
+           </div>
         </div>
     <p id="story"></p>
     <form action="bandits" method="POST" class="invisible" id="form">
