@@ -1,6 +1,6 @@
 let i = 0;
 let speed = 50;
-const text = ["The endless forest lays arround you... which direction do you want to go?", "You can't stop here, keep walking!", "Trees everywhere, but no sign of life... You need to continue your journey!"];
+const text = "In the middle of the forest you find this lovely little clearing, covered with strawberry plants! What will you do?";
 
 if (document.getElementById("story") != null) {
   const typeWriter = (text) => {
@@ -15,7 +15,7 @@ if (document.getElementById("story") != null) {
     };
   };
 
-  typeWriter(text[Math.floor(Math.random() * 3)]);
+  typeWriter(text);
 
 };
 
@@ -84,25 +84,24 @@ const maxLife = parseInt(document.getElementById('maxLife').innerHTML);
     document.getElementById("lifeField").value = life;
     document.getElementById("foodField").value = food;
 
-if (eat) {
-  eat.addEventListener('click', () => {
-    if (life < maxLife) {
-      food = food - 1;
-      document.getElementById('food').innerHTML = food;
-      if (life > (maxLife - 5)) {
-        life = maxLife;
-      } else {
-        life = life + 5;
-      };
-      document.getElementById('player-life').innerHTML = life;
-      document.getElementById("lifeField").value = life;
-      document.getElementById("foodField").value = food;
-      if (life >= maxLife || food < 1 ) { document.getElementById('eat').classList.add('invisible') };
+eat.addEventListener('click', () => {
+  if (life < maxLife) {
+    food = food - 1;
+    document.getElementById('food').innerHTML = food;
+    if (life > (maxLife - 5)) {
+      life = maxLife;
     } else {
-      document.getElementById('eat').classList.add('invisible');
+      life = life + 5;
     };
-  });
-};
+    document.getElementById('player-life').innerHTML = life;
+    document.getElementById("lifeField").value = life;
+    document.getElementById("foodField").value = food;
+    if (life >= maxLife || food < 1 ) { document.getElementById('eat').classList.add('invisible') };
+  } else {
+    document.getElementById('eat').classList.add('invisible');
+  };
+});
+
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -116,45 +115,16 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
-};
+}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
-};
+}
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
-  };
-};
-
-if (document.getElementById('openModal')) {
-  modal.style.display = "block";
-};
-
-// Arrows
-
-const button = new Audio('../sound/MenuButton1.wav');
-
-document.addEventListener('keydown', function (event) {
-  if (event.keyCode === 38) {
-    button.play();
-    fade();
-    document.getElementById('arrow-up').classList.add('clicked');
-  } else if (event.keyCode === 37) {
-    button.play();
-    fade();
-    document.getElementById('arrow-left').classList.add('clicked');
-  } else if (event.keyCode === 39) {
-    button.play();
-    fade();
-    document.getElementById('arrow-right').classList.add('clicked');
-  };
-  setTimeout(function() {
-    if (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39) {
-      document.getElementById('arrow-up').click();
-    };
-  }, 1000);
-});
+  }
+}

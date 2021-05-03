@@ -8,7 +8,10 @@ const lexicoSchema = new Schema({
     attack: Array,
     escape: Array,
     hide: Array,
-    climb: Array
+    climb: Array,
+    pick: Array,
+    rest: Array,
+    walk: Array
 });
 
 const Lexico = mongoose.model('lexico', lexicoSchema);
