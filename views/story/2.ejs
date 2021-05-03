@@ -15,6 +15,10 @@
 <% } else { %>
 <body style= "opacity: 0;" onload="fadeAndMusic()" id="body">
 <% } %>
+
+<% if (typeof(strawberry) != "undefined") {  %>
+  <span id="openModal" class="invisible"></span>
+<% }; %>
   <div class="container d-flex justify-content-end">
     <a href="../startgame"><img src="../images/castle.png" id="castle"></a>
     <img src="../images/lyre-play.png" onclick="sound()" id="music-on" class="invisible">

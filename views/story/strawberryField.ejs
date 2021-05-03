@@ -10,7 +10,7 @@
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
   <link href="../css-components/story.css" rel="stylesheet" type="text/css">
 </head>
-<% if (typeof(fail) != "undefined") { %>
+<% if (typeof(fail) != "undefined" || typeof(rest) !="undefined") { %>
 <body onload="music()" id="body">
 <% } else { %>
 <body style= "opacity: 0;" onload="fadeAndMusic()" id="body">
@@ -119,21 +119,17 @@ STRAWBERRYFIELD
 
     </div>
     <% if (typeof(fail) != "undefined") { %>
-    <% const invalidAnswer = ['Sorry Sire, your mumbling was not comprehensible. Try again!', 'What was that? Please state your intentions clearly!', '??? You better hurry and take the path or the forest! Which one will it be?']; %>
-    <%= invalidAnswer[Math.floor(Math.random() * 3)] %>
+      <% const invalidAnswer = ['Sorry Sire, your mumbling was not comprehensible. Try again!', 'What was that? Please state your intentions clearly!', 'What??? You better hurry and decide what you want to do!', "I don't think that's wise...", "What is that?! There is no time, do something!"]; %>
+      <%= invalidAnswer[Math.floor(Math.random() * 5)] %>
+    <% } else if (typeof(rest) != "undefined") {%>
+      <% const invalidAnswer = ["That's not a good idea!", "Not here, it's too risky!", "You want to do that now? Very bad idea..."]; %>
+      <%= invalidAnswer[Math.floor(Math.random() * 3)] %>
     <% } else { %>
       <p id="story"></p>
     <% }; %>
-    <div class="d-flex justify-content-center">
-      <i class="fas fa-arrow-up"></i>
-    </div>
-    <div class="d-flex justify-content-center">
-      <i class="fas fa-arrow-left"></i>
-      <i class="fas fa-arrow-right"></i>
-    </div>
 
-    <form action="pathForest" method="POST" class="invisible" id="form">
-      <input type="text" name="direction">
+    <form action="strawberryField" method="POST" id="form">
+      <input type="text" name="entry">
       <input type="hidden" name="id" value="<%= char._id %>">
       <input type="hidden" name="level" value="<%= char.level %>">
       <input type="hidden" name="food" value="" id="foodField">
@@ -141,6 +137,6 @@ STRAWBERRYFIELD
       <input type="submit" id="hide-submit">
     </form>
   </div>
-  <script src="../js/story/forest.js"></script>
+  <script src="../js/story/strawberry.js"></script>
   </body>
 </html>

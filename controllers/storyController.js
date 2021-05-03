@@ -109,10 +109,9 @@ module.exports = function(app) {
 
   app.post('/wolf', (req, res) => {
     let playerResponse = req.body.response.toLowerCase();
+    let playerResponseArray = playerResponse.split(" ");
     let id = req.body.id;
     let level = req.body.level;
-    let playerResponseArray = playerResponse.split(" ");
-
 
     Lexico.find( {name: "lexico"}, (err, lexico) => {
       if (err) throw err;
@@ -189,14 +188,90 @@ module.exports = function(app) {
   });
 
   app.post('/forestDispatch', (req, res) => {
+    const life = parseInt(req.body.life);
+    const food = parseInt(req.body.food);
     const id = req.body["id"];
-    Character.find({ _id: id }, function(err, char) {
+
+    Character.findByIdAndUpdate(id, { life: life, food: food }, function(err, char) {
       if (err) throw err;
-      let n = (Math.random() * 10);
-      if (n > 7) {
-        res.render(`./story/strawberryField`, { char: char[0] });
+    });
+
+    setTimeout(function() {
+      Character.find({ _id: id }, function(err, char) {
+        if (err) throw err;
+        let n = (Math.random() * 12);
+        if (n > 10) {
+          // create Wolf
+          const wolf = {
+            life: 10 + Math.floor(Math.random()*7),
+            strength: 8 + Math.floor(Math.random()*9),
+            agility: 6 + Math.floor(Math.random()*7),
+            chance: 6 + Math.floor(Math.random()*7)
+          };
+          res.render('./story/combatWolf', { char: char[0], wolf: wolf })
+        } else if (n > 7) {
+          res.render(`./story/strawberryField`, { char: char[0] });
+        } else {
+          res.render(`./story/2`, { char: char[0] });
+        };
+      });
+    }, 300);
+  });
+
+  app.post('/strawberryField', (req, res) => {
+    let playerResponse = req.body.entry.toLowerCase();
+    let playerResponseArray = playerResponse.split(" ");
+    let id = req.body.id;
+
+    Lexico.find( {name: "lexico"}, (err, lexico) => {
+      if (err) throw err;
+      const pickLexico = lexico[0].pick;
+      const restLexico = lexico[0].rest;
+      const leaveLexico = lexico[0].walk;
+      let nPick = 0;
+      let nRest = 0;
+      let nLeave = 0;
+
+      playerResponseArray.forEach(word => {
+        if (pickLexico.includes(word)) {
+          nPick ++;
+        } else if (restLexico.includes(word)) {
+          nRest ++;
+        } else if (leaveLexico.includes(word)) {
+          nLeave ++;
+        };
+      });
+
+      if (nPick > 0) {
+
+        for (let step = 0; step < 5; step++) {
+          Character.findByIdAndUpdate(id, { $push: {inventory: "strawberry"} }, function(err, char) {
+            if (err) throw err;
+          });
+        }
+
+        setTimeout(function() {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/2', { char: char[0], strawberry :true })
+          });
+        }, 300);
+
+      } else if (nRest > 0) {
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render('./story/strawberryField', { rest: true, char: char[0] });
+        });
+      } else if (nLeave > 0) {
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render('./story/2', { char: char[0] })
+        });
       } else {
-        res.render(`./story/2`, { char: char[0] });
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render('./story/strawberryField', { fail: true, char: char[0] });
+        });
       };
     });
   });
