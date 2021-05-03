@@ -156,5 +156,5 @@ document.addEventListener('keydown', function (event) {
     if (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39) {
       document.getElementById('arrow-up').click();
     };
-  }, 1000);
+  }, 500);
 });
