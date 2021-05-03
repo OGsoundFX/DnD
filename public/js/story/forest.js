@@ -131,9 +131,25 @@ window.onclick = function(event) {
 
 // Arrows
 
+const button = new Audio('../sound/MenuButton1.wav');
+
 document.addEventListener('keydown', function (event) {
-  if (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39) {
+  if (event.keyCode === 38) {
+    button.play();
     fade();
-    setTimeout(function(){ window.open("/story/strawberryField", "_self"); }, 1000);
-  }
+    document.getElementById('arrow-up').classList.add('clicked');
+  } else if (event.keyCode === 37) {
+    button.play();
+    fade();
+    document.getElementById('arrow-left').classList.add('clicked');
+  } else if (event.keyCode === 39) {
+    button.play();
+    fade();
+    document.getElementById('arrow-right').classList.add('clicked');
+  };
+  setTimeout(function() {
+    if (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39) {
+      document.getElementById('arrow-up').click();
+    };
+  }, 1000);
 });

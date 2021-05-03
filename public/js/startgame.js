@@ -52,7 +52,6 @@ document.addEventListener('keydown', function (event) {
       fade();
       setTimeout(function(){ window.open("start", "_self"); }, 1000);
     } else {
-      menuIn.play();
       const loadGame = document.getElementById('load-game');
       const menu = document.querySelector('.menu');
       loadGame.classList.remove('hide');

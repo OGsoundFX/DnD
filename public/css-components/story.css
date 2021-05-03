@@ -155,10 +155,25 @@ pre {
   cursor: pointer;
 }
 
-.arrow-up, .arrow-left, .arrow-right {
+#arrow-up, #arrow-left, #arrow-right {
+  height: 35px;
+  width: 35px;
+  background: black;
+  color: #1dbb1e;
   border: solid 1px #1dbb1e;
   text-shadow: 0 0 9px #1dbb1e;
-  padding: 10px;
   margin: 0 10px 10px 10px;
 }
 
+#arrow-left {
+  transform: rotate(-90deg);
+}
+
+#arrow-right {
+  transform: rotate(90deg);
+}
+
+.clicked {
+  color: black !important;
+  background-color: #1dbb1e !important;
+}
