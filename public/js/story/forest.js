@@ -19,6 +19,13 @@ if (document.getElementById("story") != null) {
 
 };
 
+// Random selection of design to display
+
+let n = Math.floor(Math.random() * 4 + 1);
+if (document.getElementById("forest" + n)) {
+  document.getElementById("forest" + n).classList.remove('invisible');
+};
+console.log(n);
 //fade in function
 
 const unfade = () => {
