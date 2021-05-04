@@ -31,6 +31,18 @@ pre {
    color: #1dbb1e;
 }
 
+.decoration-dead {
+  margin-top: 40px;
+  color: red;
+  font-size: 22px;
+  line-height: 0.9em;
+  text-shadow: 0 0 9px red !important;
+}
+
+.decoration-dead pre {
+   color: red;
+}
+
 #hide-submit {
   display: none;
 }
@@ -101,6 +113,22 @@ pre {
 #eat:hover {
   color: black;
   background-color: #1dbb1e;
+}
+
+#press-e {
+  border: solid #1dbb1e 1px;
+  padding: 5px;
+  text-shadow: 0 0 9px #1dbb1e;
+}
+
+#press-i {
+  border: solid #1dbb1e 1px;
+  padding: 5px;
+  text-shadow: 0 0 9px #1dbb1e;
+}
+
+#inventory-key {
+  margin: 32px 0 0 26px;
 }
 
 #inventory {

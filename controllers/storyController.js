@@ -260,7 +260,7 @@ module.exports = function(app) {
       } else if (nRest > 0) {
         Character.find({ _id: id }, function(err, char) {
           if (err) throw err;
-          res.render('./story/strawberryField', { rest: true, char: char[0] });
+          res.render('./story/strawberryPlayerDead');
         });
       } else if (nLeave > 0) {
         Character.find({ _id: id }, function(err, char) {
