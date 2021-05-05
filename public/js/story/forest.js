@@ -25,12 +25,27 @@ document.addEventListener('keydown', () => {
   };
 });
 
+// on-off sound with m key
+
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode === 77) {
+    document.getElementById('music-on').classList.toggle('invisible');
+    document.getElementById('music-off').classList.toggle('invisible');
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    };
+  }
+});
+
 // Random selection of design to display
 
 let n = Math.floor(Math.random() * 4 + 1);
 if (document.getElementById("forest" + n)) {
   document.getElementById("forest" + n).classList.remove('invisible');
 };
+
 //fade in function
 
 const unfade = () => {
@@ -86,20 +101,6 @@ const sound = () => {
     audio.pause();
   };
 };
-
-// on-off sound with m key
-
-document.addEventListener('keydown', function (event) {
-  if (event.keyCode === 77) {
-    document.getElementById('music-on').classList.toggle('invisible');
-    document.getElementById('music-off').classList.toggle('invisible');
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    };
-  }
-});
 
 // eat action
 const eat = document.getElementById('eat');

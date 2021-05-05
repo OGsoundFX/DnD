@@ -56,6 +56,10 @@ document.addEventListener('keydown', function (event) {
       const menu = document.querySelector('.menu');
       loadGame.classList.remove('hide');
       menu.classList.add('hide');
+
+      // Focus on first field
+      const inputField = document.getElementById('nameInput');
+      document.getElementById('nameInput').select();
     }
   }
 });

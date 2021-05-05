@@ -186,15 +186,15 @@ _/   \_   (       o   ) ,    ,     / /    \     (     )    (   o      ) /\
         </div>
         <% if (char.food > 0 && char.life < char.maxLife) { %>
         <div>
-          <button id="eat" class="invisible">eat</button>
-          <span id="press-e">e</span>at
+          <button id="eat">eat</button>
+          <div class="invisible"> <span id="press-e">e</span>at </div>
         </div>
         <% }; %>
       </div>
       XP: <span id="player-weapon"><%= char.experience%></span>
       <div>
-        <button id="inventory" class="invisible">Inventory</button>
-        <div id="inventory-key"> <span id="press-i">i</span>nventory </div>
+        <button id="inventory">Inventory</button>
+        <div id="inventory-key" class="invisible"> <span id="press-i">i</span>nventory </div>
       </div>
 
       <div id="myModal" class="modal">
