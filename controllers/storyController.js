@@ -188,9 +188,11 @@ module.exports = function(app) {
   });
 
   app.post('/forestDispatch', (req, res) => {
+    const id = req.body["id"];
+
+    // updating food and life if player ate
     const life = parseInt(req.body.life);
     const food = parseInt(req.body.food);
-    const id = req.body["id"];
 
     Character.findByIdAndUpdate(id, { life: life, food: food }, function(err, char) {
       if (err) throw err;
@@ -223,56 +225,68 @@ module.exports = function(app) {
     let playerResponseArray = playerResponse.split(" ");
     let id = req.body.id;
 
-    Lexico.find( {name: "lexico"}, (err, lexico) => {
+    // updating food and life if player ate
+    const life = parseInt(req.body.life);
+    const food = parseInt(req.body.food);
+
+    Character.findByIdAndUpdate(id, { life: life, food: food }, function(err, char) {
       if (err) throw err;
-      const pickLexico = lexico[0].pick;
-      const restLexico = lexico[0].rest;
-      const leaveLexico = lexico[0].walk;
-      let nPick = 0;
-      let nRest = 0;
-      let nLeave = 0;
+    });
 
-      playerResponseArray.forEach(word => {
-        if (pickLexico.includes(word)) {
-          nPick ++;
-        } else if (restLexico.includes(word)) {
-          nRest ++;
-        } else if (leaveLexico.includes(word)) {
-          nLeave ++;
-        };
-      });
+    // the timeout function is imporant because the mongoDB functions
+    // are asynchroneous and we need the action to perform in a specific order
+    setTimeout(function() {
+      Lexico.find( {name: "lexico"}, (err, lexico) => {
+        if (err) throw err;
+        const pickLexico = lexico[0].pick;
+        const restLexico = lexico[0].rest;
+        const leaveLexico = lexico[0].walk;
+        let nPick = 0;
+        let nRest = 0;
+        let nLeave = 0;
 
-      if (nPick > 0) {
+        playerResponseArray.forEach(word => {
+          if (pickLexico.includes(word)) {
+            nPick ++;
+          } else if (restLexico.includes(word)) {
+            nRest ++;
+          } else if (leaveLexico.includes(word)) {
+            nLeave ++;
+          };
+        });
 
-        for (let step = 0; step < 5; step++) {
-          Character.findByIdAndUpdate(id, { $push: {inventory: "strawberry"} }, function(err, char) {
-            if (err) throw err;
-          });
-        }
+        if (nPick > 0) {
 
-        setTimeout(function() {
+          for (let step = 0; step < 5; step++) {
+            Character.findByIdAndUpdate(id, { $push: {inventory: "strawberry"} }, function(err, char) {
+              if (err) throw err;
+            });
+          }
+
+          setTimeout(function() {
+            Character.find({ _id: id }, function(err, char) {
+              if (err) throw err;
+              res.render('./story/2', { char: char[0], strawberry :true })
+            });
+          }, 300);
+
+        } else if (nRest > 0) {
           Character.find({ _id: id }, function(err, char) {
             if (err) throw err;
-            res.render('./story/2', { char: char[0], strawberry :true })
+            res.render('./story/strawberryPlayerDead');
           });
-        }, 300);
-
-      } else if (nRest > 0) {
-        Character.find({ _id: id }, function(err, char) {
-          if (err) throw err;
-          res.render('./story/strawberryPlayerDead');
-        });
-      } else if (nLeave > 0) {
-        Character.find({ _id: id }, function(err, char) {
-          if (err) throw err;
-          res.render('./story/2', { char: char[0] })
-        });
-      } else {
-        Character.find({ _id: id }, function(err, char) {
-          if (err) throw err;
-          res.render('./story/strawberryField', { fail: true, char: char[0] });
-        });
-      };
-    });
+        } else if (nLeave > 0) {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/2', { char: char[0] })
+          });
+        } else {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/strawberryField', { fail: true, char: char[0] });
+          });
+        };
+      });
+    }, 300);
   });
 }
