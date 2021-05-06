@@ -1,8 +1,7 @@
 let i = 0;
 let speed = 25;
 const introText = 'You are still disoriented, but your instinct tells you that you cannot stay here much longer. You notice a path to your right, maybe it leads somewhere. But it might be safer to walk through the thick forest that lays in front of you. What will you do?';
-// const introText = "blablabla"; // for testing purposes
-// const invalidAnswer = ['Sorry Sire, your mumbling was not comprehensible. Try again!', 'What was that? Please state your intentions clearly!', '??? You better hurry and take the path or the forest! Which one will it be?'];
+const inputField = document.getElementById('inputText');
 
 // If the player hasn't entered a invalid reply yet
 if (document.getElementById("story") != null) {
@@ -22,10 +21,46 @@ if (document.getElementById("story") != null) {
 
   setTimeout(function() {
     document.getElementById('form').classList.remove('invisible');
+
+    // focus on input field directly at page load
+    document.getElementById('inputText').select();
   }, 9000);
 } else {
   document.getElementById('form').classList.remove('invisible');
+
+  // focus on input field directly at page load
+  document.getElementById('inputText').select();
 };
+
+// home button
+
+document.addEventListener('keydown', () => {
+  if (event.keyCode === 72) {
+    window.open("startgame", "_self");
+  };
+});
+
+// on-off sound with m key
+
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode === 77) {
+    document.getElementById('music-on').classList.toggle('invisible');
+    document.getElementById('music-off').classList.toggle('invisible');
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    };
+  }
+});
+
+
+// send unnchanged life and food values
+let food = parseInt(document.getElementById('food').innerHTML);
+let life = parseInt(document.getElementById('player-life').innerHTML);
+
+document.getElementById("lifeField").value = life;
+document.getElementById("foodField").value = food;
 
 //fade in function
 
@@ -67,34 +102,6 @@ const sound = () => {
   };
 };
 
-// eat action
-const eat = document.getElementById('eat');
-let food = parseInt(document.getElementById('food').innerHTML);
-let life = parseInt(document.getElementById('player-life').innerHTML);
-const maxLife = parseInt(document.getElementById('maxLife').innerHTML);
-
-    document.getElementById("lifeField").value = life;
-    document.getElementById("foodField").value = food;
-
-eat.addEventListener('click', () => {
-  if (life < maxLife) {
-    food = food - 1;
-    document.getElementById('food').innerHTML = food;
-    if (life > (maxLife - 5)) {
-      life = maxLife;
-    } else {
-      life = life + 5;
-    };
-    document.getElementById('player-life').innerHTML = life;
-    document.getElementById("lifeField").value = life;
-    document.getElementById("foodField").value = food;
-    if (life >= maxLife || food < 1 ) { document.getElementById('eat').classList.add('invisible') };
-  } else {
-    document.getElementById('eat').classList.add('invisible');
-  };
-});
-
-
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -120,3 +127,22 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+// inventory by pressing i
+
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode === 73) {
+    if (modal.style.display === "block") {
+      modal.style.display = "none";
+    } else {
+      modal.style.display = "block";
+    };
+  };
+});
+
+// stop event listeners when in input field
+
+inputField.addEventListener('keydown', function (event) {
+  event.stopPropagation();
+});

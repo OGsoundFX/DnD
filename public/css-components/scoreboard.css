@@ -27,14 +27,12 @@ pre {
 
 #music-on, #music-off {
   margin-top: 15px;
-  /*margin-right: 164px;*/
   height: 34px;
   cursor: pointer;
 }
 
 #castle {
   margin-top: 15px;
-  /*margin-right: 694px;*/
   height: 34px;
   cursor: pointer;
 }

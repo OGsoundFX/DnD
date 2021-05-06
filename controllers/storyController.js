@@ -164,7 +164,10 @@ module.exports = function(app) {
         // You climb a tree, and fall accidently killing the wolf (wolves)
         res.send('Climbing is a coward move but not such a bad idea');
       } else {
-        res.send('Other answer');
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render('./story/1', { fail: true, char: char[0] });
+        });
       };
 
     });

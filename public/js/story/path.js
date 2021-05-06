@@ -1,7 +1,7 @@
 let i = 0;
 let speed = 25;
 const introText = 'You are walking on the path, thinking that it has to lead to a village or something, when you hear footsteps behind you, and a deep menacing voice yelling: "Give us your belongings or die!". What will you do?';
-const enter = "Press enter";
+const inputField = document.getElementById('inputText');
 
 const typeWriter = (text) => {
   if (i < text.length) {
@@ -13,7 +13,6 @@ const typeWriter = (text) => {
         setTimeout(typeWriter, speed, text);
       };
   } else {
-    // setTimeout(function(){ document.querySelector(".text-font").innerHTML += `<p id='enter'>${enter}</p>`; }, 10);
 
   };
 };
@@ -22,7 +21,32 @@ typeWriter(introText);
 
 setTimeout(function() {
   document.getElementById('form').classList.remove('invisible');
-}, 9000);
+  // focus on input field directly at page load
+  document.getElementById('inputText').select();
+}, 8000);
+
+// home button
+
+document.addEventListener('keydown', () => {
+  if (event.keyCode === 72) {
+    window.open("startgame", "_self");
+  };
+});
+
+// on-off sound with m key
+
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode === 77) {
+    document.getElementById('music-on').classList.toggle('invisible');
+    document.getElementById('music-off').classList.toggle('invisible');
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    };
+  }
+});
+
 
 //fade in function
 
@@ -67,26 +91,57 @@ let food = parseInt(document.getElementById('food').innerHTML);
 let life = parseInt(document.getElementById('player-life').innerHTML);
 const maxLife = parseInt(document.getElementById('maxLife').innerHTML);
 
-    document.getElementById("lifeField").value = life;
-    document.getElementById("foodField").value = food;
+document.getElementById("lifeField").value = life;
+document.getElementById("foodField").value = food;
 
-eat.addEventListener('click', () => {
-  if (life < maxLife) {
-    food = food - 1;
-    document.getElementById('food').innerHTML = food;
-    if (life > (maxLife - 5)) {
-      life = maxLife;
+if (eat) {
+  const eat = document.getElementById('eat');
+  let food = parseInt(document.getElementById('food').innerHTML);
+  let life = parseInt(document.getElementById('player-life').innerHTML);
+  const maxLife = parseInt(document.getElementById('maxLife').innerHTML);
+
+      document.getElementById("lifeField").value = life;
+      document.getElementById("foodField").value = food;
+
+  eat.addEventListener('click', () => {
+    if (life < maxLife) {
+      food = food - 1;
+      document.getElementById('food').innerHTML = food;
+      if (life > (maxLife - 5)) {
+        life = maxLife;
+      } else {
+        life = life + 5;
+      };
+      document.getElementById('player-life').innerHTML = life;
+      document.getElementById("lifeField").value = life;
+      document.getElementById("foodField").value = food;
+      if (life >= maxLife || food < 1) { document.getElementById('eat').classList.add('invisible') };
     } else {
-      life = life + 5;
+      document.getElementById('eat').classList.add('invisible');
     };
-    document.getElementById('player-life').innerHTML = life;
-    document.getElementById("lifeField").value = life;
-    document.getElementById("foodField").value = food;
-    if (life >= maxLife || food < 1) { document.getElementById('eat').classList.add('invisible') };
-  } else {
-    document.getElementById('eat').classList.add('invisible');
-  };
-});
+  });
+
+// eat by pressing e
+  document.addEventListener('keydown', function (event) {
+    if (event.keyCode === 69) {
+      if (life < maxLife) {
+        food = food - 1;
+        document.getElementById('food').innerHTML = food;
+        if (life > (maxLife - 5)) {
+          life = maxLife;
+        } else {
+          life = life + 5;
+        };
+        document.getElementById('player-life').innerHTML = life;
+        document.getElementById("lifeField").value = life;
+        document.getElementById("foodField").value = food;
+        if (life >= maxLife || food < 1 ) { document.getElementById('eat').classList.add('invisible') };
+      } else {
+        document.getElementById('eat').classList.add('invisible');
+      };
+    }
+  });
+};
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -113,3 +168,21 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// inventory by pressing i
+
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode === 73) {
+    if (modal.style.display === "block") {
+      modal.style.display = "none";
+    } else {
+      modal.style.display = "block";
+    };
+  };
+});
+
+// stop event listeners when in input field
+
+inputField.addEventListener('keydown', function (event) {
+  event.stopPropagation();
+});
