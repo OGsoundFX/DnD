@@ -117,6 +117,9 @@
       <div id="myModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
+            <% if (char.inventory.length === 0) { %>
+              <p>empty</p>
+            <% }; %>
             <% hash = {}; %>
             <% char.inventory.forEach((item) => { %>
               <% if (isNaN(hash[item])) { %>
