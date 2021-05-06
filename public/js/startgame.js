@@ -58,8 +58,10 @@ document.addEventListener('keydown', function (event) {
       menu.classList.add('hide');
 
       // Focus on first field
-      const inputField = document.getElementById('nameInput');
-      document.getElementById('nameInput').select();
+      setTimeout(function() {
+        const inputField = document.getElementById('nameInput');
+        document.getElementById('nameInput').select();
+      }, 100);
     }
   }
 });
