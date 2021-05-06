@@ -31,10 +31,6 @@ app.get('/character', (req, res) => {
     res.render('character');
 });
 
-app.get('/test', (req, res) => {
-    res.render('test');
-});
-
 app.get('/startgame', (req, res) => {
     res.render('startgame');
 });
