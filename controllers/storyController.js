@@ -53,7 +53,7 @@ module.exports = function(app) {
       setTimeout(function(){
         Character.find({ _id: id }, function(err, char) {
           if (err) throw err;
-          res.render(`./story/path`, { char: char[0] });
+          res.render(`./story/1`, { char: char[0] });
         });
       }, 300);
     } else if (replyArray.some( word => forestArray.indexOf(word) >= 0)) {
@@ -86,22 +86,22 @@ module.exports = function(app) {
     };
   });
 
-  app.post('/update', (req, res) => {
-    let level, id, newDirection;
-    newDirection = req.body.direction;
-    level = req.body.level;
-    id = req.body.id;
+  // app.post('/update', (req, res) => {
+  //   let level, id, newDirection;
+  //   newDirection = req.body.direction;
+  //   level = req.body.level;
+  //   id = req.body.id;
 
-    Character.findByIdAndUpdate(id, {direction: newDirection, $inc: {level: 1} }, function(err, char) {
-        if (err) throw err;
-    });
-    setTimeout(function(){
-      Character.find({ _id: id }, function(err, char) {
-        if (err) throw err;
-        res.render(`./story/${char[0].level}`, { char: char[0] });
-      });
-    }, 300);
-  });
+  //   Character.findByIdAndUpdate(id, {direction: newDirection, $inc: {level: 1} }, function(err, char) {
+  //       if (err) throw err;
+  //   });
+  //   setTimeout(function(){
+  //     Character.find({ _id: id }, function(err, char) {
+  //       if (err) throw err;
+  //       res.render(`./story/${char[0].level}`, { char: char[0] });
+  //     });
+  //   }, 300);
+  // });
 
   app.post('/bandits', (req, res) => {
     res.send("implement fight with bandits or not");
