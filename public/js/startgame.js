@@ -1,3 +1,19 @@
+// credits button
+
+document.addEventListener('keydown', () => {
+  if (event.keyCode === 67) {
+    window.open("TheEnd", "_self");
+  };
+});
+
+// scoreboard button
+
+document.addEventListener('keydown', () => {
+  if (event.keyCode === 83) {
+    window.open("scoreboard", "_self");
+  };
+});
+
 const unfade = () => {
     let op = 0.1;  // initial opacity
     let timer = setInterval(function () {
@@ -60,7 +76,17 @@ document.addEventListener('keydown', function (event) {
       // Focus on first field
       setTimeout(function() {
         const inputField = document.getElementById('nameInput');
+        const magicInput = document.getElementById('magicInput');
         document.getElementById('nameInput').select();
+
+        // prevent key command when in field
+        inputField.addEventListener('keydown', function (event) {
+          event.stopPropagation();
+        });
+
+        magicInput.addEventListener('keydown', function (event) {
+          event.stopPropagation();
+        });
       }, 100);
     }
   }
