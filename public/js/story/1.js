@@ -1,24 +1,40 @@
 let i = 0;
 let speed = 50;
-const story1 = 'You are walking in the woods when thee suddenly hear some rustling in some bushes nearby. Just a rabbit... but that growl sounds more like a... WOLF! What shall thee do! Quickly my Lord!'
-const enter = "Press enter";
+const story = 'You are walking in the woods when thee suddenly hear some rustling in some bushes nearby. Just a rabbit... but that growl sounds more like a... WOLF! What shall thee do! Quickly my Lord!'
+const inputField = document.getElementById('inputText');
 
-const typeWriter = (text) => {
-  if (i < text.length) {
-    document.getElementById("story").innerHTML += text.charAt(i);
-    i++;
-      if (text.charAt(i-1) === "!" || text.charAt(i-1) === "." || text.charAt(i-1) === "?") {
-        setTimeout(typeWriter, 1200, text);
-      } else {
-        setTimeout(typeWriter, speed, text);
-      };
-  } else {
-    setTimeout(function(){ document.querySelector(".text-font").innerHTML += `<p id='enter'>${enter}</p>`; }, 10);
-
+// If the player hasn't entered a invalid reply yet
+if (document.getElementById("story") != null) {
+  const typeWriter = (text) => {
+    if (i < text.length) {
+      document.getElementById("story").innerHTML += text.charAt(i);
+      i++;
+        if (text.charAt(i-1) === "!" || text.charAt(i-1) === "." || text.charAt(i-1) === "?") {
+          setTimeout(typeWriter, 1200, text);
+        } else {
+          setTimeout(typeWriter, speed, text);
+        };
+    } else {
+      setTimeout(typeWriter, speed, text);
+    };
   };
+
+  typeWriter(story);
+
+  setTimeout(function() {
+    document.getElementById('form').classList.remove('invisible');
+
+    // focus on input field directly at page load
+    document.getElementById('inputText').select();
+  }, 20500);
+
+} else {
+  document.getElementById('form').classList.remove('invisible');
+
+  // focus on input field directly at page load
+  document.getElementById('inputText').select();
 };
 
-typeWriter(story1);
 
 //fade in function
 
@@ -36,10 +52,54 @@ const unfade = () => {
 }
 
 // Play sound & fade in
+const audio = new Audio('../sound/forest.wav');
+audio.volume = 0.4;
+audio.loop = true;
 
-const fadeAndCreditMusic = () => {
-  const audio = new Audio('../sound/music1.mp3');
-  audio.loop = true;
+const fadeAndMusic = () => {
   audio.play();
   unfade();
 };
+
+const music = () => {
+  audio.play();
+};
+
+// on-off sound button
+const sound = () => {
+  document.getElementById('music-on').classList.toggle('invisible');
+  document.getElementById('music-off').classList.toggle('invisible');
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  };
+};
+
+// home button
+
+document.addEventListener('keydown', () => {
+  if (event.keyCode === 72) {
+    window.open("startgame", "_self");
+  };
+});
+
+// on-off sound with m key
+
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode === 77) {
+    document.getElementById('music-on').classList.toggle('invisible');
+    document.getElementById('music-off').classList.toggle('invisible');
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    };
+  }
+});
+
+// stop event listeners when in input field
+
+inputField.addEventListener('keydown', function (event) {
+  event.stopPropagation();
+});

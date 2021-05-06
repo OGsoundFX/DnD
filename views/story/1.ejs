@@ -9,7 +9,16 @@
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
   <link href="../css-components/story.css" rel="stylesheet" type="text/css">
 </head>
-<body style= "opacity: 0;" onload="unfade()" id="body">
+<% if (typeof(fail) != "undefined") { %>
+<body onload="music()" id="body">
+<% } else { %>
+<body style= "opacity: 0;" onload="fadeAndMusic()" id="body">
+<% } %>
+  <div class="container d-flex justify-content-end">
+    <a href="../startgame"><img src="../images/castle.png" id="castle"></a>
+    <img src="../images/lyre-play.png" onclick="sound()" id="music-on" class="invisible">
+    <img src="../images/lyre-stop.png" onclick="sound()" id="music-off">
+  </div>
   <div class="container position-relative">
     <pre class="decoration d-flex justify-content-center">
 
@@ -71,9 +80,14 @@ ____(__^>  (__^>_____U_______|  |____u_______|/|_____/     \___\|/____
       </pre>
     </div>
     <p><% char.direction %></p>
-    <p id="story"></p>
-    <form action="wolf" method="POST">
-      <input type="text" name="response">
+    <% if (typeof(fail) != "undefined") { %>
+    <% const invalidAnswer = ['Sorry Sire, your mumbling was not comprehensible. Try again!', 'What was that? Please state your intentions clearly!', '??? You better hurry and take the path or the forest! Which one will it be?']; %>
+    <%= invalidAnswer[Math.floor(Math.random() * 3)] %>
+    <% } else { %>
+      <p id="story"></p>
+    <% }; %>
+    <form action="wolf" method="POST" id="form" class="invisible">
+      <input type="text" name="response" id="inputText">
       <input type="hidden" name="id" value="<%= char._id %>">
       <input type="hidden" name="level" value="<%= char.level %>">
       <input type="submit" id="hide-submit">

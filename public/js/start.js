@@ -20,6 +20,28 @@ const typeWriter = (text) => {
 
 typeWriter(introText);
 
+// home button
+
+document.addEventListener('keydown', () => {
+  if (event.keyCode === 72) {
+    window.open("startgame", "_self");
+  };
+});
+
+// on-off sound with m key
+
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode === 77) {
+    document.getElementById('music-on').classList.toggle('invisible');
+    document.getElementById('music-off').classList.toggle('invisible');
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    };
+  }
+});
+
 //fade in function
 
 const unfade = () => {
