@@ -64,7 +64,7 @@ module.exports = function(app) {
       setTimeout(function(){
         Character.find({ _id: id }, function(err, char) {
           if (err) throw err;
-          res.render('./story/1', { char: char[0] });
+          res.render('./story/forest', { char: char[0] });
         });
       }, 300);
     } else {
@@ -166,7 +166,7 @@ module.exports = function(app) {
       } else {
         Character.find({ _id: id }, function(err, char) {
           if (err) throw err;
-          res.render('./story/1', { fail: true, char: char[0] });
+          res.render('./story/forest', { fail: true, char: char[0] });
         });
       };
 
