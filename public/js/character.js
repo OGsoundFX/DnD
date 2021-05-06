@@ -64,8 +64,8 @@ const storeName = () => {
 
 document.addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
-      document.getElementById("enter").classList.add('display');
-      document.querySelector(".cursor").classList.add('display');
+      // document.getElementById("enter").classList.add('display');
+      // document.querySelector(".cursor").classList.add('display');
       if (document.getElementById("name").innerHTML === 'What is thy name?') {
         storeName();
         document.getElementById("name").innerHTML = "";
@@ -90,7 +90,7 @@ document.addEventListener('keydown', function (event) {
         document.querySelector("form").remove();
       }
       if (character.split(',').length === 4) {
-        // document.getElementById('hide-submit').classList.remove('hide-submit');
+        document.getElementById('hide-submit').classList.remove('hide-submit');
         document.getElementById('submit').select();
       };
       document.getElementById('submit').name = character;
