@@ -210,3 +210,24 @@ pre {
   color: black !important;
   background-color: #1dbb1e !important;
 }
+
+.key {
+  color: yellow;
+  text-shadow: 0 0 9px yellow;
+  margin-left: 440px;
+  margin-top: -278px;
+  padding-right: 20px;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px yellow, 0 0 60px yellow, 0 0 70px yellow;
+  }
+
+  to {
+    text-shadow: 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px yellow, 0 0 60px yellow, 0 0 70px yellow, 0 0 80px yellow;
+  }
+}

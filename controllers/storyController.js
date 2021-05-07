@@ -204,8 +204,8 @@ module.exports = function(app) {
     setTimeout(function() {
       Character.find({ _id: id }, function(err, char) {
         if (err) throw err;
-        let n = (Math.random() * 12);
-        if (n > 10) {
+        let n = (Math.random() * 15);
+        if (n > 13) {
           // create Wolf
           const wolf = {
             life: 10 + Math.floor(Math.random()*7),
@@ -214,8 +214,10 @@ module.exports = function(app) {
             chance: 6 + Math.floor(Math.random()*7)
           };
           res.render('./story/combatWolf', { char: char[0], wolf: wolf })
-        } else if (n > 7) {
+        } else if (n > 10) {
           res.render(`./story/strawberryField`, { char: char[0] });
+        } else if (n > 5) {
+          res.render(`./story/key`, { char: char[0] });
         } else {
           res.render(`./story/2`, { char: char[0] });
         };
