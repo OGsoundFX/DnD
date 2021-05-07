@@ -51,6 +51,10 @@ app.get('/story/strawberryField', (req, res) => {
     res.render('story/strawberryField');
 });
 
+app.get('/story/key', (req, res) => {
+    res.render('story/key');
+});
+
 characterController(app);
 startGameController(app);
 storyController(app);
