@@ -1,6 +1,4 @@
 const express = require('express');
-const http = require('http');
-const enforce = require('express-sslify');
 const app = express();
 const mongoose = require('mongoose');
 const setupController = require('./controllers/setupController');
@@ -9,8 +7,6 @@ const startGameController = require('./controllers/startGameController');
 const storyController = require('./controllers/storyController');
 const maxLifeController = require('./controllers/maxLifeController');
 const config = require('./config/dbconfig');
-
-app.use(enforce.HTTPS()); // forces the app to load with https
 
 app.use(express.json()); //Used to parse JSON bodies
 app.use(express.urlencoded()); //Parse URL-encoded bodies
