@@ -213,12 +213,13 @@ pre {
 
 .key {
   color: yellow;
+  font-size: 10px;
+  transform: rotate(-30deg);
+  letter-spacing: -1px;
   text-shadow: 0 0 9px yellow;
-  margin-left: 440px;
-  margin-top: -278px;
+  margin-left: 362px;
+  margin-top: -232px;
   padding-right: 20px;
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
   animation: glow 1s ease-in-out infinite alternate;
 }
 
