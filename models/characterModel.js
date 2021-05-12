@@ -19,7 +19,8 @@ const characterSchema = new Schema({
     inventory: Array,
     coins: { type: Number, default: 0, min: 0 },
     food: { type: Number, default: 0, min: 0 },
-    special: Array
+    special: Array,
+    counter: { type: Number, default: 0 }
 });
 
 const Characters = mongoose.model('characters', characterSchema);

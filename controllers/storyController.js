@@ -196,30 +196,37 @@ module.exports = function(app) {
     const life = parseInt(req.body.life);
     const food = parseInt(req.body.food);
 
-    Character.findByIdAndUpdate(id, { life: life, food: food }, function(err, char) {
+    Character.findByIdAndUpdate(id, { life: life, food: food, $inc: {counter: 1} }, function(err, char) {
       if (err) throw err;
     });
 
     setTimeout(function() {
       Character.find({ _id: id }, function(err, char) {
         if (err) throw err;
-        let n = (Math.random() * 15);
-        if (n > 13) {
-          // create Wolf
-          const wolf = {
-            life: 10 + Math.floor(Math.random()*7),
-            strength: 8 + Math.floor(Math.random()*9),
-            agility: 6 + Math.floor(Math.random()*7),
-            chance: 6 + Math.floor(Math.random()*7)
+
+          if (char[0].counter > 5) {
+
+            let n = (Math.random() * 15);
+            if (n > 13) {
+              // create Wolf
+              const wolf = {
+                life: 10 + Math.floor(Math.random()*7),
+                strength: 8 + Math.floor(Math.random()*9),
+                agility: 6 + Math.floor(Math.random()*7),
+                chance: 6 + Math.floor(Math.random()*7)
+              };
+              res.render('./story/combatWolf', { char: char[0], wolf: wolf })
+            } else if (n > 10) {
+              res.render(`./story/strawberryField`, { char: char[0] });
+            } else if (n > 5) {
+              res.render(`./story/key`, { char: char[0] });
+            } else {
+              res.render(`./story/2`, { char: char[0] });
+            };
+          } else {
+              res.render(`./story/2`, { char: char[0] });
           };
-          res.render('./story/combatWolf', { char: char[0], wolf: wolf })
-        } else if (n > 10) {
-          res.render(`./story/strawberryField`, { char: char[0] });
-        } else if (n > 5) {
-          res.render(`./story/key`, { char: char[0] });
-        } else {
-          res.render(`./story/2`, { char: char[0] });
-        };
+
       });
     }, 300);
   });
