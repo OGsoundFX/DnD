@@ -23,7 +23,6 @@ module.exports = function(app) {
         }
       })
       const firstTen = sortedList.slice(0,10);
-      // res.send(firstTen);
       res.render('./scoreboard', { list: firstTen });
     });
   });
