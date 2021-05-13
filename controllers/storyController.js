@@ -205,18 +205,31 @@ module.exports = function(app) {
         if (err) throw err;
 
           if (char[0].counter > 9) {
-            let n = (Math.random() * 10);
-            if (n > 9) {
+            let n = (Math.random() * 11);
+            if (n > 10) {
+              // create Ogre
+              const ogre = {
+                name: "Ogre",
+                life: 15 + Math.floor(Math.random()*7),
+                strength: 20 + Math.floor(Math.random()*9),
+                agility: 12 + Math.floor(Math.random()*7),
+                chance: 12 + Math.floor(Math.random()*7),
+                weapon: "Giant stick"
+              };
+              res.render('./story/combatWolf', { char: char[0], wolf: ogre })
+            } else if (n > 9) {
               res.render(`./story/key`, { char: char[0] });
             } else if (n > 6) {
               res.render(`./story/dungeon`, { char: char[0] });
             } else if (n > 3) {
               // create Wolf
               const wolf = {
+                name: "Wolf",
                 life: 10 + Math.floor(Math.random()*7),
                 strength: 8 + Math.floor(Math.random()*9),
                 agility: 6 + Math.floor(Math.random()*7),
-                chance: 6 + Math.floor(Math.random()*7)
+                chance: 6 + Math.floor(Math.random()*7),
+                weapon: "Teeth"
               };
               res.render('./story/combatWolf', { char: char[0], wolf: wolf })
             } else {
@@ -229,10 +242,12 @@ module.exports = function(app) {
             } else if (n > 3) {
               // create Wolf
               const wolf = {
+                name: "Wolf",
                 life: 10 + Math.floor(Math.random()*7),
                 strength: 8 + Math.floor(Math.random()*9),
                 agility: 6 + Math.floor(Math.random()*7),
-                chance: 6 + Math.floor(Math.random()*7)
+                chance: 6 + Math.floor(Math.random()*7),
+                weapon: "Teeth"
               };
               res.render('./story/combatWolf', { char: char[0], wolf: wolf })
             } else if (n > 2) {
@@ -246,10 +261,12 @@ module.exports = function(app) {
             if (n > 4) {
               // create Wolf
               const wolf = {
+                name: "Wolf",
                 life: 10 + Math.floor(Math.random()*7),
                 strength: 8 + Math.floor(Math.random()*9),
                 agility: 6 + Math.floor(Math.random()*7),
-                chance: 6 + Math.floor(Math.random()*7)
+                chance: 6 + Math.floor(Math.random()*7),
+                weapon: "Teeth"
               };
               res.render('./story/combatWolf', { char: char[0], wolf: wolf })
             } else {
