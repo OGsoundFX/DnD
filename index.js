@@ -55,6 +55,10 @@ app.get('/story/key', (req, res) => {
     res.render('story/key');
 });
 
+app.get('/story/dungeon', (req, res) => {
+    res.render('story/dungeon');
+});
+
 characterController(app);
 startGameController(app);
 storyController(app);
