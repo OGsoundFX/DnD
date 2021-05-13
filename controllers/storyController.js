@@ -205,7 +205,7 @@ module.exports = function(app) {
         if (err) throw err;
 
           if (char[0].counter > 9) {
-            let n = (Math.random() * 11);
+            let n = (Math.random() * 12);
             if (n > 10) {
               // create Ogre
               const ogre = {
@@ -216,12 +216,12 @@ module.exports = function(app) {
                 chance: 12 + Math.floor(Math.random()*7),
                 weapon: "Giant stick"
               };
-              res.render('./story/combatWolf', { char: char[0], wolf: ogre })
+              res.render('./story/combatOgre', { char: char[0], wolf: ogre })
             } else if (n > 9) {
               res.render(`./story/key`, { char: char[0] });
-            } else if (n > 6) {
+            } else if (n > 8) {
               res.render(`./story/dungeon`, { char: char[0] });
-            } else if (n > 3) {
+            } else if (n > 6) {
               // create Wolf
               const wolf = {
                 name: "Wolf",
