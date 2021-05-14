@@ -133,7 +133,7 @@ if (eat) {
 // eat by pressing e
   document.addEventListener('keydown', function (event) {
     if (event.keyCode === 69) {
-      if (life < maxLife) {
+      if (life < maxLife && food > 0) {
         food = food - 1;
         document.getElementById('food').innerHTML = food;
         if (life > (maxLife - 5)) {

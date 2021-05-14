@@ -11,9 +11,10 @@ module.exports = function(app) {
           magicWord: characterResponse[1],
           weapon: characterResponse[2],
           meal: characterResponse[3],
-          level: 0,
+          level: 2,
           strength: 20 + number,
-          agility: 20 - number
+          agility: 20 - number,
+          maxLife: 25
       });
       newCharacter.save(function(err, char) {
           if (err) throw err;
@@ -23,7 +24,7 @@ module.exports = function(app) {
       setTimeout(function(){
         Character.find({ _id: id }, function(err, char) {
           if (err) throw err;
-          res.render(`./story/${char[0].level}`, { char: char[0] });
+          res.render(`./story/forest`, { char: char[0] });
         });
       }, 300);
   });
