@@ -1,6 +1,6 @@
 let i = 0;
 let speed = 25;
-const intro = 'After a few steps into the direction of the noise, you find yourself face to face with a wolf. It attacks!'
+const intro = 'You find yourself in front of a giant ogre twice your size! There is nothing you can do except fight!'
 const enter = "Press enter";
 
 const typeWriter = (text) => {
@@ -57,7 +57,7 @@ setTimeout(function() {
           } else {
             diff = wolfAgility - playerAgility;
           };
-          const wolfHitfactor = diff + Math.floor(Math.random()*18) - 8;
+          const wolfHitfactor = diff + Math.floor(Math.random()*18) - 7;
           if (wolfHitfactor >= 0) {
             const damage = Math.floor(wolfStrength / playerStrength * Math.floor(Math.random()*6)) + 1;
             playerLife -= damage;
@@ -75,7 +75,7 @@ setTimeout(function() {
               if (playerLife <= 0) {
                 document.getElementById("story").innerHTML = `You received <span style="color: #f68105">${damage}</span> points of damage, your are DEAD!`;
                 document.getElementById("story").classList.remove("invisible");
-                const audio1 = new Audio('../../sound/Monster_Bite.wav');
+                const audio1 = new Audio('../../sound/Giant-growl.wav');
                 const audio2 = new Audio('../../sound/death.wav');
                 audio1.play();
                 audio2.play();
@@ -90,7 +90,7 @@ setTimeout(function() {
                 }, 5000);
               } else {
 
-                const wolfDamage = [`The wolf manages to get a nasty bite off of you, you lose <span style="color: #f68105">${damage}</span> life points!`, `The angry beast got a bite at you and took <span style="color: #f68105">${damage}</span> life points!`];
+                const wolfDamage = [`The ogre manages to get a nasty hit at of you, you lose <span style="color: #f68105">${damage}</span> life points!`, `The angry monster got a hit at you and took <span style="color: #f68105">${damage}</span> life points!`];
 
                 document.getElementById("story").innerHTML = wolfDamage[Math.floor(Math.random()*2)];
                 document.getElementById("story").classList.remove("invisible");
@@ -115,10 +115,10 @@ setTimeout(function() {
             wolf.classList.remove("turn");
             setTimeout(function(){
 
-              const wolfMiss = ["Somehow you managed to evade the wolf's attack and you can hear the jaws smack just an inch away from your ear! It is your turn to attack!", "How lucky, the wolf missed. You aim your weapon at the beast!"];
+              const wolfMiss = ["Somehow you managed to evade the attack from the ogre and you can hear his masse swish just an inch away from your ear! It is your turn to attack!", "How lucky, the ogre missed! You aim your weapon at the monster!"];
 
               // wolf animation and miss sound
-              const audio = new Audio('../../sound/wolf-miss.wav');
+              const audio = new Audio('../../sound/Giant-growl.wav');
               audio.play();
               document.querySelector('.wolf').classList.add('invisible');
               document.querySelector('.wolf-fight').classList.remove('invisible');
@@ -139,7 +139,7 @@ setTimeout(function() {
           };
         } else if (round.innerHTML === "player") {
           roleDice();
-          const playerHitfactor =  playerAgility - wolfAgility + Math.floor(Math.random()*18) - 6;
+          const playerHitfactor =  playerAgility - wolfAgility + Math.floor(Math.random()*18) - 7;
           if (playerHitfactor >= 0) {
             const damage = Math.floor(playerStrength / wolfStrength * Math.floor(Math.random() * 6)) +1;
             wolfLife -= damage;
@@ -167,8 +167,9 @@ setTimeout(function() {
                 const audio2 = new Audio('../../sound/victory.wav');
                 audio1.play();
                 audio2.play();
-                const experience = 3 + Math.floor(Math.random()*5);
-                document.getElementById("story").innerHTML = `Bravo! You kill the wolf with <span style="color: #f68105">${damage}</span> points of damage! </br>You earn <span style="color: #f68105">${experience}</span> Experience points, <span style="color: #f68105">1 Wolf Tooth</span>! and <span style="color: #f68105">1 food</span>!`;
+                const experience = 5 + Math.floor(Math.random()*7);
+                const coins = 1 + Math.floor(Math.random()*4);
+                document.getElementById("story").innerHTML = `Magnificiant! You killed the mighty ogre with <span style="color: #f68105">${damage}</span> points of damage! </br>You earn <span style="color: #f68105">${experience}</span> Experience points!`;
                 document.getElementById("story").classList.remove("invisible");
                 document.getElementById('wolf-life').innerHTML = wolfLife;
                 document.getElementById('wolf-life').classList.add('new-life-score');
@@ -177,10 +178,11 @@ setTimeout(function() {
                   document.getElementById("story").innerHTML += "</br>Are you ready for your next achievment?";
                   document.getElementById("lifeField").value = playerLife;
                   document.getElementById("experience").value = experience;
+                  document.getElementById("coins").value = coins;
                   document.getElementById("form").classList.remove('invisible');
                 }, 1000);
               } else {
-                document.getElementById("story").innerHTML = `You hit the wolf with your ${playerWeapon} and cause the wolf <span style="color: #f68105">${damage}</span> life points!`;
+                document.getElementById("story").innerHTML = `You hit the ogre with your ${playerWeapon} and cause the monster <span style="color: #f68105">${damage}</span> life points!`;
                 document.getElementById("story").classList.remove("invisible");
                 document.getElementById('wolf-life').innerHTML = wolfLife;
                 document.getElementById('wolf-life').classList.add('new-life-score');
@@ -246,3 +248,4 @@ const fadeAndCreditMusic = () => {
   audio.play();
   unfade();
 };
+
