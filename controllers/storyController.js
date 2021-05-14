@@ -22,7 +22,7 @@ module.exports = function(app) {
                else return 0
         }
       })
-      const firstTen = sortedList.slice(0,10);
+      const firstTen = sortedList.slice(0,12);
       res.render('./scoreboard', { list: firstTen });
     });
   });
@@ -84,23 +84,6 @@ module.exports = function(app) {
       }, 300);
     };
   });
-
-  // app.post('/update', (req, res) => {
-  //   let level, id, newDirection;
-  //   newDirection = req.body.direction;
-  //   level = req.body.level;
-  //   id = req.body.id;
-
-  //   Character.findByIdAndUpdate(id, {direction: newDirection, $inc: {level: 1} }, function(err, char) {
-  //       if (err) throw err;
-  //   });
-  //   setTimeout(function(){
-  //     Character.find({ _id: id }, function(err, char) {
-  //       if (err) throw err;
-  //       res.render(`./story/${char[0].level}`, { char: char[0] });
-  //     });
-  //   }, 300);
-  // });
 
   app.post('/bandits', (req, res) => {
     res.send("implement fight with bandits or not");
@@ -223,8 +206,10 @@ module.exports = function(app) {
         if (err) throw err;
 
           if (char[0].counter > 9) {
-            let n = (Math.random() * 12);
-            if (n > 10) {
+            let n = (Math.random() * 14);
+            if (n > 12) {
+              res.render(`./story/strawberryField`, { char: char[0] });
+            } else if (n > 10) {
               // create Ogre
               const ogre = {
                 name: "Ogre",
