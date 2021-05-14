@@ -232,3 +232,43 @@ pre {
     text-shadow: 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px yellow, 0 0 60px yellow, 0 0 70px yellow, 0 0 80px yellow;
   }
 }
+
+.strawberries {
+  color: red;
+  font-size: 10px;
+  text-shadow: 0 0 9px red;
+  margin-left: 580px;
+  margin-top: -408px;
+  padding-right: 20px;
+  animation: glowRed 1s ease-in-out infinite alternate;
+}
+
+.strawberries2 {
+  color: red;
+  font-size: 10px;
+  text-shadow: 0 0 9px red;
+  margin-left: 386px;
+  margin-top: -384px;
+  padding-right: 20px;
+  animation: glowRed 1s ease-in-out infinite alternate;
+}
+
+.strawberries3 {
+  color: red;
+  font-size: 10px;
+  text-shadow: 0 0 9px red;
+  margin-left: 456px;
+  margin-top: -368px;
+  padding-right: 20px;
+  animation: glowRed 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glowRed {
+  from {
+    text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red, 0 0 40px red, 0 0 50px red, 0 0 60px red, 0 0 70px red;
+  }
+
+  to {
+    text-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red, 0 0 50px red, 0 0 60px red, 0 0 70px red, 0 0 80px red;
+  }
+}
