@@ -189,6 +189,24 @@ module.exports = function(app) {
     }, 300);
   });
 
+  app.post('/updateAfterCombatOgre', (req,res) => {
+    let id = req.body["id"];
+    let level = parseInt(req.body["level"]);
+    let newLife = parseInt(req.body["life"]);
+    let experiencePoints = parseInt(req.body["experience"]);
+    let coins = parseInt(req.body["coins"]);
+    Character.findByIdAndUpdate(id, { life: newLife, $push: {inventory: "ogre hair"}, $inc: {coins: coins, experience: experiencePoints} }, function(err, char) {
+      if (err) throw err;
+    });
+
+    setTimeout(function(){
+      Character.find({ _id: id }, function(err, char) {
+        if (err) throw err;
+        res.render(`./story/${char[0].level}`, { char: char[0] });
+      });
+    }, 300);
+  });
+
   app.post('/forestDispatch', (req, res) => {
     const id = req.body["id"];
 
@@ -212,8 +230,8 @@ module.exports = function(app) {
                 name: "Ogre",
                 life: 15 + Math.floor(Math.random()*7),
                 strength: 20 + Math.floor(Math.random()*9),
-                agility: 12 + Math.floor(Math.random()*7),
-                chance: 12 + Math.floor(Math.random()*7),
+                agility: 8 + Math.floor(Math.random()*7),
+                chance: 6 + Math.floor(Math.random()*7),
                 weapon: "Giant stick"
               };
               res.render('./story/combatOgre', { char: char[0], wolf: ogre })

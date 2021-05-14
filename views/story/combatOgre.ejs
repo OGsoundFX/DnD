@@ -150,10 +150,10 @@ ____        ____                                  __
           <pre class="wolf">
                _      ,  .
              <´ `>   /(  )`\
-             < ^ >  c (  ) /|
-             `< >´   \(  )  |
-              < >   .´ ,.J  /
-               8===´-´õooooo
+             < ^ >  c (  ) |
+             `< >´   \(  ) |
+              < >   .´ ,.J /
+               83_´_-´óooooo
                U     //| |\\
                     // | | \\
                     ~~~~~~~~~
@@ -166,21 +166,19 @@ ____        ____                                  __
 
         <div class="position-absolute">
           <pre class="wolf-fight invisible">
-               ,
-              /|
-           _/<  \
-       e'''      \_'''_
-        v^v            '----.______ __
-         ^^ \_                     '  '-.
-              `_      .        .        \
-                `\_   :        :      ;  :
-                   \   :__     '.     |  |
-                   |  / | '----'\     :  |
-                   | |\ |        |   /|  /
-                   | / ||         \ | '.'
-                  _// l.'         '.|\ |
-                 '-'               || ||
-                                  '-''-'
+                   ,  .
+                  /(  )`\
+                 c (  ) |
+                  \(  ) |
+     ,Λ-Λ-Λ-Λ __.´ ,.J /
+     `V-V-V-v-´--´óooooo
+                  //| |\\
+                 // | | \\
+                 ~~~~~~~~~
+                  C |  C |
+                  | )   ( )
+                  | )    | )
+                c___)  c___)
           </pre>
         </div>
       </div>
@@ -202,15 +200,16 @@ ____        ____                                  __
     <h4 class="invisible enter d-flex justify-content-center">Press Enter</h4>
     <p class="round" style="display: none">wolf</p>
 
-    <form action="updateAfterCombat" method="POST" class="invisible" id="form">
+    <form action="updateAfterCombatOgre" method="POST" class="invisible" id="form">
       <input type="hidden" value="<%= char.id %>" name="id">
       <input type="hidden" value="<%= char.level %>" name="level">
       <input type="hidden" value="" name="life" id="lifeField">
       <input type="hidden" value="" name="experience" id="experience">
+      <input type="hidden" value="" name="coins" id="coins">
       <input type="submit" name="" value="On my way!">
     </form>
 
   </div>
-  <script src="../js/story/combatWolf.js"></script>
+  <script src="../js/story/combatOgre.js"></script>
   </body>
 </html>
