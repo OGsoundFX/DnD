@@ -1,6 +1,10 @@
 let i = 0;
 let speed = 25;
+
+const coward = document.getElementById('coward').innerHTML;
+const cowardIntro = 'You coward! You start running away but the wolf easily catches up with you even angrier than before! You lose 5 points of courage. The wolf attacks!'
 const intro = 'After a few steps into the direction of the noise, you find yourself face to face with a wolf. It attacks!'
+
 const enter = "Press enter";
 
 const typeWriter = (text) => {
@@ -18,7 +22,11 @@ const typeWriter = (text) => {
   };
 };
 
-typeWriter(intro);
+if (coward === "coward") {
+  typeWriter(cowardIntro);
+} else {
+  typeWriter(intro);
+};
 
 // Attack specs
 let playerAgility = parseInt(document.getElementById('player-agility').innerHTML);

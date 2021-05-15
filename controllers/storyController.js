@@ -131,14 +131,19 @@ module.exports = function(app) {
           res.render('./story/combatWolf', { char: char[0], wolf: wolf })
         });
       } else if (nEscape > 0) {
-        // you try to escape but you stumble on a tronc and you get caught by a pack of wolves
-        // minus points un courage
-        // create pack of wolves
-        res.send('You coward!');
+        // create Wolf
+        const wolf = {
+          life: 15 + Math.floor(Math.random()*7),
+          strength: 10 + Math.floor(Math.random()*9),
+          agility: 8 + Math.floor(Math.random()*7),
+          chance: 8 + Math.floor(Math.random()*7)
+        };
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render('./story/combatWolf', { char: char[0], wolf: wolf, coward: true })
+        });
       } else if (nHide > 0) {
-        // you hide but the wolves smell your sent and attack you
-        // minus points in courage
-        res.send('You coward! your are attacked while hiding');
+        res.render('./story/forestHidePlayerDead');
       } else if (nClimb > 0) {
         // you climb and maybe there is something cool happening / or you fall and get attacked
         // minus points in courage ?
@@ -160,7 +165,8 @@ module.exports = function(app) {
     let level = parseInt(req.body["level"]);
     let newLife = parseInt(req.body["life"]);
     let experiencePoints = parseInt(req.body["experience"]);
-    Character.findByIdAndUpdate(id, { level: 2, life: newLife, $push: {inventory: "wolf tooth"}, $inc: {food: 1, experience: experiencePoints} }, function(err, char) {
+    let coward = parseInt(req.body["coward"]) * -1;
+    Character.findByIdAndUpdate(id, { level: 2, life: newLife, $push: {inventory: "wolf tooth"}, $inc: {food: 1, experience: experiencePoints, courage: coward} }, function(err, char) {
       if (err) throw err;
     });
 
