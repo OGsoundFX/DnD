@@ -10,6 +10,11 @@
   <link href="../css-components/combatWolf.css" rel="stylesheet" type="text/css">
 </head>
 <body style= "opacity: 0;" onload="unfade()" id="body">
+  <% if (typeof(coward) != "undefined") { %>
+    <div class="invisible" id="coward">coward</div>
+  <% } else { %>
+    <div class="invisible" id="coward"></div>
+  <% }; %>
   <div class="container decoration-dead invisible" id="dead">
     <div class="d-flex justify-content-center">
       <pre>
@@ -208,6 +213,11 @@ ____        ____                                  __
       <input type="hidden" value="<%= char.level %>" name="level">
       <input type="hidden" value="" name="life" id="lifeField">
       <input type="hidden" value="" name="experience" id="experience">
+      <% if(typeof(coward) != "undefined") { %>
+        <input type="hidden" value="5" name="coward">
+      <% } else { %>
+        <input type="hidden" value="0" name="coward">
+      <% }; %>
       <input type="submit" name="" value="On my way!">
     </form>
 
