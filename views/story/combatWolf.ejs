@@ -11,7 +11,11 @@
 </head>
 <body style= "opacity: 0;" onload="unfade()" id="body">
   <% if (typeof(coward) != "undefined") { %>
-    <div class="invisible" id="coward">coward</div>
+    <% if(coward) { %>
+      <div class="invisible" id="coward">coward</div>
+    <% } else { %>
+      <div class="invisible" id="coward">notCoward</div>
+    <% }; %>
   <% } else { %>
     <div class="invisible" id="coward"></div>
   <% }; %>
@@ -214,7 +218,11 @@ ____        ____                                  __
       <input type="hidden" value="" name="life" id="lifeField">
       <input type="hidden" value="" name="experience" id="experience">
       <% if(typeof(coward) != "undefined") { %>
-        <input type="hidden" value="5" name="coward">
+        <% if(coward) { %>
+          <input type="hidden" value="-5" name="coward">
+        <% } else { %>
+          <input type="hidden" value="5" name="coward">
+        <% }; %>
       <% } else { %>
         <input type="hidden" value="0" name="coward">
       <% }; %>

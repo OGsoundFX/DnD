@@ -1,5 +1,5 @@
 let i = 0;
-let speed = 50;
+let speed = 25;
 const text = "As you step through some bushes, starting to feel completely lost, a shiny object lying on the ground catches your attention. It looks like... a key!";
 
 if (document.getElementById("story") != null) {
