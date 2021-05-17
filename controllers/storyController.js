@@ -149,7 +149,15 @@ module.exports = function(app) {
         // minus points in courage ?
         // extra points in luck
         // You climb a tree, and fall accidently killing the wolf (wolves)
-        res.send('Climbing is a coward move but not such a bad idea');
+        Character.findByIdAndUpdate(id, { level: 2, $push: {inventory: "wolf tooth"}, $inc: {food: 1, chance: 5, courage: -5 } }, function(err, char) {
+          if (err) throw err;
+        });
+        setTimeout(function() {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/climbTree', { char: char[0] })
+          });
+        }, 300);
       } else {
         Character.find({ _id: id }, function(err, char) {
           if (err) throw err;

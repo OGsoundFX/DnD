@@ -117,6 +117,17 @@ pre {
   margin-left: -124px;
 }
 
+.player-climb {
+  font-size: 12px;
+  margin-top: -458px;
+  margin-left: -86px;
+}
+
+.player-board-climb {
+  margin-top: -484px;
+  margin-left: -136px;
+}
+
 #eat {
   color: #1dbb1e;
   background-color: black;
@@ -285,4 +296,24 @@ pre {
   to {
     text-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red, 0 0 50px red, 0 0 60px red, 0 0 70px red, 0 0 80px red;
   }
+}
+
+#enter {
+  margin-top: 20px;
+  animation:blinking 1s linear infinite;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+@keyframes blinking {
+    0% { opacity: 1; }
+   49% { opacity: 1; }
+   50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+
+.text-font {
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size: 2vw;
 }

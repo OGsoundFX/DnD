@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>The Quest</title>
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
+  <link href="../css-components/story.css" rel="stylesheet" type="text/css">
+</head>
+<body style= "opacity: 0;" onload="unfade('body')" id="body">
+
+  <div class="container d-flex justify-content-end" id="menu">
+    <a href="../startgame"><img src="../images/castle.png" id="castle"></a>
+    <img src="../images/lyre-play.png" onclick="sound()" id="music-on" class="invisible">
+    <img src="../images/lyre-stop.png" onclick="sound()" id="music-off">
+  </div>
+
+  <div class="container position-relative" id="storyContent">
+    <pre class="decoration d-flex justify-content-center">
+
+    (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯)
+   ( \                                                                               / )
+  ( \ )                                                                             ( / )
+ ( ) (                                                                               ) ( )
+  ( / )                                                                             ( \ )
+   ( /                                                                               \ )
+   ( \                                                                               / )
+  ( \ )                                                                             ( / )
+ ( ) (                                                                               ) ( )
+  ( / )                                                                             ( \ )
+   ( /                                                                               \ )
+   ( \                                                                               / )
+  ( \ )                                                                             ( / )
+ ( ) (                                                                               ) ( )
+  ( / )                                                                             ( \ )
+   ( /                                                                               \ )
+   ( \                                                                               / )
+  ( \ )                                                                             ( / )
+ ( ) (                                                                               ) ( )
+  ( / )                                                                             ( \ )
+   ( /                                                                               \ )
+  ( \                                                                               / )
+  ( \ )                                                                             ( / )
+ ( ) (                                                                               ) ( )
+  ( / )                                                                             ( \ )
+   ( /                                                                               \ )
+    (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._¸.·´¯`·._)
+
+    </pre>
+
+    <div class="position-absolute">
+      <pre class="d-flex justify-content-center forest-art-clouds">
+             .--                                   .--
+           .(   )                              .- ( . )
+          (   .  )                            (   (  . `)
+         (  (   ))                           (  (   )  ) )
+          `- __.'                             (  (     ))
+                                               `--.__.-'
+
+
+
+          __
+        _/_ \
+       /  \ =
+      / .. \/
+      \ .. /
+      |\__/|=====>
+     /======\
+       ) ) \
+      / / \ \
+     / /   \ \
+____(__^>  (__^>____
+
+      </pre>
+    </div>
+        <div class="decoration player-board-climb position-absolute">
+    <pre>
+    .-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+    |                             |
+    |                             |
+    |                             |
+    |                             |
+    |                             |
+    !                             !
+    :                             :
+    :                             :
+    .                             .
+    .                             .
+    :                             :
+    :                             :
+    !                             !
+    |                             |
+    |                             |
+    |                             |
+    |                             |
+    |                             |
+    `-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+    </pre>
+        </div>
+        <div class="player-climb position-absolute">
+          <p style="font-size: 15px; margin-bottom: 25px"><%=char.charactername%></p>
+          ❤ Life: <span id="player-life"><%=char.life%></span>/<span id="maxLife"><%= char.maxLife %></span><br>
+           Strength: <span id="player-strength"><%= char.strength%></span><br>
+           Agility: <span id="player-agility"><%= char.agility%></span><br>
+           Weapon: <span id="player-weapon"><%= char.weapon%></span><br>
+           Courage: <span id="player-weapon"><%= char.courage%></span><br>
+           chance: <span id="player-weapon"><%= char.chance%></span><br>
+           Coins: <span id="player-weapon"><%= char.coins%></span><br>
+          <div class="d-flex justify-content-between">
+            <div>
+              Food: <span id="food"><%= char.food %></span>
+            </div>
+            <% if (char.food > 0 && char.life < char.maxLife) { %>
+            <div>
+              <button id="eat">eat</button>
+              <div class="invisible"> <span id="press-e">e</span>at </div>
+            </div>
+            <% }; %>
+          </div>
+          XP: <span id="player-weapon"><%= char.experience%></span>
+          <div>
+            <button id="inventory">Inventory</button>
+            <div id="inventory-key" class="invisible"> <span id="press-i">i</span>nventory </div>
+          </div>
+
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+                <% if (char.inventory.length === 0) { %>
+                  <p>empty</p>
+                <% }; %>
+                <% hash = {}; %>
+                <% char.inventory.forEach((item) => { %>
+                  <% if (isNaN(hash[item])) { %>
+                    <% hash[item] = 1; %>
+                  <% } else { %>
+                    <% hash[item] = hash[item] + 1; %>
+                  <% }; %>
+                <% });%>
+
+                <% Object.entries(hash).forEach((entry) => { %>
+                  <p> <%= `${entry[0]}: ${entry[1]}` %> </p>
+                <% }); %>
+            </div>
+          </div>
+
+        </div>
+    <p id="story"></p>
+    <form action="forestDispatch" method="POST" id="form" class="invisible">
+      <input type="hidden" name="id" value="<%= char._id %>">
+      <input type="hidden" name="food" value="" id="foodField">
+      <input type="hidden" name="life" value="" id="lifeField">
+      <input type="submit" name="" value="On my way!">
+    </form>
+  </div>
+<!--   <div class="text-font">
+    <p class="invisible" id="enter">Press Enter</p>
+  </div> -->
+
+  <script src="../js/story/climbTree.js"></script>
+  </body>
+</html>
