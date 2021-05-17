@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <title>The Quest</title>
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
@@ -11,88 +12,126 @@
 </head>
 <% if (typeof(fail) != "undefined") { %>
 <body onload="music()" id="body">
+  <div class="invisible" id="fail">fail</div>
 <% } else { %>
-<body style= "opacity: 0;" onload="fadeAndMusic()" id="body">
+<body style= "opacity: 0;" onload="unfade('body')" id="body">
 <% } %>
-  <div class="container d-flex justify-content-end">
-    <a href="../startgame"><img src="../images/castle.png" id="castle"></a>
-    <img src="../images/lyre-play.png" onclick="sound()" id="music-on" class="invisible">
-    <img src="../images/lyre-stop.png" onclick="sound()" id="music-off">
+
+  <div class="position-relative" id="chapterOne">
+    <div class="container d-flex justify-content-center decoration" id="paper-role">
+      <pre>
+   _________________________________________________________________
+ /   \                                                             `\
+|| @  |                                                              |
+| \__/______________________________________________________________/
+|                                                                  |
+ |                                                                 |
+ |                                                                  |
+ |                                                                  |
+  |                                                                  |
+   \                                                                 |
+   /                                                                |
+  |                                                                 |
+   |                                                                 |
+   |                                                                 |
+   |                                                                  |
+  |                                                                   |
+  |  ________________________________________________________________|
+  |/`  \                                                             `\
+  || @ |                                                               |
+   \___/_______________________________________________________________/
+      </pre>
+      <div class="position-absolute" id="chapterOneTitle">
+        <h1>Chapter One</h1>
+        <br><br><br>
+        <p>The Forest</p>
+      </div>
+    </div>
   </div>
-  <div class="container position-relative">
-    <pre class="decoration d-flex justify-content-center">
 
-    (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯)
-   ( \                                                                               / )
-  ( \ )                                                                             ( / )
- ( ) (                                                                               ) ( )
-  ( / )                                                                             ( \ )
-   ( /                                                                               \ )
-   ( \                                                                               / )
-  ( \ )                                                                             ( / )
- ( ) (                                                                               ) ( )
-  ( / )                                                                             ( \ )
-   ( /                                                                               \ )
-   ( \                                                                               / )
-  ( \ )                                                                             ( / )
- ( ) (                                                                               ) ( )
-  ( / )                                                                             ( \ )
-   ( /                                                                               \ )
-   ( \                                                                               / )
-  ( \ )                                                                             ( / )
- ( ) (                                                                               ) ( )
-  ( / )                                                                             ( \ )
-   ( /                                                                               \ )
-  ( \                                                                               / )
-  ( \ )                                                                             ( / )
- ( ) (                                                                               ) ( )
-  ( / )                                                                             ( \ )
-   ( /                                                                               \ )
-    (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._¸.·´¯`·._)
+  <div style= "opacity: 0;" id="unfadeContent">
+    <div class="invisible container d-flex justify-content-end" id="menu">
+      <a href="../startgame"><img src="../images/castle.png" id="castle"></a>
+      <img src="../images/lyre-play.png" onclick="sound()" id="music-on" class="invisible">
+      <img src="../images/lyre-stop.png" onclick="sound()" id="music-off">
+    </div>
 
-    </pre>
+    <div class="invisible container position-relative" id="storyContent">
+      <pre class="decoration d-flex justify-content-center">
 
-    <div class="position-absolute">
-      <pre class="d-flex justify-content-center forest-art-clouds">
-             .--                                   .--
-           .(   )                              .- ( . )
-          (   .  )                            (   (  . `)
-         (  (   ))                           (  (   )  ) )
-          `- __.'                             (  (     ))
-                              /\               `--.__.-'
-                             /  \
-                            /  \ \
-                           / /    \                  ~~~~~~
-                          /_   \  _\               ~(       )~
-                           /      \               (       o   )
-          __              /  /     \             (    o        )
-        _/_ \            /_    \   _\             (       o   )
-       /  \ =             /        \               (__     __)
-      / .. \/            /  /    \  \                 \   /
-      \ .. /            /_   /      _\        ~       |   |__(´)
-      |\__/|=====>       /      \   \       (~~~)     |    __() )
-     /======\           /  /  /   \  \     (     )    |   /   ``
-       ) ) \           /______  ______\   (  (    )   |   |
-      / / \ \                |  |         (     ) )   |   |
-     / /   \ \      (^)      |  |   (^)    (  (  )    |   |    <@>
-____(__^>  (__^>_____U_______|  |____u_______|/|_____/     \___\|/____
+      (¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯)
+     ( \                                                                               / )
+    ( \ )                                                                             ( / )
+   ( ) (                                                                               ) ( )
+    ( / )                                                                             ( \ )
+     ( /                                                                               \ )
+     ( \                                                                               / )
+    ( \ )                                                                             ( / )
+   ( ) (                                                                               ) ( )
+    ( / )                                                                             ( \ )
+     ( /                                                                               \ )
+     ( \                                                                               / )
+    ( \ )                                                                             ( / )
+   ( ) (                                                                               ) ( )
+    ( / )                                                                             ( \ )
+     ( /                                                                               \ )
+     ( \                                                                               / )
+    ( \ )                                                                             ( / )
+   ( ) (                                                                               ) ( )
+    ( / )                                                                             ( \ )
+     ( /                                                                               \ )
+    ( \                                                                               / )
+    ( \ )                                                                             ( / )
+   ( ) (                                                                               ) ( )
+    ( / )                                                                             ( \ )
+     ( /                                                                               \ )
+      (_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·.¸_.·´¯`·.¸¸.·´¯`·._¸.·´¯`·._)
 
       </pre>
+
+      <div class="position-absolute">
+        <pre class="d-flex justify-content-center forest-art-clouds">
+               .--                                   .--
+             .(   )                              .- ( . )
+            (   .  )                            (   (  . `)
+           (  (   ))                           (  (   )  ) )
+            `- __.'                             (  (     ))
+                                /\               `--.__.-'
+                               /  \
+                              /  \ \
+                             / /    \                  ~~~~~~
+                            /_   \  _\               ~(       )~
+                             /      \               (       o   )
+            __              /  /     \             (    o        )
+          _/_ \            /_    \   _\             (       o   )
+         /  \ =             /        \               (__     __)
+        / .. \/            /  /    \  \                 \   /
+        \ .. /            /_   /      _\        ~       |   |__(´)
+        |\__/|=====>       /      \   \       (~~~)     |    __() )
+       /======\           /  /  /   \  \     (     )    |   /   ``
+         ) ) \           /______  ______\   (  (    )   |   |
+        / / \ \                |  |         (     ) )   |   |
+       / /   \ \      (^)      |  |   (^)    (  (  )    |   |    <@>
+  ____(__^>  (__^>_____U_______|  |____u_______|/|_____/     \___\|/____
+
+        </pre>
+      </div>
+      <p><% char.direction %></p>
+      <% if (typeof(fail) != "undefined") { %>
+      <% const invalidAnswer = ['Sorry Sire, your mumbling was not comprehensible. Try again!', 'What was that? Please state your intentions clearly!', '??? You better hurry and take the path or the forest! Which one will it be?']; %>
+      <%= invalidAnswer[Math.floor(Math.random() * 3)] %>
+      <% } else { %>
+        <p id="story"></p>
+      <% }; %>
+      <form action="wolf" method="POST" id="form" class="invisible">
+        <input type="text" name="response" id="inputText">
+        <input type="hidden" name="id" value="<%= char._id %>">
+        <input type="hidden" name="level" value="<%= char.level %>">
+        <input type="submit" id="hide-submit">
+      </form>
     </div>
-    <p><% char.direction %></p>
-    <% if (typeof(fail) != "undefined") { %>
-    <% const invalidAnswer = ['Sorry Sire, your mumbling was not comprehensible. Try again!', 'What was that? Please state your intentions clearly!', '??? You better hurry and take the path or the forest! Which one will it be?']; %>
-    <%= invalidAnswer[Math.floor(Math.random() * 3)] %>
-    <% } else { %>
-      <p id="story"></p>
-    <% }; %>
-    <form action="wolf" method="POST" id="form" class="invisible">
-      <input type="text" name="response" id="inputText">
-      <input type="hidden" name="id" value="<%= char._id %>">
-      <input type="hidden" name="level" value="<%= char.level %>">
-      <input type="submit" id="hide-submit">
-    </form>
   </div>
+
   <script src="../js/story/1.js"></script>
   </body>
 </html>

@@ -21,6 +21,20 @@ pre {
   letter-spacing: -3px;
 }
 
+#chapterOneTitle {
+  font-family: 'MedievalSharp', cursive;
+  margin-top: 120px;
+  text-align: center;
+}
+
+#chapterOneTitle p {
+  font-size: 50px;
+}
+
+#paper-role {
+  margin-top: 100px;
+}
+
 .decoration {
   color: #1dbb1e;
   font-size: 20px;
