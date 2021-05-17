@@ -3,7 +3,8 @@ let speed = 25;
 
 const coward = document.getElementById('coward').innerHTML;
 const cowardIntro = 'You coward! You start running away but the wolf easily catches up with you even angrier than before! You lose 5 points of courage. The wolf attacks!'
-const intro = 'After a few steps into the direction of the noise, you find yourself face to face with a wolf. It attacks!'
+const intro = 'Uh oh! You come nose-to-nose with another wolf!!! It attacks!'
+const notCowardIntro = 'After a few steps into the direction of the noise, you find yourself face to face with a wolf. You win 5 courage points! The wolf attacks!'
 
 const enter = "Press enter";
 
@@ -24,6 +25,8 @@ const typeWriter = (text) => {
 
 if (coward === "coward") {
   typeWriter(cowardIntro);
+} else if(coward === "notCoward") {
+  typeWriter(notCowardIntro);
 } else {
   typeWriter(intro);
 };

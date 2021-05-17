@@ -1,5 +1,5 @@
 let i = 0;
-let speed = 50;
+let speed = 35;
 const intro = 'You fell asleep and never woke up. When the snake bit you, you only felt a stinging pain in your dream, and faded away forever!'
 
 const typeWriter = (text) => {

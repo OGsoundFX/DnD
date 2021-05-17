@@ -128,7 +128,7 @@ module.exports = function(app) {
         };
         Character.find({ _id: id }, function(err, char) {
           if (err) throw err;
-          res.render('./story/combatWolf', { char: char[0], wolf: wolf })
+          res.render('./story/combatWolf', { char: char[0], wolf: wolf, coward: false })
         });
       } else if (nEscape > 0) {
         // create Wolf
@@ -165,7 +165,7 @@ module.exports = function(app) {
     let level = parseInt(req.body["level"]);
     let newLife = parseInt(req.body["life"]);
     let experiencePoints = parseInt(req.body["experience"]);
-    let coward = parseInt(req.body["coward"]) * -1;
+    let coward = parseInt(req.body["coward"]);
     Character.findByIdAndUpdate(id, { level: 2, life: newLife, $push: {inventory: "wolf tooth"}, $inc: {food: 1, experience: experiencePoints, courage: coward} }, function(err, char) {
       if (err) throw err;
     });

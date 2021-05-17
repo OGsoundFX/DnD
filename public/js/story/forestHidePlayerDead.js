@@ -1,5 +1,5 @@
 let i = 0;
-let speed = 50;
+let speed = 35;
 const intro = 'You found a place to hide, behind a bush. But you feel a sudden stinging pain on your butt! You barely have time to realise that you sat on the most venomous scorpion in the Kingdom, when your entire body convluses in extreme pain, and your consciousness fades away...'
 
 const typeWriter = (text) => {
