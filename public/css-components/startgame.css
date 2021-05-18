@@ -21,6 +21,10 @@ pre {
   letter-spacing: -3px;
 }
 
+#visit {
+  color: #ffa500;
+}
+
 #enter {
   animation:blinking 1s linear infinite;
 }
@@ -33,7 +37,7 @@ pre {
 }
 
 #title {
-  margin-top: 80px
+  margin-top: 50px
 }
 
 .decoration {

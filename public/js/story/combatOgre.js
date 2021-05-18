@@ -179,6 +179,7 @@ setTimeout(function() {
                   document.getElementById("lifeField").value = playerLife;
                   document.getElementById("experience").value = experience;
                   document.getElementById("coins").value = coins;
+                  document.getElementById('enter').classList.add('invisible');
                   document.getElementById("form").classList.remove('invisible');
                   document.getElementById('button').select();
                 }, 1000);
