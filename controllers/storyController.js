@@ -1,6 +1,8 @@
 const Character = require('../models/characterModel');
 const PlayerEntry = require('../models/playerEntryModel');
 const Lexico = require('../models/lexicoModel');
+const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
 
 module.exports = function(app) {
 
