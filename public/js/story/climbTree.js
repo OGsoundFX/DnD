@@ -22,6 +22,7 @@ const fade = (id) => {
 setTimeout(function(){
   // document.getElementById("enter").classList.remove('invisible');
   document.getElementById('form').classList.remove('invisible');
+  document.getElementById('button').select();
 }, 13000);
 
 // typewritter

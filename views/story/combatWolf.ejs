@@ -209,7 +209,7 @@ ____        ____                                  __
     </div>
     <h4 id="story"></h4>
     <br>
-    <h4 class="invisible enter d-flex justify-content-center">Press Enter</h4>
+    <h4 class="invisible enter d-flex justify-content-center" id="enter">Press Enter</h4>
     <p class="round" style="display: none">wolf</p>
 
     <form action="updateAfterCombat" method="POST" class="invisible" id="form">
@@ -226,7 +226,7 @@ ____        ____                                  __
       <% } else { %>
         <input type="hidden" value="0" name="coward">
       <% }; %>
-      <input type="submit" name="" value="On my way!">
+      <input type="submit" name="" value="On my way!" id="button">
     </form>
 
   </div>
