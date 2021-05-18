@@ -180,6 +180,7 @@ setTimeout(function() {
                   document.getElementById("experience").value = experience;
                   document.getElementById("coins").value = coins;
                   document.getElementById("form").classList.remove('invisible');
+                  document.getElementById('button').select();
                 }, 1000);
               } else {
                 document.getElementById("story").innerHTML = `You hit the ogre with your ${playerWeapon} and cause the monster <span style="color: #f68105">${damage}</span> life points!`;

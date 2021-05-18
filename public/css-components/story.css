@@ -61,7 +61,7 @@ pre {
   display: none;
 }
 
-.forest-art, .forest-art2, .path-art, .forest-art-clouds {
+.forest-art, .forest-art2, .path-art, .forest-art-clouds, .wolf-dead {
   font-size: 20px;
   color: #1dbb1e;
   text-shadow: 0 0 9px #1dbb1e;
@@ -81,6 +81,22 @@ pre {
 .forest-art-clouds {
   margin-left: 242px;
   margin-top: -496px;
+}
+
+.wolf-dead {
+  margin-left: 480px;
+  margin-top: -360px;
+  transform: rotate(170deg);
+}
+
+.wound {
+  margin-left: 636px;
+  margin-top: -348px;
+  font-size: 20px;
+  color: red;
+  text-shadow: 0 0 20px orange;
+  opacity: 0.8;
+  line-height: 0.9em;
 }
 
 .path-art {

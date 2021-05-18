@@ -188,7 +188,9 @@ setTimeout(function() {
                   document.getElementById("story").innerHTML += "</br>Are you ready for your next achievment?";
                   document.getElementById("lifeField").value = playerLife;
                   document.getElementById("experience").value = experience;
+                  document.getElementById('enter').classList.add('invisible');
                   document.getElementById("form").classList.remove('invisible');
+                  document.getElementById('button').select();
                 }, 1000);
               } else {
                 document.getElementById("story").innerHTML = `You hit the wolf with your ${playerWeapon} and cause the wolf <span style="color: #f68105">${damage}</span> life points!`;
