@@ -138,7 +138,7 @@ e'''  X  `\_'''_
            Agility: <span id="player-agility"><%= char.agility%></span><br>
            Weapon: <span id="player-weapon"><%= char.weapon%></span><br>
            Courage: <span id="player-weapon"><%= char.courage%></span><br>
-           chance: <span id="player-weapon"><%= char.chance%></span><br>
+           Chance: <span id="player-weapon"><%= char.chance%></span><br>
            Coins: <span id="player-weapon"><%= char.coins%></span><br>
           <div class="d-flex justify-content-between">
             <div>
@@ -175,6 +175,11 @@ e'''  X  `\_'''_
                 <% Object.entries(hash).forEach((entry) => { %>
                   <p> <%= `${entry[0]}: ${entry[1]}` %> </p>
                 <% }); %>
+                <% if (char.special.length != 0) { %>
+                  <% char.special.forEach((item) => { %>
+                    <p id="special-item"> <%= item %> </p>
+                  <% }); %>
+                <% }; %>
             </div>
           </div>
 

@@ -328,8 +328,12 @@ pre {
   100% { opacity: 0; }
 }
 
-
 .text-font {
   font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   font-size: 2vw;
+}
+
+#special-item {
+  color: yellow;
+  text-shadow: 0 0 10px yellow;
 }

@@ -237,7 +237,7 @@ module.exports = function(app) {
               };
               res.render('./story/combatOgre', { char: char[0], wolf: ogre })
             } else if (n > 9) {
-              if (char[0].foundDungeon === true && !char[0].special.includes("goldenKey")) {
+              if (char[0].foundDungeon === true && !char[0].special.includes("Golden Key")) {
                 res.render(`./story/key`, { char: char[0] });
               } else {
                 res.render(`./story/dungeon`, { char: char[0] });
@@ -405,7 +405,7 @@ module.exports = function(app) {
 
         if (nPick > 0) {
 
-          Character.findByIdAndUpdate(id, { $push: {special: "goldenKey"} }, function(err, char) {
+          Character.findByIdAndUpdate(id, { $push: {special: "Golden Key"} }, function(err, char) {
             if (err) throw err;
           });
 
@@ -475,7 +475,7 @@ module.exports = function(app) {
           setTimeout(function() {
             Character.find({ _id: id }, function(err, char) {
               if (err) throw err;
-              if (char[0].special.includes("goldenKey")) {
+              if (char[0].special.includes("Golden Key")) {
 
                 // create the dungeon page, chapter 2 and goodbye
                 res.send('You open the door and enter, welcome to the dungeon!!');
