@@ -73,7 +73,7 @@ if (document.getElementById("story") != null) {
 
     // focus on input field directly at page load
     document.getElementById('inputText').select();
-  }, 27000);
+  }, 22000);
 
 } else {
   document.getElementById('form').classList.remove('invisible');

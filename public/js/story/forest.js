@@ -108,8 +108,15 @@ let food = parseInt(document.getElementById('food').innerHTML);
 let life = parseInt(document.getElementById('player-life').innerHTML);
 const maxLife = parseInt(document.getElementById('maxLife').innerHTML);
 
+// attribute new life and food to the 3 arrows form values
 document.getElementById("lifeField").value = life;
 document.getElementById("foodField").value = food;
+
+document.getElementById("lifeFieldLeft").value = life;
+document.getElementById("foodFieldLeft").value = food;
+
+document.getElementById("lifeFieldRight").value = life;
+document.getElementById("foodFieldRight").value = food;
 
 if (eat) {
   eat.addEventListener('click', () => {

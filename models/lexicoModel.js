@@ -11,7 +11,8 @@ const lexicoSchema = new Schema({
     climb: Array,
     pick: Array,
     rest: Array,
-    walk: Array
+    walk: Array,
+    dungeon: Array
 });
 
 const Lexico = mongoose.model('lexico', lexicoSchema);
