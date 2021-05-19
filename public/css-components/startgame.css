@@ -22,7 +22,22 @@ pre {
 }
 
 #visit {
+  margin: 20px 0 0 20px;
+  font-size: 10px;
+}
+
+#bamsfx {
   color: #ffa500;
+  text-shadow: 0 0 9px #ffa500;
+  border: solid 1px #ffa500;
+  padding: 5px;
+  text-decoration: none;
+}
+
+#bamsfx:hover {
+  color: #1dbb1e;
+  text-shadow: 0 0 9px #1dbb1e;
+  border: solid 1px #1dbb1e;
 }
 
 #enter {
@@ -37,7 +52,7 @@ pre {
 }
 
 #title {
-  margin-top: 50px
+  margin-top: 40px
 }
 
 .decoration {

@@ -127,11 +127,14 @@ DUNGEON ENTRANCE
     <% } else if (typeof(rest) != "undefined") {%>
       <% const invalidAnswer = ["That's not a good idea!", "Not here, it's too risky!", "You want to do that now? Very bad idea..."]; %>
       <%= invalidAnswer[Math.floor(Math.random() * 3)] %>
+    <% } else if (typeof(closed) != "undefined") { %>
+      <% const doorLocked = ["The door is locked, you can't open it.", "You need a key to open that door", "This door didn't budge the slightest bit"] %>
+      <%= doorLocked[Math.floor(Math.random() * 3)]%>
     <% } else { %>
       <p id="story"></p>
     <% }; %>
 
-    <form action="strawberryField" method="POST" id="form">
+    <form action="dungeonDoor" method="POST" id="form">
       <input type="text" name="entry" id="inputText">
       <input type="hidden" name="id" value="<%= char._id %>">
       <input type="hidden" name="level" value="<%= char.level %>">

@@ -237,7 +237,11 @@ module.exports = function(app) {
               };
               res.render('./story/combatOgre', { char: char[0], wolf: ogre })
             } else if (n > 9) {
-              res.render(`./story/key`, { char: char[0] });
+              if (char[0].foundDungeon === true && !char[0].special.includes("goldenKey")) {
+                res.render(`./story/key`, { char: char[0] });
+              } else {
+                res.render(`./story/dungeon`, { char: char[0] });
+              };
             } else if (n > 8) {
               res.render(`./story/dungeon`, { char: char[0] });
             } else if (n > 6) {
@@ -364,6 +368,135 @@ module.exports = function(app) {
           Character.find({ _id: id }, function(err, char) {
             if (err) throw err;
             res.render('./story/strawberryField', { fail: true, char: char[0] });
+          });
+        };
+      });
+    }, 300);
+  });
+
+  app.post('/findKey', (req, res) => {
+    let playerResponse = req.body.entry.toLowerCase();
+    let playerResponseArray = playerResponse.split(" ");
+    let id = req.body.id;
+
+    // updating food and life if player ate
+    const life = parseInt(req.body.life);
+    const food = parseInt(req.body.food);
+
+    setTimeout(function() {
+      Lexico.find( {name: "lexico"}, (err, lexico) => {
+        if (err) throw err;
+        const pickLexico = lexico[0].pick;
+        const restLexico = lexico[0].rest;
+        const leaveLexico = lexico[0].walk;
+        let nPick = 0;
+        let nRest = 0;
+        let nLeave = 0;
+
+        playerResponseArray.forEach(word => {
+          if (pickLexico.includes(word)) {
+            nPick ++;
+          } else if (restLexico.includes(word)) {
+            nRest ++;
+          } else if (leaveLexico.includes(word)) {
+            nLeave ++;
+          };
+        });
+
+        if (nPick > 0) {
+
+          Character.findByIdAndUpdate(id, { $push: {special: "goldenKey"} }, function(err, char) {
+            if (err) throw err;
+          });
+
+          setTimeout(function() {
+            Character.find({ _id: id }, function(err, char) {
+              if (err) throw err;
+              res.render('./story/2', { char: char[0], strawberry :true })
+            });
+          }, 300);
+
+        } else if (nRest > 0) {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/strawberryPlayerDead');
+          });
+        } else if (nLeave > 0) {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/2', { char: char[0] })
+          });
+        } else {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/key', { fail: true, char: char[0] });
+          });
+        };
+      });
+    }, 300);
+
+  });
+
+  app.post('/dungeonDoor', (req, res) => {
+    let playerResponse = req.body.entry.toLowerCase();
+    let playerResponseArray = playerResponse.split(" ");
+    let id = req.body.id;
+
+    // updating food and life if player ate
+    const life = parseInt(req.body.life);
+    const food = parseInt(req.body.food);
+
+    Character.findByIdAndUpdate(id, { life: life, food: food, foundDungeon: true }, function(err, char) {
+      if (err) throw err;
+    });
+
+    // the timeout function is imporant because the mongoDB functions
+    // are asynchroneous and we need the action to perform in a specific order
+    setTimeout(function() {
+      Lexico.find( {name: "lexico"}, (err, lexico) => {
+        if (err) throw err;
+
+        const dungeonLexico = lexico[0].dungeon;
+        const leaveLexico = lexico[0].walk;
+        let nOpen = 0;
+        let nLeave = 0;
+        // res.send(dungeonLexico);
+        playerResponseArray.forEach(word => {
+          if (dungeonLexico.includes(word)) {
+            nOpen ++;
+          } else if (leaveLexico.includes(word)) {
+            nLeave ++;
+          };
+        });
+
+        if (nOpen > 0) {
+          // needs to implement the key system
+
+          setTimeout(function() {
+            Character.find({ _id: id }, function(err, char) {
+              if (err) throw err;
+              if (char[0].special.includes("goldenKey")) {
+
+                // create the dungeon page, chapter 2 and goodbye
+                res.send('You open the door and enter, welcome to the dungeon!!');
+              } else {
+                Character.find({ _id: id }, function(err, char) {
+                  if (err) throw err;
+                  res.render('./story/dungeon', { closed: true, char: char[0] });
+                });
+              };
+            });
+          }, 300);
+
+        } else if (nLeave > 0) {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/2', { char: char[0] });
+          });
+        } else {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/dungeonDoor', { fail: true, char: char[0] });
           });
         };
       });

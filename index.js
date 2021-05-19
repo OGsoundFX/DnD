@@ -23,6 +23,11 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+// Temp for teaser
+// app.get('/', (req, res) => {
+//   res.render('playerDead');
+// });
+
 app.get('/start', (req, res) => {
     res.render('start');
 });
