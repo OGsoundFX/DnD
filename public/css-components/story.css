@@ -61,11 +61,16 @@ pre {
   display: none;
 }
 
-.forest-art, .forest-art2, .path-art, .forest-art-clouds, .wolf-dead {
+.forest-art, .forest-art2, .path-art, .forest-art-clouds, .wolf-dead, .dungeon-art {
   font-size: 20px;
   color: #1dbb1e;
   text-shadow: 0 0 9px #1dbb1e;
   line-height: 0.9em;
+}
+
+.dungeon-art {
+  margin-left: 222px;
+  margin-top: -448px;
 }
 
 .forest-art {
@@ -336,4 +341,13 @@ pre {
 #special-item {
   color: yellow;
   text-shadow: 0 0 10px yellow;
+}
+
+.key-hole {
+  font-size: 20px;
+  line-height: 0.9em;
+  color: yellow;
+  text-shadow: 0 0 10px yellow;
+  margin-left: 194px;
+  margin-top: -448px;
 }

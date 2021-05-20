@@ -48,10 +48,59 @@
 
     </pre>
     <div class="position-absolute">
-      <pre class="d-flex justify-content-center forest-art">
-DUNGEON ENTRANCE
+      <pre class="d-flex justify-content-center dungeon-art">
+
+                                       .--.
+                                      (   (`)
+           .--                       (  (   ))
+         .(   )                       (  (   ))
+        (   .  )                       `-.__.'    ~~~~~~
+       (  (   ))                                ~(       )~
+        `- __.'       vVvVvVvV                 (       o   )
+                    .(__(__(__vVv             (    o        )
+                   ,/__(__(__(_\,vV            (       o   )
+                vV(__(__(░░░░░_(_`_vVv          (__     __)
+                ,__(__(░░  |  ░░_(__(`             \   /
+               ,_(__ ░░ |, |  | ░░_(__(Vv          |   |__(´)
+              v_(__(░|  |  |. |   ░_(__(`          |    __() )     ~
+             ,(__(__░¢  | ,|  | . ░(__(_`v         |   /   ``    (~~~)
+            (__(__(_░|. |  | ,|   ░__(__(_\V       | @ |        (     )
+          vV,(__(__(░|  |  |  |   ░(__(__(_,       |   |       (  (    )
+          V(__(__(__░| ,|  | ,|   ░_(__(__(_)vV    |   |       (     ) )
+  <@>   Vvv/(__(__(_░¢  |. |  | , ░__(__(__(_),   <@>  |    <ô> (  (  )
+vV\|/.vVvV(__(__(__(░|,,|.,|,.|,, ░(__(__(__(__)vV\|/.vVvVvV\|/.vV|/|.vV.vV
+
+
+
       </pre>
     </div>
+        <div class="position-absolute">
+          <pre class="d-flex justify-content-center key-hole">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   ¶
+
+
+
+
+
+
+          </pre>
+        </div>
     <div class="decoration player-board position-absolute">
 <pre>
 .-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
@@ -140,7 +189,7 @@ DUNGEON ENTRANCE
       <p id="story"></p>
     <% }; %>
 
-    <form action="dungeonDoor" method="POST" id="form">
+    <form action="dungeonDoor" method="POST" id="form" class="invisible">
       <input type="text" name="entry" id="inputText">
       <input type="hidden" name="id" value="<%= char._id %>">
       <input type="hidden" name="level" value="<%= char.level %>">
@@ -149,6 +198,6 @@ DUNGEON ENTRANCE
       <input type="submit" id="hide-submit">
     </form>
   </div>
-  <script src="../js/story/strawberry.js"></script>
+  <script src="../js/story/dungeon.js"></script>
   </body>
 </html>
