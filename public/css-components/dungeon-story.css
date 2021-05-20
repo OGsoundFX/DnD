@@ -1,0 +1,201 @@
+body {
+  background-color: black;
+  font-family: 'Press Start 2P', cursive;
+  color: blue;
+  text-shadow: 0 0 9px blue;
+}
+
+h1 {
+  font-size: 26px;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 16px;
+}
+
+pre {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  letter-spacing: -3px;
+}
+
+.decoration {
+  color: blue;
+  font-size: 20px;
+  line-height: 0.9em;
+}
+
+.decoration pre {
+   color: blue;
+}
+
+.corridor-art {
+  font-size: 20px;
+  color: blue;
+  text-shadow: 0 0 9px blue;
+  line-height: 0.9em;
+  margin-left: 274px;
+  margin-top: -438px;
+}
+
+.invisible {
+  display: none;
+}
+
+/*#music-on, #music-off {
+  margin-top: 15px;
+  margin-right: 164px;
+  height: 34px;
+  cursor: pointer;
+}
+
+#castle {
+  margin-top: 15px;
+  margin-right: 694px;
+  height: 34px;
+  cursor: pointer;
+}*/
+
+.player {
+  font-size: 12px;
+  margin-top: -400px;
+  margin-left: -104px;
+}
+
+.player-board {
+  margin-top: -430px;
+  margin-left: -124px;
+}
+
+#eat {
+  color: blue;
+  background-color: black;
+  border: solid blue 1px;
+  text-shadow: 0 0 9px blue;
+}
+
+#eat:hover {
+  color: black;
+  background-color: blue;
+}
+
+#press-e {
+  border: solid blue 1px;
+  padding: 5px;
+  text-shadow: 0 0 9px blue;
+}
+
+#press-i {
+  border: solid blue 1px;
+  padding: 5px;
+  text-shadow: 0 0 9px blue;
+}
+
+#inventory-key {
+  margin: 32px 0 0 26px;
+}
+
+#inventory {
+  margin: 32px 0 0 26px;
+  width: 136px;
+  color: blue;
+  background-color: black;
+  border: solid blue 1px;
+  text-shadow: 0 0 9px blue;
+}
+
+#inventory:hover {
+  color: black;
+  background-color: blue;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 100px 0 0 200px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: black;
+  margin: 100px 0 200px 300px;
+  padding: 20px;
+  border: 1px solid blue;
+  width: 400px;
+}
+
+/* The Close Button */
+.close {
+  color: blue;
+  text-shadow: 0 0 9px blue;
+  opacity: 1;
+  margin-left: 330px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*#arrow-up, #arrow-left, #arrow-right {
+  height: 35px;
+  width: 35px;
+  background: black;
+  color: blue;
+  border: solid 1px blue;
+  text-shadow: 0 0 9px blue;
+  margin: 0 10px 10px 10px;
+}
+
+#arrow-left {
+  transform: rotate(-90deg);
+}
+
+#arrow-right {
+  transform: rotate(90deg);
+}
+
+.clicked {
+  color: black !important;
+  background-color: blue !important;
+}
+*/
+
+#enter {
+  margin-top: 20px;
+  animation:blinking 1s linear infinite;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+@keyframes blinking {
+    0% { opacity: 1; }
+   49% { opacity: 1; }
+   50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.text-font {
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size: 2vw;
+}
+
+#special-item {
+  color: yellow;
+  text-shadow: 0 0 10px yellow;
+}
