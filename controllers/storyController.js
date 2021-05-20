@@ -222,7 +222,7 @@ module.exports = function(app) {
         if (err) throw err;
 
           if (char[0].counter > 9) {
-            let n = (Math.random() * 1400);
+            let n = (Math.random() * 14);
             if (n > 12) {
               res.render(`./story/strawberryField`, { char: char[0] });
             } else if (n > 10) {
@@ -470,15 +470,17 @@ module.exports = function(app) {
         });
 
         if (nOpen > 0) {
-          // needs to implement the key system
-
           setTimeout(function() {
             Character.find({ _id: id }, function(err, char) {
               if (err) throw err;
               if (char[0].special.includes("Golden Key")) {
 
-                // create the dungeon page, chapter 2 and goodbye
-                res.send('You open the door and enter, welcome to the dungeon!!');
+              Character.find({ _id: id }, function(err, char) {
+                if (err) throw err;
+                res.render('./story/dungeonInside', { char: char[0] });
+              });
+
+                // res.send('You open the door and enter, welcome to the dungeon!!');
               } else {
                 Character.find({ _id: id }, function(err, char) {
                   if (err) throw err;
