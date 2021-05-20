@@ -222,7 +222,7 @@ module.exports = function(app) {
         if (err) throw err;
 
           if (char[0].counter > 9) {
-            let n = (Math.random() * 14);
+            let n = (Math.random() * 1400);
             if (n > 12) {
               res.render(`./story/strawberryField`, { char: char[0] });
             } else if (n > 10) {

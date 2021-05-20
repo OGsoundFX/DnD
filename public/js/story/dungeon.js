@@ -1,6 +1,6 @@
 let i = 0;
 let speed = 25;
-const text = "In the middle of the forest you find this lovely little clearing, covered with strawberry plants! This looks like the perfect place to rest! What will you do?";
+const text = "What is this? It looks like a very ancient dungeon. There is a door, with a keyhole. What do you want to do?";
 
 if (document.getElementById("story") != null) {
   const typeWriter = (text) => {
@@ -22,7 +22,7 @@ if (document.getElementById("story") != null) {
 // display input field after text
 setTimeout(function() {
   document.getElementById('form').classList.remove('invisible');
-}, 6000);
+}, 5000);
 
 // home button
 
