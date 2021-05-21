@@ -221,14 +221,18 @@
       <p id="story"></p>
     <% }; %>
 
-    <form action="strawberryField" method="POST" id="form" class="invisible">
-      <input type="text" name="entry" id="inputText">
-      <input type="hidden" name="id" value="<%= char._id %>">
-      <input type="hidden" name="level" value="<%= char.level %>">
-      <input type="hidden" name="food" value="" id="foodField">
-      <input type="hidden" name="life" value="" id="lifeField">
-      <input type="submit" id="hide-submit">
-    </form>
+    <% if (typeof(fail) != "undefined") { %>
+      <form action="strawberryField" method="POST" id="form" class="">
+    <% } else { %>
+      <form action="strawberryField" method="POST" id="form" class="invisible">
+    <% }; %>
+        <input type="text" name="entry" id="inputText">
+        <input type="hidden" name="id" value="<%= char._id %>">
+        <input type="hidden" name="level" value="<%= char.level %>">
+        <input type="hidden" name="food" value="" id="foodField">
+        <input type="hidden" name="life" value="" id="lifeField">
+        <input type="submit" id="hide-submit">
+      </form>
   </div>
   <script src="../js/story/strawberry.js"></script>
   </body>
