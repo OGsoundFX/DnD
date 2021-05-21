@@ -223,7 +223,7 @@ module.exports = function(app) {
 
           if (char[0].counter > 9) {
             let n = (Math.random() * 14);
-            if (n > 12) {
+            if (n > 13) {
               res.render(`./story/strawberryField`, { char: char[0] });
             } else if (n > 10) {
               // create Ogre
@@ -231,9 +231,9 @@ module.exports = function(app) {
                 name: "Ogre",
                 life: 15 + Math.floor(Math.random()*7),
                 strength: 20 + Math.floor(Math.random()*9),
-                agility: 8 + Math.floor(Math.random()*7),
+                agility: 6 + Math.floor(Math.random()*7),
                 chance: 6 + Math.floor(Math.random()*7),
-                weapon: "Giant stick"
+                weapon: "Giant bludgeon"
               };
               res.render('./story/combatOgre', { char: char[0], wolf: ogre })
             } else if (n > 9) {

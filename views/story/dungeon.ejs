@@ -10,7 +10,7 @@
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
   <link href="../css-components/story.css" rel="stylesheet" type="text/css">
 </head>
-<% if (typeof(fail) != "undefined" || typeof(rest) !="undefined") { %>
+<% if (typeof(fail) != "undefined" || typeof(rest) !="undefined" || typeof(closed) !="undefined") { %>
 <body onload="music()" id="body">
 <% } else { %>
 <body style= "opacity: 0;" onload="fadeAndMusic()" id="body">
@@ -189,7 +189,7 @@ vV\|/.vVvV(__(__(__(░|,,|.,|,.|,, ░(__(__(__(__)vV\|/.vVvVvV\|/.vV|/|.vV.vV
       <p id="story"></p>
     <% }; %>
 
-    <% if (typeof(fail) != "undefined") { %>
+    <% if (typeof(fail) != "undefined" || typeof(closed) !="undefined") { %>
       <form action="dungeonDoor" method="POST" id="form" class="">
     <% } else { %>
       <form action="dungeonDoor" method="POST" id="form" class="invisible">
