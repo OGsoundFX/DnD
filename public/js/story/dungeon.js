@@ -197,6 +197,11 @@ document.addEventListener('keydown', function (event) {
   };
 });
 
+// focus on input field directly at page load
+
+const inputField = document.getElementById('inputText');
+document.getElementById('inputText').select();
+
 // stop event listeners when in input field
 
 inputField.addEventListener('keydown', function (event) {
