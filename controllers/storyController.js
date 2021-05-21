@@ -498,7 +498,7 @@ module.exports = function(app) {
         } else {
           Character.find({ _id: id }, function(err, char) {
             if (err) throw err;
-            res.render('./story/dungeonDoor', { fail: true, char: char[0] });
+            res.render('./story/dungeon', { fail: true, char: char[0] });
           });
         };
       });

@@ -22,6 +22,12 @@ if (document.getElementById("story") != null) {
 // display input field after text
 setTimeout(function() {
   document.getElementById('form').classList.remove('invisible');
+  setTimeout(function() {
+    // focus on input field directly at page load
+
+    const inputField = document.getElementById('inputText');
+    document.getElementById('inputText').select();
+  }, 100);
 }, 6000);
 
 // home button

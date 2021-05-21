@@ -22,6 +22,12 @@ if (document.getElementById("story") != null) {
 // display input field after text
 setTimeout(function() {
   document.getElementById('form').classList.remove('invisible');
+  setTimeout(function() {
+    // focus on input field directly at page load
+
+    const inputField = document.getElementById('inputText');
+    document.getElementById('inputText').select();
+  }, 100);
 }, 5000);
 
 // home button
@@ -178,11 +184,6 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
-// focus on input field directly at page load
-
-const inputField = document.getElementById('inputText');
-document.getElementById('inputText').select();
 
 // inventory by pressing i
 
