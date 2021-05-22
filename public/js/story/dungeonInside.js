@@ -201,3 +201,16 @@ document.addEventListener('keydown', function (event) {
 // inputField.addEventListener('keydown', function (event) {
 //   event.stopPropagation();
 // });
+
+
+// Display "coming soon" with delay
+
+setTimeout(function() {
+  document.getElementById('coming-soon').classList.remove('invisible');
+}, 12000);
+
+// go to credits page
+
+setTimeout(function() {
+  window.open("TheEnd", "_self");
+}, 17000);

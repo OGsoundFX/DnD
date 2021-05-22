@@ -199,3 +199,13 @@ pre {
   color: yellow;
   text-shadow: 0 0 10px yellow;
 }
+
+#coming-soon {
+  background: blue;
+  color: black;
+  padding: 5px;
+  margin-top: -306px;
+  margin-left: 228px;
+  font-size: 60px;
+  transform: rotate(-20deg)
+}
