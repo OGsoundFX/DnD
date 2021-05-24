@@ -76,7 +76,6 @@ module.exports = function(app) {
       newPlayerEntry.save(function(err, char) {
           if (err) throw err;
       });
-      // res.send(`what the fuck is ${direction}?`);
 
       setTimeout(function(){
         Character.find({ _id: id }, function(err, char) {
@@ -161,10 +160,19 @@ module.exports = function(app) {
           });
         }, 300);
       } else {
-        Character.find({ _id: id }, function(err, char) {
-          if (err) throw err;
-          res.render('./story/forest', { fail: true, char: char[0] });
+        // saving entry into DB
+        const newPlayerEntry = PlayerEntry({
+            entry: req.body.response
         });
+        newPlayerEntry.save(function(err, char) {
+            if (err) throw err;
+        });
+        setTimeout(function() {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/forest', { fail: true, char: char[0] });
+          });
+        }, 300);
       };
 
     });
@@ -225,7 +233,7 @@ module.exports = function(app) {
             let n = (Math.random() * 14);
             if (n > 13) {
               res.render(`./story/strawberryField`, { char: char[0] });
-            } else if (n > 10) {
+            } else if (n > 11) {
               // create Ogre
               const ogre = {
                 name: "Ogre",
@@ -365,10 +373,18 @@ module.exports = function(app) {
             res.render('./story/2', { char: char[0] })
           });
         } else {
-          Character.find({ _id: id }, function(err, char) {
-            if (err) throw err;
-            res.render('./story/strawberryField', { fail: true, char: char[0] });
+          const newPlayerEntry = PlayerEntry({
+              entry: req.body.entry
           });
+          newPlayerEntry.save(function(err, char) {
+              if (err) throw err;
+          });
+          setTimeout(function() {
+            Character.find({ _id: id }, function(err, char) {
+              if (err) throw err;
+              res.render('./story/strawberryField', { fail: true, char: char[0] });
+            });
+          }, 300);
         };
       });
     }, 300);
@@ -427,10 +443,18 @@ module.exports = function(app) {
             res.render('./story/2', { char: char[0] })
           });
         } else {
-          Character.find({ _id: id }, function(err, char) {
-            if (err) throw err;
-            res.render('./story/key', { fail: true, char: char[0] });
+          const newPlayerEntry = PlayerEntry({
+              entry: req.body.entry
           });
+          newPlayerEntry.save(function(err, char) {
+              if (err) throw err;
+          });
+          setTimeout(function() {
+            Character.find({ _id: id }, function(err, char) {
+              if (err) throw err;
+              res.render('./story/key', { fail: true, char: char[0] });
+            });
+          }, 300);
         };
       });
     }, 300);
@@ -496,10 +520,18 @@ module.exports = function(app) {
             res.render('./story/2', { char: char[0] });
           });
         } else {
-          Character.find({ _id: id }, function(err, char) {
-            if (err) throw err;
-            res.render('./story/dungeon', { fail: true, char: char[0] });
+          const newPlayerEntry = PlayerEntry({
+              entry: req.body.entry
           });
+          newPlayerEntry.save(function(err, char) {
+              if (err) throw err;
+          });
+          setTimeout(function() {
+            Character.find({ _id: id }, function(err, char) {
+              if (err) throw err;
+              res.render('./story/dungeon', { fail: true, char: char[0] });
+            });
+          }, 300);
         };
       });
     }, 300);

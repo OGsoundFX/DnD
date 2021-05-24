@@ -38,7 +38,7 @@ const fade = () => {
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op -= op * 0.1;
-    }, 50);
+    }, 75);
 }
 
 const start = document.getElementById('start');
@@ -66,7 +66,7 @@ document.addEventListener('keydown', function (event) {
     if (start.classList.contains("highlight")) {
       menuIn.play();
       fade();
-      setTimeout(function(){ window.open("start", "_self"); }, 1000);
+      setTimeout(function(){ window.open("start", "_self"); }, 1500);
     } else {
       const loadGame = document.getElementById('load-game');
       const menu = document.querySelector('.menu');
