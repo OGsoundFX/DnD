@@ -74,16 +74,6 @@ const fade = () => {
     }, 50);
 }
 
-// change page
-
-document.addEventListener('keydown', function (event) {
-    if (event.keyCode === 13) {
-      fade();
-      setTimeout(function(){ window.open("character?#", "_self"); }, 1000);
-    }
-});
-
-
 // Play sound & fade in
 
 const audio = new Audio('../sound/music1.mp3');
@@ -94,6 +84,29 @@ const fadeAndCreditMusic = () => {
   audio.play();
   unfade();
 };
+
+// fade out music
+
+const unfadeVolume = (audio) => {
+  audio.volume = 0.4;  // initial volume
+  let timer = setInterval(() => {
+      if (audio.volume <= 0.05){
+          clearInterval(timer);
+      }
+      audio.volume -= audio.volume * 0.1;
+  }, 50);
+}
+
+// change page
+
+document.addEventListener('keydown', function (event) {
+    if (event.keyCode === 13) {
+      fade();
+      unfadeVolume(audio);
+      setTimeout(function(){ window.open("character?#", "_self"); }, 1000);
+    }
+});
+
 
 // on-off sound button
 
