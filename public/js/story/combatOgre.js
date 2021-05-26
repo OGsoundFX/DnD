@@ -75,10 +75,12 @@ setTimeout(function() {
               if (playerLife <= 0) {
                 document.getElementById("story").innerHTML = `You received <span style="color: #f68105">${damage}</span> points of damage, your are DEAD!`;
                 document.getElementById("story").classList.remove("invisible");
-                const audio1 = new Audio('../../sound/Giant-growl.wav');
+                const audio1 = new Audio('../../sound/Monster_Bite.wav');
                 const audio2 = new Audio('../../sound/death.wav');
                 audio1.play();
-                audio2.play();
+                setTimeout(function() {
+                  audio2.play();
+                }, 1000);
 
                 setTimeout(function() {
                   document.getElementById('page').classList.add('invisible');
@@ -166,7 +168,9 @@ setTimeout(function() {
                 const audio1 = new Audio('../../sound/player-wound.wav');
                 const audio2 = new Audio('../../sound/victory.wav');
                 audio1.play();
-                audio2.play();
+                setTimeout(function() {
+                  audio2.play();
+                }, 700);
                 const experience = 5 + Math.floor(Math.random()*7);
                 const coins = 1 + Math.floor(Math.random()*4);
                 document.getElementById("story").innerHTML = `Magnificiant! You killed the mighty ogre with <span style="color: #f68105">${damage}</span> points of damage! </br>You earn <span style="color: #f68105">${experience}</span> Experience points!`;

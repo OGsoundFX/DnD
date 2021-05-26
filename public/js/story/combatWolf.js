@@ -89,7 +89,9 @@ setTimeout(function() {
                 const audio1 = new Audio('../../sound/Monster_Bite.wav');
                 const audio2 = new Audio('../../sound/death.wav');
                 audio1.play();
-                audio2.play();
+                setTimeout(function() {
+                  audio2.play();
+                }, 1000);
 
                 setTimeout(function() {
                   document.getElementById('page').classList.add('invisible');
@@ -177,7 +179,9 @@ setTimeout(function() {
                 const audio1 = new Audio('../../sound/player-wound.wav');
                 const audio2 = new Audio('../../sound/victory.wav');
                 audio1.play();
-                audio2.play();
+                setTimeout(function() {
+                  audio2.play();
+                }, 700);
                 const experience = 3 + Math.floor(Math.random()*5);
                 document.getElementById("story").innerHTML = `Bravo! You kill the wolf with <span style="color: #f68105">${damage}</span> points of damage! </br>You earn <span style="color: #f68105">${experience}</span> Experience points, <span style="color: #f68105">1 Wolf Tooth</span>! and <span style="color: #f68105">1 food</span>!`;
                 document.getElementById("story").classList.remove("invisible");
