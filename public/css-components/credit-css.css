@@ -64,6 +64,23 @@ pre {
   text-align: center;
 }
 
+.center-credits-end {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.bottom-credits {
+  text-align: center;
+  margin-top: 5px;
+}
+
+#enter-end {
+  margin-top: 20px;
+  animation:blinking 1s linear infinite;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
 #credits {
   margin-top: 20px;
   font-family: 'Press Start 2P', cursive;
