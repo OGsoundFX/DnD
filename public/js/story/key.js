@@ -73,7 +73,7 @@ const fade = () => {
 }
 
 // Play sound & fade in
-const audio = new Audio('../sound/forest.wav');
+const audio = new Audio(`../sound/forest${Math.floor(Math.random() * 5) + 1}.wav`);
 audio.volume = 0.4;
 audio.loop = true;
 
