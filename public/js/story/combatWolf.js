@@ -8,6 +8,11 @@ const notCowardIntro = 'After a few steps into the direction of the noise, you f
 
 const enter = "Press enter";
 
+const music = new Audio('../../sound/BattleMusic.wav');
+music.volume = 0.5;
+music.play();
+music.loop = true;
+
 const typeWriter = (text) => {
   if (i < text.length) {
     document.getElementById("story").innerHTML += text.charAt(i);

@@ -3,6 +3,11 @@ let speed = 25;
 const intro = 'You find yourself in front of a giant ogre twice your size! There is nothing you can do except fight!'
 const enter = "Press enter";
 
+const music = new Audio('../../sound/BattleMusic.wav');
+music.volume = 0.5;
+music.play();
+music.loop = true;
+
 const typeWriter = (text) => {
   if (i < text.length) {
     document.getElementById("story").innerHTML += text.charAt(i);
