@@ -45,7 +45,7 @@ setTimeout(function() {
   playerWound.volume = 1;
   victoryMusic.volume = 1;
   woosh.volume = 1;
-}, 300);
+}, 2000);
 
 const typeWriter = (text) => {
   if (i < text.length) {
