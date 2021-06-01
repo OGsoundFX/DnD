@@ -47,6 +47,8 @@ setTimeout(function() {
   woosh.volume = 1;
 }, 2000);
 
+
+
 const typeWriter = (text) => {
   if (i < text.length) {
     document.getElementById("story").innerHTML += text.charAt(i);
@@ -129,13 +131,14 @@ setTimeout(function() {
                 // const death = new Audio('../../sound/death.wav');
                 monsterBite.play();
                 setTimeout(function() {
+                  music.pause();
                   death.play();
-                }, 1000);
+                }, 750);
 
                 setTimeout(function() {
                   document.getElementById('page').classList.add('invisible');
                   document.getElementById('dead').classList.remove('invisible');
-                }, 1500);
+                }, 2500);
 
                 setTimeout(function(){
                   window.open("TheEnd", "_self");
@@ -217,6 +220,7 @@ setTimeout(function() {
               if (wolfLife <=0 ) {
                 // const playerWound = new Audio('../../sound/player-wound.wav');
                 // const victoryMusic = new Audio('../../sound/victory.wav');
+                music.pause();
                 playerWound.play();
                 setTimeout(function() {
                   victoryMusic.play();
