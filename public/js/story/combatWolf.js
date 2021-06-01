@@ -13,6 +13,29 @@ music.volume = 0.5;
 music.play();
 music.loop = true;
 
+// pre-loading all combat sounds
+const dice = new Audio('../../sound/dice.wav');
+const monsterBite = new Audio('../../sound/Monster_Bite.wav');
+const death = new Audio('../../sound/death.wav');
+const wolfMissSound = new Audio('../../sound/wolf-miss.wav');
+const playerWound = new Audio('../../sound/player-wound.wav');
+const victoryMusic = new Audio('../../sound/victory.wav');
+const woosh = new Audio('../../sound/woosh.wav');
+dice.volume = 0.01;
+dice.play();
+monsterBite.volume = 0.01;
+monsterBite.play();
+death.volume = 0.01;
+death.play();
+wolfMissSound.volume = 0.01;
+wolfMissSound.play();
+playerWound.volume = 0.01;
+playerWound.play();
+victoryMusic.volume = 0.01;
+victoryMusic.play();
+woosh.volume = 0.01;
+woosh.play();
+
 const typeWriter = (text) => {
   if (i < text.length) {
     document.getElementById("story").innerHTML += text.charAt(i);
@@ -55,8 +78,8 @@ const round = document.querySelector(".round");
 // Refactored functions for the turn phase
 const roleDice = () => {
   document.querySelector(".dice").classList.remove("invisible");
-  const audio = new Audio('../../sound/dice.wav');
-  audio.play();
+  // const dice = new Audio('../../sound/dice.wav');
+  dice.play();
   document.querySelector(".enter").classList.add("invisible");
   document.getElementById("story").classList.add("invisible");
 };
@@ -91,11 +114,11 @@ setTimeout(function() {
               if (playerLife <= 0) {
                 document.getElementById("story").innerHTML = `You received <span style="color: #f68105">${damage}</span> points of damage, your are DEAD!`;
                 document.getElementById("story").classList.remove("invisible");
-                const audio1 = new Audio('../../sound/Monster_Bite.wav');
-                const audio2 = new Audio('../../sound/death.wav');
-                audio1.play();
+                // const monsterBite = new Audio('../../sound/Monster_Bite.wav');
+                // const death = new Audio('../../sound/death.wav');
+                monsterBite.play();
                 setTimeout(function() {
-                  audio2.play();
+                  death.play();
                 }, 1000);
 
                 setTimeout(function() {
@@ -123,8 +146,8 @@ setTimeout(function() {
                 }, 2000);
 
                 wolf.classList.remove("turn");
-                const audio = new Audio('../../sound/Monster_Bite.wav');
-                audio.play();
+                // const monsterBite = new Audio('../../sound/Monster_Bite.wav');
+                monsterBite.play();
               };
             }, 1000);
             round.innerHTML = "player";
@@ -136,8 +159,8 @@ setTimeout(function() {
               const wolfMiss = ["Somehow you managed to evade the wolf's attack and you can hear the jaws smack just an inch away from your ear! It is your turn to attack!", "How lucky, the wolf missed. You aim your weapon at the beast!"];
 
               // wolf animation and miss sound
-              const audio = new Audio('../../sound/wolf-miss.wav');
-              audio.play();
+              // const wolfMissSound = new Audio('../../sound/wolf-miss.wav');
+              wolfMissSound.play();
               document.querySelector('.wolf').classList.add('invisible');
               document.querySelector('.wolf-fight').classList.remove('invisible');
               setTimeout(function() {
@@ -181,11 +204,11 @@ setTimeout(function() {
 
               // if Wolf dead
               if (wolfLife <=0 ) {
-                const audio1 = new Audio('../../sound/player-wound.wav');
-                const audio2 = new Audio('../../sound/victory.wav');
-                audio1.play();
+                // const playerWound = new Audio('../../sound/player-wound.wav');
+                // const victoryMusic = new Audio('../../sound/victory.wav');
+                playerWound.play();
                 setTimeout(function() {
-                  audio2.play();
+                  victoryMusic.play();
                 }, 700);
                 const experience = 3 + Math.floor(Math.random()*5);
                 document.getElementById("story").innerHTML = `Bravo! You kill the wolf with <span style="color: #f68105">${damage}</span> points of damage! </br>You earn <span style="color: #f68105">${experience}</span> Experience points, <span style="color: #f68105">1 Wolf Tooth</span>! and <span style="color: #f68105">1 food</span>!`;
@@ -207,8 +230,8 @@ setTimeout(function() {
                 document.getElementById('wolf-life').innerHTML = wolfLife;
                 document.getElementById('wolf-life').classList.add('new-life-score');
 
-                const audio = new Audio('../../sound/player-wound.wav');
-                audio.play();
+                // const playerWound = new Audio('../../sound/player-wound.wav');
+                playerWound.play();
                 setTimeout(function(){
                   wolf.classList.add("turn");
                   document.querySelector(".enter").classList.remove("invisible");
@@ -221,8 +244,8 @@ setTimeout(function() {
           } else {
             setTimeout(function(){
               // character animation and miss sound
-              const audio = new Audio('../../sound/woosh.wav');
-              audio.play();
+              // const woosh = new Audio('../../sound/woosh.wav');
+              woosh.play();
               document.querySelector('.character').classList.add('invisible');
               document.querySelector('.character-fight').classList.remove('invisible');
               setTimeout(function() {
