@@ -13,7 +13,7 @@ music.volume = 0.5;
 music.play();
 music.loop = true;
 
-// pre-loading all combat sounds
+// pre-loading all combat sounds with minimum volume
 const dice = new Audio('../../sound/dice.wav');
 const monsterBite = new Audio('../../sound/Monster_Bite.wav');
 const death = new Audio('../../sound/death.wav');
@@ -21,20 +21,31 @@ const wolfMissSound = new Audio('../../sound/wolf-miss.wav');
 const playerWound = new Audio('../../sound/player-wound.wav');
 const victoryMusic = new Audio('../../sound/victory.wav');
 const woosh = new Audio('../../sound/woosh.wav');
-dice.volume = 0.01;
+dice.volume = 0;
 dice.play();
-monsterBite.volume = 0.01;
+monsterBite.volume = 0;
 monsterBite.play();
-death.volume = 0.01;
+death.volume = 0;
 death.play();
-wolfMissSound.volume = 0.01;
+wolfMissSound.volume = 0;
 wolfMissSound.play();
-playerWound.volume = 0.01;
+playerWound.volume = 0;
 playerWound.play();
-victoryMusic.volume = 0.01;
+victoryMusic.volume = 0;
 victoryMusic.play();
-woosh.volume = 0.01;
+woosh.volume = 0;
 woosh.play();
+
+// reset the volume back to normal
+setTimeout(function() {
+  dice.volume = 1;
+  monsterBite.volume = 1;
+  death.volume = 1;
+  wolfMissSound.volume = 1;
+  playerWound.volume = 1;
+  victoryMusic.volume = 1;
+  woosh.volume = 1;
+}, 300);
 
 const typeWriter = (text) => {
   if (i < text.length) {
