@@ -35,6 +35,8 @@ const typeWriter = (text) => {
   };
 };
 
+// Loading error sound
+const error = new Audio(`../sound/error${Math.floor(Math.random() * 3) + 1}.wav`);
 // replace chapterOne with actual content THE FIRST TIME THE PAGE LOADS
 // otherwise load WRONG ANSWER page
 
@@ -60,10 +62,15 @@ if (document.getElementById("fail") != null) {
   }, 5000);
 };
 
+// Loading Intro Music
+const introMusic = new Audio('../sound/level1.wav');
+const playIntroMusic = () => {
+  introMusic.play();
+};
 
-
-  // If the player hasn't entered a invalid reply yet
+// If the player hasn't entered a invalid reply yet
 if (document.getElementById("story") != null) {
+  playIntroMusic();
   setTimeout(function() {
     typeWriter(story);
   }, 6500);
@@ -76,6 +83,7 @@ if (document.getElementById("story") != null) {
   }, 22000);
 
 } else {
+  error.play();
   document.getElementById('form').classList.remove('invisible');
 
   // focus on input field directly at page load
@@ -111,6 +119,7 @@ const unfadeVolume = (audio) => {
 }
 
 // Play sound & fade in
+
 const audio = new Audio(`../sound/forest${Math.floor(Math.random() * 5) + 1}.wav`);
 audio.volume = 0.4;
 audio.loop = true;

@@ -95,7 +95,7 @@ document.addEventListener('keydown', function (event) {
 // Play sound & fade in
 
 const playSound = () => {
-  const audio = new Audio('../sound/sound.mp3');
+  const audio = new Audio(`../sound/error${Math.floor(Math.random() * 3) + 1}.wav`);
   audio.play();
 };
 
