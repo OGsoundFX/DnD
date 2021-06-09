@@ -2,6 +2,9 @@ let i = 0;
 let speed = 25;
 const text = "As you step through some bushes, starting to feel completely lost, a shiny object lying on the ground catches your attention. It looks like... a key!";
 
+// Loading error sound
+const error = new Audio(`../sound/error${Math.floor(Math.random() * 3) + 1}.wav`);
+
 if (document.getElementById("story") != null) {
   const typeWriter = (text) => {
     if (i < text.length) {
@@ -17,6 +20,8 @@ if (document.getElementById("story") != null) {
 
   typeWriter(text);
 
+} else {
+  error.play();
 };
 
 // home button
@@ -34,8 +39,10 @@ document.addEventListener('keydown', function (event) {
     document.getElementById('music-on').classList.toggle('invisible');
     document.getElementById('music-off').classList.toggle('invisible');
     if (audio.paused) {
+      flute.play();
       audio.play();
     } else {
+      flute.pause();
       audio.pause();
     };
   }
@@ -74,15 +81,19 @@ const fade = () => {
 
 // Play sound & fade in
 const audio = new Audio(`../sound/forest${Math.floor(Math.random() * 5) + 1}.wav`);
+const flute = new Audio('../sound/flute.wav');
 audio.volume = 0.4;
 audio.loop = true;
+flute.loop = true;
 
 const fadeAndMusic = () => {
+  flute.play();
   audio.play();
   unfade();
 };
 
 const music = () => {
+  flute.play();
   audio.play();
 };
 
@@ -91,8 +102,10 @@ const sound = () => {
   document.getElementById('music-on').classList.toggle('invisible');
   document.getElementById('music-off').classList.toggle('invisible');
   if (audio.paused) {
+    flute.play();
     audio.play();
   } else {
+    flute.pause();
     audio.pause();
   };
 };

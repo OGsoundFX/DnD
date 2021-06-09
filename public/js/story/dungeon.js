@@ -90,8 +90,8 @@ const fade = () => {
 }
 
 // Play sound & fade in
-const audio = new Audio(`../sound/forest${Math.floor(Math.random() * 5) + 1}.wav`);
-audio.volume = 0.4;
+const audio = new Audio('../sound/dungeon.wav');
+// audio.volume = 0.4;
 audio.loop = true;
 
 const fadeAndMusic = () => {

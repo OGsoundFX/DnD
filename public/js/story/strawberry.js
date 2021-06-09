@@ -50,8 +50,10 @@ document.addEventListener('keydown', function (event) {
     document.getElementById('music-on').classList.toggle('invisible');
     document.getElementById('music-off').classList.toggle('invisible');
     if (audio.paused) {
+      harp.play();
       audio.play();
     } else {
+      harp.pause();
       audio.pause();
     };
   }
@@ -90,15 +92,19 @@ const fade = () => {
 
 // Play sound & fade in
 const audio = new Audio(`../sound/forest${Math.floor(Math.random() * 5) + 1}.wav`);
+const harp = new Audio('../sound/harp.wav');
 audio.volume = 0.4;
 audio.loop = true;
+harp.loop = true;
 
 const fadeAndMusic = () => {
+  harp.play();
   audio.play();
   unfade();
 };
 
 const music = () => {
+  harp.play();
   audio.play();
 };
 
@@ -107,8 +113,10 @@ const sound = () => {
   document.getElementById('music-on').classList.toggle('invisible');
   document.getElementById('music-off').classList.toggle('invisible');
   if (audio.paused) {
+    harp.play();
     audio.play();
   } else {
+    harp.pause();
     audio.pause();
   };
 };
