@@ -2,6 +2,9 @@ let i = 0;
 let speed = 25;
 const text = "What is this? It looks like a very ancient dungeon. There is a door, with a keyhole. What do you want to do?";
 
+// Loading error sound
+const error = new Audio(`../sound/error${Math.floor(Math.random() * 3) + 1}.wav`);
+
 if (document.getElementById("story") != null) {
   const typeWriter = (text) => {
     if (i < text.length) {
@@ -17,7 +20,10 @@ if (document.getElementById("story") != null) {
 
   typeWriter(text);
 
+} else {
+  error.play();
 };
+
 
 // display input field after text
 setTimeout(function() {
