@@ -16,8 +16,12 @@ const typeWriter = (text) => {
 
 typeWriter(intro);
 
+// load sounds
+const dead = new Audio('../sound/boom.wav')
+
 
 setTimeout(function() {
+  dead.play();
   document.getElementById('snake').classList.add('invisible');
   document.getElementById('dead').classList.remove('invisible');
 }, 18000);
