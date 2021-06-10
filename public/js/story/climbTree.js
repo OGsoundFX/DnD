@@ -3,9 +3,11 @@ let speed = 25;
 const story = 'The coward you are climbs the first tree that you find, while the wolf almost manages to bite your butt! But you clumsily lose your grip and fall from the tree. Desoriented, you look around, and see the wolf laying on the ground with your sword in its heart! You lucky coward gain 5 points of chance and lose 5 points of courage!'
 
 // load music
-const treeMusic = new Audio('../sound/fallfromtree.wav')
+const treeMusic = new Audio('../sound/fallfromtree.wav');
+const fall = new Audio('../sound/treeFalling.wav');
 treeMusic.loop = true;
 treeMusic.play();
+fall.play();
 
 // fade out function
 

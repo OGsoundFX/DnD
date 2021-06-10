@@ -121,15 +121,19 @@ const unfadeVolume = (audio) => {
 // Play sound & fade in
 
 const audio = new Audio(`../sound/forest${Math.floor(Math.random() * 5) + 1}.wav`);
+const contrabass = new Audio('../sound/introWolf.wav');
 audio.volume = 0.4;
 audio.loop = true;
+contrabass.loop = true;
 
 const fadeAndMusic = () => {
+  contrabass.play();
   audio.play();
   unfade();
 };
 
 const music = () => {
+  contrabass.play();
   audio.play();
   unfadeVolume(audio);
 };
