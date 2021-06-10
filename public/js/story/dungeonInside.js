@@ -78,11 +78,13 @@ const fade = () => {
 }
 
 // Play sound & fade in
-const audio = new Audio(`../sound/forest${Math.floor(Math.random() * 5) + 1}.wav`);
-audio.volume = 0.4;
+const audio = new Audio('../sound/dungeonInside.mp3');
+const endmusic = new Audio('../sound/endcredit.mp3');
+audio.volume = 0.2;
 audio.loop = true;
 
 const fadeAndMusic = () => {
+  endmusic.play();
   audio.play();
   unfade();
 };
@@ -204,8 +206,16 @@ document.addEventListener('keydown', function (event) {
 
 
 // Display "coming soon" with delay
+const boom = new Audio('../sound/boom.wav');
+boom.volume = 0;
+boom.play();
 
 setTimeout(function() {
+  boom.volume = 1;
+}, 2000);
+
+setTimeout(function() {
+  boom.play();
   document.getElementById('coming-soon').classList.remove('invisible');
 }, 12000);
 

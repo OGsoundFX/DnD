@@ -10,12 +10,13 @@ music.loop = true;
 
 // pre-loading all combat sounds with minimum volume
 const dice = new Audio('../../sound/dice.wav');
-const monsterBite = new Audio('../../sound/Monster_Bite.wav');
+const monsterBite = new Audio('../../sound/ogreHit.wav');
 const death = new Audio('../../sound/death.wav');
 const giantGrowl = new Audio('../../sound/Giant-growl.wav');
 const playerWound = new Audio('../../sound/player-wound.wav');
 const victoryMusic = new Audio('../../sound/victory.wav');
 const woosh = new Audio('../../sound/woosh.wav');
+const boom = new Audio('../../sound/boom.wav');
 dice.volume = 0;
 dice.play();
 monsterBite.volume = 0;
@@ -30,6 +31,8 @@ victoryMusic.volume = 0;
 victoryMusic.play();
 woosh.volume = 0;
 woosh.play();
+boom.volume = 0;
+boom.play();
 
 // reset the volume back to normal
 setTimeout(function() {
@@ -40,6 +43,7 @@ setTimeout(function() {
   playerWound.volume = 1;
   victoryMusic.volume = 1;
   woosh.volume = 1;
+  boom.volume= 1;
 }, 2000);
 
 
@@ -127,6 +131,7 @@ setTimeout(function() {
                 setTimeout(function() {
                   document.getElementById('page').classList.add('invisible');
                   document.getElementById('dead').classList.remove('invisible');
+                  boom.play();
                 }, 2500);
 
                 setTimeout(function(){
