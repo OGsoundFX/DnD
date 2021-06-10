@@ -17,7 +17,19 @@ const typeWriter = (text) => {
 typeWriter(intro);
 
 // load sounds
-const dead = new Audio('../sound/boom.wav')
+const dead = new Audio('../sound/boom.wav');
+const music = new Audio('../sound/youDie.mp3');
+const scream = new Audio('../sound/death.wav');
+music.volume = 0.5;
+music.play();
+scream.play();
+
+dead.volume = 0;
+dead.play();
+
+setTimeout(function() {
+  dead.volume = 1;
+}, 2000);
 
 setTimeout(function() {
   dead.play();

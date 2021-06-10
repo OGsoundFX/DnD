@@ -6,6 +6,13 @@ document.addEventListener('keydown', () => {
   };
 });
 
+// go to bamsfx.com
+document.addEventListener('keydown', () => {
+  if (event.keyCode === 66) {
+    window.open('https://www.bamsfx.com', '_blank');
+  };
+});
+
 // scoreboard button
 
 document.addEventListener('keydown', () => {
