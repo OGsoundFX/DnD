@@ -212,7 +212,7 @@ boom.play();
 
 setTimeout(function() {
   boom.volume = 1;
-}, 2000);
+}, 3000);
 
 setTimeout(function() {
   boom.play();

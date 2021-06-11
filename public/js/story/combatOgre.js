@@ -44,7 +44,7 @@ setTimeout(function() {
   victoryMusic.volume = 1;
   woosh.volume = 1;
   boom.volume= 1;
-}, 2000);
+}, 3000);
 
 
 
