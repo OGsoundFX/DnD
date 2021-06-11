@@ -1,6 +1,7 @@
 const Character = require('../models/characterModel');
 const PlayerEntry = require('../models/playerEntryModel');
 const Lexico = require('../models/lexicoModel');
+const PlayerDeaths = require('../models/playerDeathCounterModel');
 const mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
 
@@ -24,8 +25,8 @@ module.exports = function(app) {
                else return 0
         }
       })
-      const firstTen = sortedList.slice(0,12);
-      res.render('./scoreboard', { list: firstTen });
+      const firstTwelve = sortedList.slice(0,12);
+      res.render('./scoreboard', { list: firstTwelve });
     });
   });
 
@@ -144,8 +145,17 @@ module.exports = function(app) {
           res.render('./story/combatWolf', { char: char[0], wolf: wolf, coward: true })
         });
       } else if (nHide > 0) {
+        // saving player death in DB
+        PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {hide: 1} }, function(err, char) {
+          if (err) throw err;
+        });
+
         res.render('./story/forestHidePlayerDead');
       } else if (nClimb > 0) {
+        // saving player choice in DB
+        PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {climb: 1} }, function(err, char) {
+          if (err) throw err;
+        });
         // you climb and maybe there is something cool happening / or you fall and get attacked
         // minus points in courage ?
         // extra points in luck
@@ -363,6 +373,10 @@ module.exports = function(app) {
           }, 300);
 
         } else if (nRest > 0) {
+          // saving player death in DB
+          PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {sleep: 1} }, function(err, char) {
+            if (err) throw err;
+          });
           Character.find({ _id: id }, function(err, char) {
             if (err) throw err;
             res.render('./story/strawberryPlayerDead');
@@ -413,6 +427,10 @@ module.exports = function(app) {
           if (pickLexico.includes(word)) {
             nPick ++;
           } else if (restLexico.includes(word)) {
+            // saving player death in DB
+            PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {sleep: 1} }, function(err, char) {
+              if (err) throw err;
+            });
             nRest ++;
           } else if (leaveLexico.includes(word)) {
             nLeave ++;
@@ -501,6 +519,9 @@ module.exports = function(app) {
 
               Character.find({ _id: id }, function(err, char) {
                 if (err) throw err;
+                PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {complete: 1} }, function(err, char) {
+                  if (err) throw err;
+                });
                 res.render('./story/dungeonInside', { char: char[0] });
               });
 

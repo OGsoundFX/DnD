@@ -143,8 +143,10 @@ const sound = () => {
   document.getElementById('music-on').classList.toggle('invisible');
   document.getElementById('music-off').classList.toggle('invisible');
   if (audio.paused) {
+    contrabass.play();
     audio.play();
   } else {
+    contrabass.pause();
     audio.pause();
   };
 };
@@ -164,8 +166,10 @@ document.addEventListener('keydown', function (event) {
     document.getElementById('music-on').classList.toggle('invisible');
     document.getElementById('music-off').classList.toggle('invisible');
     if (audio.paused) {
+      contrabass.play();
       audio.play();
     } else {
+      contrabass.pause();
       audio.pause();
     };
   }
