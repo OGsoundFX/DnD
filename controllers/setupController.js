@@ -1,6 +1,7 @@
 const Characters = require('../models/characterModel');
 const Lexico = require('../models/lexicoModel');
 const PlayerEntries = require('../models/playerEntryModel');
+const PlayerDeaths = require('../models/playerDeathCounterModel');
 
 module.exports = function(app) {
 
@@ -45,5 +46,15 @@ module.exports = function(app) {
       }
     ];
     PlayerEntries.create(playerEntry, (req, results) => { res.send(results); });
+   });
+
+   // setup player choice collection
+   app.get('/api/playerDeaths', (req, res) => {
+    const playerDeaths = [
+      {
+        name: "counter"
+      }
+    ];
+    PlayerDeaths.create(playerDeaths, (req, results) => { res.send(results); });
    });
 }

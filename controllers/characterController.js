@@ -20,6 +20,7 @@ module.exports = function(app) {
           if (err) throw err;
       });
 
+      // the id is an Object and needs to be returned as a String with the mongodb ObjectId method
       const id = ObjectId(newCharacter._id).toString();
       setTimeout(function(){
         Character.find({ _id: id }, function(err, char) {
