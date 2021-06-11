@@ -29,7 +29,7 @@ dead.play();
 
 setTimeout(function() {
   dead.volume = 1;
-}, 2000);
+}, 3000);
 
 setTimeout(function() {
   dead.play();
