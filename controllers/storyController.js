@@ -133,6 +133,10 @@ module.exports = function(app) {
           res.render('./story/combatWolf', { char: char[0], wolf: wolf, coward: false })
         });
       } else if (nEscape > 0) {
+        // saving player death in DB
+        PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {run: 1} }, function(err, char) {
+          if (err) throw err;
+        });
         // create Wolf
         const wolf = {
           life: 15 + Math.floor(Math.random()*7),
