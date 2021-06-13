@@ -245,9 +245,9 @@ module.exports = function(app) {
 
           if (char[0].counter > 9) {
             let n = (Math.random() * 14);
-            if (n > 13) {
+            if (n > 12) {
               res.render(`./story/strawberryField`, { char: char[0] });
-            } else if (n > 11) {
+            } else if (n > 10) {
               // create Ogre
               const ogre = {
                 name: "Ogre",
@@ -258,15 +258,15 @@ module.exports = function(app) {
                 weapon: "Giant bludgeon"
               };
               res.render('./story/combatOgre', { char: char[0], wolf: ogre })
-            } else if (n > 9) {
+            } else if (n > 7) {
               if (char[0].foundDungeon === true && !char[0].special.includes("Golden Key")) {
                 res.render(`./story/key`, { char: char[0] });
               } else {
                 res.render(`./story/dungeon`, { char: char[0] });
               };
-            } else if (n > 8) {
-              res.render(`./story/dungeon`, { char: char[0] });
             } else if (n > 6) {
+              res.render(`./story/dungeon`, { char: char[0] });
+            } else if (n > 4) {
               // create Wolf
               const wolf = {
                 name: "Wolf",
@@ -303,7 +303,7 @@ module.exports = function(app) {
 
           } else if (char[0].counter > 2 && char[0].counter <= 5) {
             let n = (Math.random() * 5);
-            if (n > 4) {
+            if (n > 3) {
               // create Wolf
               const wolf = {
                 name: "Wolf",
