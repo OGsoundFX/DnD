@@ -247,7 +247,7 @@ module.exports = function(app) {
             let n = (Math.random() * 14);
 
             if (char[0].foundCoupon != true) {
-              if (n < 5 && n > 4) {
+              if (n < 5 && n > 4.3) {
               // if (n < 15) {
                 Character.findByIdAndUpdate(id, { foundCoupon: true }, function(err, char) {
                   if (err) throw err;
