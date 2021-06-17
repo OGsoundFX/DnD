@@ -11,6 +11,7 @@
   <link href="../css-components/story.css" rel="stylesheet" type="text/css">
 </head>
 <body style= "opacity: 0;" onload="fadeAndMusic('body')" id="body">
+
   <div class="position-relative" id="chapterOne">
     <div class="container d-flex justify-content-center decoration" id="paper-role2">
       <pre>
@@ -57,8 +58,8 @@
       <input type="hidden" name="id" value="<%= char._id %>">
       <input type="hidden" name="life" value="<%= char.life %>">
       <input type="hidden" name="food" value="<%= char.food %>">
+      <input type="hidden" name="couponFound" value="true">
       <input type="submit" value="Back to game!" autofocus="autofocus">
-      <!-- <input type="submit" id="hide-submit"> -->
     </form>
   </div>
 

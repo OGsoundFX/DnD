@@ -21,7 +21,8 @@ const characterSchema = new Schema({
     food: { type: Number, default: 0, min: 0 },
     special: Array,
     counter: { type: Number, default: 0 },
-    foundDungeon: { type: Boolean, default: false}
+    foundDungeon: { type: Boolean, default: false},
+    foundCoupon: { type: Boolean, default: false }
 });
 
 const Characters = mongoose.model('characters', characterSchema);
