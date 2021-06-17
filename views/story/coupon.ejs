@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>The Quest</title>
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
+  <link href="../css-components/story.css" rel="stylesheet" type="text/css">
+</head>
+<body style= "opacity: 0;" onload="fadeAndMusic('body')" id="body">
+  <div class="position-relative" id="chapterOne">
+    <div class="container d-flex justify-content-center decoration" id="paper-role2">
+      <pre>
+   _________________________________________________________________
+ /   \                                                             `\
+|| @  |                                                              |
+| \__/______________________________________________________________/
+|                                                                  |
+ |                                                                 |
+ |                                                                  |
+ |                                                                  |
+  |                                                                  |
+   \                                                                 |
+   /                                                                |
+  |                                                                 |
+   |                                                                 |
+   |                                                                 |
+   |                                                                  |
+  |                                                                   |
+   |                                                                  |
+  |                                                                  |
+   \                                                                  |
+   /                                                                  |
+  |  ________________________________________________________________|
+  |/`  \                                                             `\
+  || @ |                                                               |
+   \___/_______________________________________________________________/
+      </pre>
+      <div class="position-absolute" id="chapterOneTitle">
+        <h1>You have won a coupon for</h1>
+        <br><br>
+        <h1><a href="https://www.bamsfx.com" target="blank" id="bamsfx">BAMSFX.COM</a></h1>
+        <br>
+        <h6>Get <span style="color: orange"> 80% OFF </span> every SFX pack in the shop!!! With the code:</h6>
+        <br>
+        <h1>THEQUEST2021</h1>
+        <br>
+        <h6 id="note"><i>press <span style="color: orange">B</span> to go to website or <span style="color: orange">ENTER</span> to continue game</i></h6>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <form action="forestDispatch" method="POST" id="form">
+      <input type="hidden" name="id" value="<%= char._id %>">
+      <input type="hidden" name="life" value="<%= char.life %>">
+      <input type="hidden" name="food" value="<%= char.food %>">
+      <input type="submit" value="Back to game!" autofocus="autofocus">
+      <!-- <input type="submit" id="hide-submit"> -->
+    </form>
+  </div>
+
+  <script src="../js/story/coupon.js"></script>
+  </body>
+</html>

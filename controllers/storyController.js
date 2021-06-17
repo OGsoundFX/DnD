@@ -245,6 +245,11 @@ module.exports = function(app) {
 
           if (char[0].counter > 9) {
             let n = (Math.random() * 14);
+            if (n < 5 && n > 4) {
+            // if (n < 15) {
+              res.render(`./story/coupon`, { char: char[0] });
+            };
+
             if (n > 12) {
               res.render(`./story/strawberryField`, { char: char[0] });
             } else if (n > 10) {
