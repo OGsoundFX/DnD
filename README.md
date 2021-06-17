@@ -47,9 +47,44 @@ _________________________________________________________
 ** MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. **
 https://www.mongodb.com/
 
-- Install Mongoose
-- Link your app to MongoDB:
-Create account / Clusters / Connect / Connect your application / !!! chose and older version of nodejs (2.2.12) or later / add the connection string to your code.
+### Setup the database:
+**Mongoose** is a MongoDB object modeling tool. This will enable you to CRUD to your Mongo database.
+*- Install Mongoose:*
+``` $ npm install mongoose ```
+*- Link your app to MongoDB:*
+
+1. Create account on ngodb.com:
+https://www.mongodb.com/ - automatic!
+[mongodb](https://www.mongodb.com/)
+
+2. Create Cluster:
+Go into the Clusters menu and click on **Create new Cluster** in the upper right corner.
+Follow the steps, chose your provider and region (I selected AWS - Frankfurt since I am in Germany), and finally chose your plan:
+**M0 Sandbox** is free, but you can have only one. I linked several apps to the same cluster, but you will need a paid plan for professional use.
+Then select your MongoDB version, you should probably go for the latest, I chose **MongoDB 4.4**
+Finally select options you need, although these are not free. But you can skip them.
+And finally find a name to your cluster.
+
+3. Connect Cluster to your Application
+Once your cluster is created, you will find a **connect** button.
+Select **connect your application**
+Select the appropriate driver, for me it was **node.js** and the versions. ⚠️ I had to chose version **2.2.12 or later** for it to work ⚠️
+
+4. Copy your **connection string** and replace <password> with the password for your user. Replace myFirstDatabase with the name of the database that connections will use by default.
+
+Create a **config.js** file somewhere in your app and implement this:
+```
+module.exports = {
+
+    getDbConnectionString: function() {
+        return **ADD CONNECTION STRING HERE**;
+    }
+
+}
+```
+⚠️**PROTECT YOUR CREDENTIALS IN YOUR CONNECTIONG STRING IF YOU PUSH YOUR MAKE YOUR CODE OPEN SOURCE**⚠️
+
+And finally don't forget to ``` const config = require('..PATH../dbconfig'); ```
 
 ### Databases, collections and documents:
 These 3 elements are important parts of the MongoDB without them you are not able to store data on the MongoDB server. A Database contains a collection, and a collection contains documents and the documents contain data, they are related to each other.
