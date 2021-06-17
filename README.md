@@ -136,7 +136,35 @@ const Characters = mongoose.model('characters', characterSchema);
 
 module.exports = Characters;
 ```
-#### 2- Recording new entries using The controller
+  
+#### 2- Create your **collection** in the **DB**
+Somewhere in your app (possibly a temporary file that you run just once) include the following code (using the example of my Character model above):
+
+```
+const Characters = require('../models/characterModel');
+module.exports = function(app) {
+
+   app.get('/api/setupDB', function(req, res) {
+       var starterCharacters = [
+           {
+               charactername: 'Olivier',
+               magicWord: 'magic',
+               weapon: 'Sword',
+               meal: 'potatoes',
+               direction: 'N',
+               strength: 25,
+               agility: 15
+           }
+       ];
+       Characters.create(starterCharacters, function(err, results) {
+           res.send(results);
+       });
+   });
+}
+```
+Here I created my **Characters collection** with the command **Characters.create()** with a fake character **starterCharacters**
+
+#### 3- Recording new entries using The controller
 A controller can be used for many things, but to put it simply, the controller is the link between the user's interaction and the application. The controller responds to the user input and performs interactions on the data model objects.
 
 Here is my **characterController.js**:
