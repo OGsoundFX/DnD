@@ -351,3 +351,20 @@ pre {
   margin-left: 194px;
   margin-top: -448px;
 }
+
+#bamsfx {
+  color: orange;
+  text-decoration: none;
+}
+
+#bamsfx:hover {
+  color: #1dbb1e;
+}
+
+#paper-role2 {
+  margin-top: 74px;
+}
+
+#note {
+  font-size: 12px;
+}
