@@ -65,12 +65,15 @@ Then select your MongoDB version, you should probably go for the latest, I chose
 Finally select options you need, although these are not free. But you can skip them.
 And finally find a name to your cluster.
 
-3. Connect Cluster to your Application
+3. Create your **database**
+In the **collections** menu you can create a **DB** here. Name it what you want, you will need the name for the next step.
+
+4. Connect Cluster to your Application
 Once your cluster is created, you will find a **connect** button.
 Select **connect your application**
 Select the appropriate driver, for me it was **node.js** and the versions. ⚠️ I had to chose version **2.2.12 or later** for it to work ⚠️
 
-4. Copy your **connection string** and replace <password> with the password for your user. Replace myFirstDatabase with the name of the database that connections will use by default.
+5. Copy your **connection string** and replace <password> with the password for your user. Replace myFirstDatabase with the name of the database that connections will use by default.
 
 Create a **config.js** file somewhere in your app and implement this:
 ```
