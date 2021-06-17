@@ -50,10 +50,17 @@ https://www.mongodb.com/
 ### Setup the database:
 **Mongoose** is a MongoDB object modeling tool. This will enable you to CRUD to your Mongo database.
 *- Install Mongoose:*
+
 ``` $ npm install mongoose ```
+
+Require the **mongoose** package where you need it like so:
+```
+const mongoose = require('mongoose');
+```
+
 *- Link your app to MongoDB:*
 
-1. Create account on ngodb.com:
+1. Create account on mongodb.com:
 https://www.mongodb.com/ - automatic!
 [mongodb](https://www.mongodb.com/)
 
