@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const Character = require('../models/characterModel');
 const PlayerEntry = require('../models/playerEntryModel');
 const Lexico = require('../models/lexicoModel');
@@ -134,7 +136,7 @@ module.exports = function(app) {
         });
       } else if (nEscape > 0) {
         // saving player death in DB
-        PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {run: 1} }, function(err, char) {
+        PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {run: 1} }, function(err, char) {
           if (err) throw err;
         });
         // create Wolf
@@ -150,14 +152,14 @@ module.exports = function(app) {
         });
       } else if (nHide > 0) {
         // saving player death in DB
-        PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {hide: 1} }, function(err, char) {
+        PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {hide: 1} }, function(err, char) {
           if (err) throw err;
         });
 
         res.render('./story/forestHidePlayerDead');
       } else if (nClimb > 0) {
         // saving player choice in DB
-        PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {climb: 1} }, function(err, char) {
+        PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {climb: 1} }, function(err, char) {
           if (err) throw err;
         });
         // you climb and maybe there is something cool happening / or you fall and get attacked
@@ -389,7 +391,7 @@ module.exports = function(app) {
 
         } else if (nRest > 0) {
           // saving player death in DB
-          PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {sleep: 1} }, function(err, char) {
+          PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {sleep: 1} }, function(err, char) {
             if (err) throw err;
           });
           Character.find({ _id: id }, function(err, char) {
@@ -443,7 +445,7 @@ module.exports = function(app) {
             nPick ++;
           } else if (restLexico.includes(word)) {
             // saving player death in DB
-            PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {sleep: 1} }, function(err, char) {
+            PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {sleep: 1} }, function(err, char) {
               if (err) throw err;
             });
             nRest ++;
@@ -534,7 +536,7 @@ module.exports = function(app) {
 
               Character.find({ _id: id }, function(err, char) {
                 if (err) throw err;
-                PlayerDeaths.findByIdAndUpdate("60c342e8ca7aed16f4e10ff9", { $inc: {complete: 1} }, function(err, char) {
+                PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {complete: 1} }, function(err, char) {
                   if (err) throw err;
                 });
                 res.render('./story/dungeonInside', { char: char[0] });
