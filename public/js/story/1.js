@@ -1,6 +1,6 @@
 let i = 0;
 let speed = 25;
-const story = 'You are walking in the woods when thee suddenly hear some rustling in some bushes nearby. Just a rabbit... but that growl sounds more like a... WOLF! What shall thee do! Quickly my Lord!'
+const story = 'You are walking in the woods when thee suddenly hear some rustling in some bushes nearby. Just a rabbit... but that growl sounds more like a... WOLF! What shalt thou do! Quickly my Lord!'
 const inputField = document.getElementById('inputText');
 
 // fade out function
