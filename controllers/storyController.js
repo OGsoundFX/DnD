@@ -52,25 +52,20 @@ module.exports = function(app) {
 
     if (replyArray.some( word => pathArray.indexOf(word) >= 0)) {
       Character.findByIdAndUpdate(id, { level: 1, $inc: {courage: 2}  }, function(err, char) {
-          if (err) throw err;
-      });
-      setTimeout(function(){
+        if (err) throw err;
         Character.find({ _id: id }, function(err, char) {
           if (err) throw err;
           res.render(`./story/1`, { char: char[0] });
         });
-      }, 300);
+      });
     } else if (replyArray.some( word => forestArray.indexOf(word) >= 0)) {
       Character.findByIdAndUpdate(id, { level: 1 }, function(err, char) {
           if (err) throw err;
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/forest', { char: char[0] });
+          });
       });
-
-      setTimeout(function(){
-        Character.find({ _id: id }, function(err, char) {
-          if (err) throw err;
-          res.render('./story/forest', { char: char[0] });
-        });
-      }, 300);
     } else {
       // saving entry into DB
       const newPlayerEntry = PlayerEntry({
@@ -78,14 +73,11 @@ module.exports = function(app) {
       });
       newPlayerEntry.save(function(err, char) {
           if (err) throw err;
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/0', { fail: true, char: char[0] });
+          });
       });
-
-      setTimeout(function(){
-        Character.find({ _id: id }, function(err, char) {
-          if (err) throw err;
-          res.render('./story/0', { fail: true, char: char[0] });
-        });
-      }, 300);
     };
   });
 
@@ -168,13 +160,11 @@ module.exports = function(app) {
         // You climb a tree, and fall accidently killing the wolf (wolves)
         Character.findByIdAndUpdate(id, { level: 2, $push: {inventory: "wolf tooth"}, $inc: {food: 1, chance: 5, courage: -5 } }, function(err, char) {
           if (err) throw err;
-        });
-        setTimeout(function() {
           Character.find({ _id: id }, function(err, char) {
             if (err) throw err;
             res.render('./story/climbTree', { char: char[0] })
           });
-        }, 300);
+        });
       } else {
         // saving entry into DB
         const newPlayerEntry = PlayerEntry({
@@ -182,13 +172,11 @@ module.exports = function(app) {
         });
         newPlayerEntry.save(function(err, char) {
             if (err) throw err;
+            Character.find({ _id: id }, function(err, char) {
+              if (err) throw err;
+              res.render('./story/forest', { fail: true, char: char[0] });
+            });
         });
-        setTimeout(function() {
-          Character.find({ _id: id }, function(err, char) {
-            if (err) throw err;
-            res.render('./story/forest', { fail: true, char: char[0] });
-          });
-        }, 300);
       };
 
     });
@@ -202,14 +190,11 @@ module.exports = function(app) {
     let coward = parseInt(req.body["coward"]);
     Character.findByIdAndUpdate(id, { level: 2, life: newLife, $push: {inventory: "wolf tooth"}, $inc: {food: 1, experience: experiencePoints, courage: coward} }, function(err, char) {
       if (err) throw err;
-    });
-
-    setTimeout(function(){
       Character.find({ _id: id }, function(err, char) {
         if (err) throw err;
         res.render(`./story/${char[0].level}`, { char: char[0] });
       });
-    }, 300);
+    });
   });
 
   app.post('/updateAfterCombatOgre', (req,res) => {
@@ -220,14 +205,11 @@ module.exports = function(app) {
     let coins = parseInt(req.body["coins"]);
     Character.findByIdAndUpdate(id, { life: newLife, $push: {inventory: "ogre hair"}, $inc: {coins: coins, experience: experiencePoints} }, function(err, char) {
       if (err) throw err;
-    });
-
-    setTimeout(function(){
       Character.find({ _id: id }, function(err, char) {
         if (err) throw err;
         res.render(`./story/${char[0].level}`, { char: char[0] });
       });
-    }, 300);
+    });
   });
 
   app.post('/forestDispatch', (req, res) => {
@@ -239,9 +221,7 @@ module.exports = function(app) {
 
     Character.findByIdAndUpdate(id, { life: life, food: food, $inc: {counter: 1} }, function(err, char) {
       if (err) throw err;
-    });
 
-    setTimeout(function() {
       Character.find({ _id: id }, function(err, char) {
         if (err) throw err;
 
@@ -336,7 +316,7 @@ module.exports = function(app) {
           };
 
       });
-    }, 300);
+    });
   });
 
   app.post('/strawberryField', (req, res) => {
@@ -350,11 +330,6 @@ module.exports = function(app) {
 
     Character.findByIdAndUpdate(id, { life: life, food: food }, function(err, char) {
       if (err) throw err;
-    });
-
-    // the timeout function is imporant because the mongoDB functions
-    // are asynchroneous and we need the action to perform in a specific order
-    setTimeout(function() {
       Lexico.find( {name: "lexico"}, (err, lexico) => {
         if (err) throw err;
         const pickLexico = lexico[0].pick;
@@ -382,6 +357,7 @@ module.exports = function(app) {
             });
           }
 
+          // Note to myself: need to explore the promise or asynch concepts
           setTimeout(function() {
             Character.find({ _id: id }, function(err, char) {
               if (err) throw err;
@@ -409,16 +385,14 @@ module.exports = function(app) {
           });
           newPlayerEntry.save(function(err, char) {
               if (err) throw err;
+              Character.find({ _id: id }, function(err, char) {
+                if (err) throw err;
+                res.render('./story/strawberryField', { fail: true, char: char[0] });
+              });
           });
-          setTimeout(function() {
-            Character.find({ _id: id }, function(err, char) {
-              if (err) throw err;
-              res.render('./story/strawberryField', { fail: true, char: char[0] });
-            });
-          }, 300);
         };
       });
-    }, 300);
+    });
   });
 
   app.post('/findKey', (req, res) => {
@@ -430,69 +404,62 @@ module.exports = function(app) {
     const life = parseInt(req.body.life);
     const food = parseInt(req.body.food);
 
-    setTimeout(function() {
-      Lexico.find( {name: "lexico"}, (err, lexico) => {
-        if (err) throw err;
-        const pickLexico = lexico[0].pick;
-        const restLexico = lexico[0].rest;
-        const leaveLexico = lexico[0].walk;
-        let nPick = 0;
-        let nRest = 0;
-        let nLeave = 0;
+    Lexico.find( {name: "lexico"}, (err, lexico) => {
+      if (err) throw err;
+      const pickLexico = lexico[0].pick;
+      const restLexico = lexico[0].rest;
+      const leaveLexico = lexico[0].walk;
+      let nPick = 0;
+      let nRest = 0;
+      let nLeave = 0;
 
-        playerResponseArray.forEach(word => {
-          if (pickLexico.includes(word)) {
-            nPick ++;
-          } else if (restLexico.includes(word)) {
-            // saving player death in DB
-            PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {sleep: 1} }, function(err, char) {
-              if (err) throw err;
-            });
-            nRest ++;
-          } else if (leaveLexico.includes(word)) {
-            nLeave ++;
-          };
+      playerResponseArray.forEach(word => {
+        if (pickLexico.includes(word)) {
+          nPick ++;
+        } else if (restLexico.includes(word)) {
+          // saving player death in DB
+          PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {sleep: 1} }, function(err, char) {
+            if (err) throw err;
+          });
+          nRest ++;
+        } else if (leaveLexico.includes(word)) {
+          nLeave ++;
+        };
+      });
+
+      if (nPick > 0) {
+
+        Character.findByIdAndUpdate(id, { $push: {special: "Golden Key"} }, function(err, char) {
+          if (err) throw err;
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render('./story/2', { char: char[0], strawberry :true })
+          });
         });
 
-        if (nPick > 0) {
-
-          Character.findByIdAndUpdate(id, { $push: {special: "Golden Key"} }, function(err, char) {
+      } else if (nRest > 0) {
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render('./story/strawberryPlayerDead');
+        });
+      } else if (nLeave > 0) {
+        Character.find({ _id: id }, function(err, char) {
+          if (err) throw err;
+          res.render('./story/2', { char: char[0] })
+        });
+      } else {
+        const newPlayerEntry = PlayerEntry({
+            entry: req.body.entry
+        });
+        newPlayerEntry.save(function(err, char) {
             if (err) throw err;
-          });
-
-          setTimeout(function() {
-            Character.find({ _id: id }, function(err, char) {
-              if (err) throw err;
-              res.render('./story/2', { char: char[0], strawberry :true })
-            });
-          }, 300);
-
-        } else if (nRest > 0) {
-          Character.find({ _id: id }, function(err, char) {
-            if (err) throw err;
-            res.render('./story/strawberryPlayerDead');
-          });
-        } else if (nLeave > 0) {
-          Character.find({ _id: id }, function(err, char) {
-            if (err) throw err;
-            res.render('./story/2', { char: char[0] })
-          });
-        } else {
-          const newPlayerEntry = PlayerEntry({
-              entry: req.body.entry
-          });
-          newPlayerEntry.save(function(err, char) {
-              if (err) throw err;
-          });
-          setTimeout(function() {
             Character.find({ _id: id }, function(err, char) {
               if (err) throw err;
               res.render('./story/key', { fail: true, char: char[0] });
             });
-          }, 300);
-        };
-      });
-    }, 300);
+        });
+      };
+    });
 
   });
 
@@ -507,11 +474,6 @@ module.exports = function(app) {
 
     Character.findByIdAndUpdate(id, { life: life, food: food, foundDungeon: true }, function(err, char) {
       if (err) throw err;
-    });
-
-    // the timeout function is imporant because the mongoDB functions
-    // are asynchroneous and we need the action to perform in a specific order
-    setTimeout(function() {
       Lexico.find( {name: "lexico"}, (err, lexico) => {
         if (err) throw err;
 
@@ -529,28 +491,26 @@ module.exports = function(app) {
         });
 
         if (nOpen > 0) {
-          setTimeout(function() {
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            if (char[0].special.includes("Golden Key")) {
+
             Character.find({ _id: id }, function(err, char) {
               if (err) throw err;
-              if (char[0].special.includes("Golden Key")) {
+              PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {complete: 1} }, function(err, char) {
+                if (err) throw err;
+              });
+              res.render('./story/dungeonInside', { char: char[0] });
+            });
 
+              // res.send('You open the door and enter, welcome to the dungeon!!');
+            } else {
               Character.find({ _id: id }, function(err, char) {
                 if (err) throw err;
-                PlayerDeaths.findByIdAndUpdate(`${process.env.PLAYERDEATHCOLLECTIONID}`, { $inc: {complete: 1} }, function(err, char) {
-                  if (err) throw err;
-                });
-                res.render('./story/dungeonInside', { char: char[0] });
+                res.render('./story/dungeon', { closed: true, char: char[0] });
               });
-
-                // res.send('You open the door and enter, welcome to the dungeon!!');
-              } else {
-                Character.find({ _id: id }, function(err, char) {
-                  if (err) throw err;
-                  res.render('./story/dungeon', { closed: true, char: char[0] });
-                });
-              };
-            });
-          }, 300);
+            };
+          });
 
         } else if (nLeave > 0) {
           Character.find({ _id: id }, function(err, char) {
@@ -563,15 +523,13 @@ module.exports = function(app) {
           });
           newPlayerEntry.save(function(err, char) {
               if (err) throw err;
+              Character.find({ _id: id }, function(err, char) {
+                if (err) throw err;
+                res.render('./story/dungeon', { fail: true, char: char[0] });
+              });
           });
-          setTimeout(function() {
-            Character.find({ _id: id }, function(err, char) {
-              if (err) throw err;
-              res.render('./story/dungeon', { fail: true, char: char[0] });
-            });
-          }, 300);
         };
       });
-    }, 300);
+    });
   });
 }

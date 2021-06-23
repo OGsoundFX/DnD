@@ -18,15 +18,11 @@ module.exports = function(app) {
       });
       newCharacter.save(function(err, char) {
           if (err) throw err;
+          const id = ObjectId(newCharacter._id).toString();
+          Character.find({ _id: id }, function(err, char) {
+            if (err) throw err;
+            res.render(`./story/forest`, { char: char[0] });
+          });
       });
-
-      // the id is an Object and needs to be returned as a String with the mongodb ObjectId method
-      const id = ObjectId(newCharacter._id).toString();
-      setTimeout(function(){
-        Character.find({ _id: id }, function(err, char) {
-          if (err) throw err;
-          res.render(`./story/forest`, { char: char[0] });
-        });
-      }, 300);
   });
 }
