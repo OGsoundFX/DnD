@@ -26,7 +26,7 @@
 _________________________________________________________
 ## Table of contents
 #### Intro: How to play
-1. #### The concept
+1. #### [The concept](https://github.com/OGsoundFX/DnD#1-the-concept)
 2. #### The story
 3. #### The Tools (NodeJs, ExpressJs)
 4. #### The Database (MongoDB)
