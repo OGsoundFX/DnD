@@ -25,14 +25,14 @@
 
 _________________________________________________________
 ## Table of contents
-#### Intro: How to play
+#### Intro: [How to play](https://github.com/OGsoundFX/DnD#intro-how-to-play-1)
 1. #### [The concept](https://github.com/OGsoundFX/DnD#1-the-concept)
-2. #### The story
-3. #### The Tools (NodeJs, ExpressJs)
-4. #### The Database (MongoDB)
-5. #### The graphics
-6. #### The Game play
-8. #### Todos
+2. #### [The story](https://github.com/OGsoundFX/DnD#2-the-story)
+3. #### [The Tools (NodeJs, ExpressJs)](https://github.com/OGsoundFX/DnD#3-the-tools-nodejs-expressjs)
+4. #### [The Database (MongoDB)](https://github.com/OGsoundFX/DnD#4-the-database-mongodb)
+5. #### [The graphics](https://github.com/OGsoundFX/DnD#5-the-graphics)
+6. #### [The Game play](https://github.com/OGsoundFX/DnD#6-the-game-play)
+8. #### [Todos](https://github.com/OGsoundFX/DnD#8-todos)
 _________________________________________________________
 
 ## Intro: How to play
