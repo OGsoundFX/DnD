@@ -41,9 +41,12 @@ _________________________________________________________
 
 ## 1. The concept
 
-This is not a game in the classical sense
+This is not a game in the classical sense. I created this project with web design tools such as **NodeJS/Express and MongoDB** mostly for training. Although I did my best to create this old school text based adventure game as entertaining as possible, the aim is not to make a real video game as a final product.
+I hope you will enjoy the demo of the first level!
 
 ## 2. The story
+
+You just woke up in the woods with a mighty headache! You have no recollection of how you ended up here. Yet you can not wait in this forest for your memory to come back, as you can sense danger lurking all around. While your head is pounding underneath your helmet, you gather your strength and your courage to start your quest and retrieve your identity!
 
 ## 3. The Tools (NodeJs, ExpressJs)
 
